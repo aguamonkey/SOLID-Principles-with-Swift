@@ -25,6 +25,7 @@
 		E37955322B2F1931008F9151 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37955312B2F1931008F9151 /* DataService.swift */; };
 		E37955342B2F1968008F9151 /* AngelDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37955332B2F1968008F9151 /* AngelDetailView.swift */; };
 		E37955362B2F198C008F9151 /* DemonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37955352B2F198C008F9151 /* DemonDetailView.swift */; };
+		E3E0896B2B371D52006421A4 /* FurtherIdeas.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E0896A2B371D52006421A4 /* FurtherIdeas.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		E37955312B2F1931008F9151 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		E37955332B2F1968008F9151 /* AngelDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngelDetailView.swift; sourceTree = "<group>"; };
 		E37955352B2F198C008F9151 /* DemonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemonDetailView.swift; sourceTree = "<group>"; };
+		E3E0896A2B371D52006421A4 /* FurtherIdeas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FurtherIdeas.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				E379551E2B2F1091008F9151 /* Angel */,
 				E37954F62B28D6C7008F9151 /* Assets.xcassets */,
 				E37954F82B28D6C7008F9151 /* Preview Content */,
+				E3E0896A2B371D52006421A4 /* FurtherIdeas.swift */,
 			);
 			path = "SRP-Example-Angels-and-Demons";
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				E37954F32B28D6C5008F9151 /* SRP_Example_Angels_and_DemonsApp.swift in Sources */,
 				E37955232B2F10DB008F9151 /* AngelModel.swift in Sources */,
 				E37955272B2F1111008F9151 /* DevilModel.swift in Sources */,
+				E3E0896B2B371D52006421A4 /* FurtherIdeas.swift in Sources */,
 				E379552D2B2F186F008F9151 /* DevilListView.swift in Sources */,
 				E37955252B2F10F9008F9151 /* DevilView.swift in Sources */,
 			);
