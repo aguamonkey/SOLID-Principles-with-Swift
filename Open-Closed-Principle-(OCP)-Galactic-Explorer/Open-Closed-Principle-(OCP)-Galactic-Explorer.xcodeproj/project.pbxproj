@@ -1,0 +1,652 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E3E089792B37224F006421A4 /* Closed_Principle__OCP__Galactic_ExplorerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089782B37224F006421A4 /* Closed_Principle__OCP__Galactic_ExplorerApp.swift */; };
+		E3E0897B2B37224F006421A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E0897A2B37224F006421A4 /* ContentView.swift */; };
+		E3E0897D2B372252006421A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3E0897C2B372251006421A4 /* Assets.xcassets */; };
+		E3E089802B372252006421A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3E0897F2B372252006421A4 /* Preview Assets.xcassets */; };
+		E3E0898A2B372252006421A4 /* Closed_Principle__OCP__Galactic_ExplorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089892B372252006421A4 /* Closed_Principle__OCP__Galactic_ExplorerTests.swift */; };
+		E3E089942B372252006421A4 /* Closed_Principle__OCP__Galactic_ExplorerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089932B372252006421A4 /* Closed_Principle__OCP__Galactic_ExplorerUITests.swift */; };
+		E3E089962B372252006421A4 /* Closed_Principle__OCP__Galactic_ExplorerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089952B372252006421A4 /* Closed_Principle__OCP__Galactic_ExplorerUITestsLaunchTests.swift */; };
+		E3E089A62B3725CC006421A4 /* SpaceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089A52B3725CC006421A4 /* SpaceEntity.swift */; };
+		E3E089A82B3725DC006421A4 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089A72B3725DC006421A4 /* Planet.swift */; };
+		E3E089AA2B3725EC006421A4 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089A92B3725EC006421A4 /* Star.swift */; };
+		E3E089AC2B3728CF006421A4 /* GalacticExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089AB2B3728CF006421A4 /* GalacticExplorerView.swift */; };
+		E3E089AE2B3728F9006421A4 /* SpaceEntityLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089AD2B3728F9006421A4 /* SpaceEntityLoader.swift */; };
+		E3E089B02B372E6F006421A4 /* Comet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089AF2B372E6F006421A4 /* Comet.swift */; };
+		E3E089B22B3730BC006421A4 /* SpaceEntityProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089B12B3730BC006421A4 /* SpaceEntityProtocols.swift */; };
+		E3E089B42B373204006421A4 /* EntityInteractionSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089B32B373204006421A4 /* EntityInteractionSimulator.swift */; };
+		E3E089B62B37324B006421A4 /* SpaceEntityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089B52B37324B006421A4 /* SpaceEntityView.swift */; };
+		E3E089B82B3831EE006421A4 /* FutureConsiderations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089B72B3831EE006421A4 /* FutureConsiderations.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E3E089862B372252006421A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3E0896D2B37224F006421A4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E3E089742B37224F006421A4;
+			remoteInfo = "Closed-Principle-(OCP)-Galactic-Explorer";
+		};
+		E3E089902B372252006421A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3E0896D2B37224F006421A4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E3E089742B37224F006421A4;
+			remoteInfo = "Closed-Principle-(OCP)-Galactic-Explorer";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E3E089752B37224F006421A4 /* Open-Closed-Principle-(OCP)-Galactic-Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Open-Closed-Principle-(OCP)-Galactic-Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3E089782B37224F006421A4 /* Closed_Principle__OCP__Galactic_ExplorerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closed_Principle__OCP__Galactic_ExplorerApp.swift; sourceTree = "<group>"; };
+		E3E0897A2B37224F006421A4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E3E0897C2B372251006421A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E3E0897F2B372252006421A4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E3E089852B372252006421A4 /* Open-Closed-Principle-(OCP)-Galactic-ExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Open-Closed-Principle-(OCP)-Galactic-ExplorerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3E089892B372252006421A4 /* Closed_Principle__OCP__Galactic_ExplorerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closed_Principle__OCP__Galactic_ExplorerTests.swift; sourceTree = "<group>"; };
+		E3E0898F2B372252006421A4 /* Open-Closed-Principle-(OCP)-Galactic-ExplorerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Open-Closed-Principle-(OCP)-Galactic-ExplorerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3E089932B372252006421A4 /* Closed_Principle__OCP__Galactic_ExplorerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closed_Principle__OCP__Galactic_ExplorerUITests.swift; sourceTree = "<group>"; };
+		E3E089952B372252006421A4 /* Closed_Principle__OCP__Galactic_ExplorerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closed_Principle__OCP__Galactic_ExplorerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E3E089A52B3725CC006421A4 /* SpaceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEntity.swift; sourceTree = "<group>"; };
+		E3E089A72B3725DC006421A4 /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
+		E3E089A92B3725EC006421A4 /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
+		E3E089AB2B3728CF006421A4 /* GalacticExplorerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalacticExplorerView.swift; sourceTree = "<group>"; };
+		E3E089AD2B3728F9006421A4 /* SpaceEntityLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEntityLoader.swift; sourceTree = "<group>"; };
+		E3E089AF2B372E6F006421A4 /* Comet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comet.swift; sourceTree = "<group>"; };
+		E3E089B12B3730BC006421A4 /* SpaceEntityProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEntityProtocols.swift; sourceTree = "<group>"; };
+		E3E089B32B373204006421A4 /* EntityInteractionSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityInteractionSimulator.swift; sourceTree = "<group>"; };
+		E3E089B52B37324B006421A4 /* SpaceEntityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEntityView.swift; sourceTree = "<group>"; };
+		E3E089B72B3831EE006421A4 /* FutureConsiderations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureConsiderations.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E3E089722B37224F006421A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3E089822B372252006421A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3E0898C2B372252006421A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E3E0896C2B37224F006421A4 = {
+			isa = PBXGroup;
+			children = (
+				E3E089772B37224F006421A4 /* Closed-Principle-(OCP)-Galactic-Explorer */,
+				E3E089882B372252006421A4 /* Closed-Principle-(OCP)-Galactic-ExplorerTests */,
+				E3E089922B372252006421A4 /* Closed-Principle-(OCP)-Galactic-ExplorerUITests */,
+				E3E089762B37224F006421A4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E3E089762B37224F006421A4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E3E089752B37224F006421A4 /* Open-Closed-Principle-(OCP)-Galactic-Explorer.app */,
+				E3E089852B372252006421A4 /* Open-Closed-Principle-(OCP)-Galactic-ExplorerTests.xctest */,
+				E3E0898F2B372252006421A4 /* Open-Closed-Principle-(OCP)-Galactic-ExplorerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E3E089772B37224F006421A4 /* Closed-Principle-(OCP)-Galactic-Explorer */ = {
+			isa = PBXGroup;
+			children = (
+				E3E089A42B3724B0006421A4 /* Services */,
+				E3E089A32B3724A4006421A4 /* Views */,
+				E3E089A22B37249D006421A4 /* Models */,
+				E3E089782B37224F006421A4 /* Closed_Principle__OCP__Galactic_ExplorerApp.swift */,
+				E3E0897A2B37224F006421A4 /* ContentView.swift */,
+				E3E0897C2B372251006421A4 /* Assets.xcassets */,
+				E3E0897E2B372252006421A4 /* Preview Content */,
+				E3E089B72B3831EE006421A4 /* FutureConsiderations.swift */,
+			);
+			path = "Closed-Principle-(OCP)-Galactic-Explorer";
+			sourceTree = "<group>";
+		};
+		E3E0897E2B372252006421A4 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E3E0897F2B372252006421A4 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E3E089882B372252006421A4 /* Closed-Principle-(OCP)-Galactic-ExplorerTests */ = {
+			isa = PBXGroup;
+			children = (
+				E3E089892B372252006421A4 /* Closed_Principle__OCP__Galactic_ExplorerTests.swift */,
+			);
+			path = "Closed-Principle-(OCP)-Galactic-ExplorerTests";
+			sourceTree = "<group>";
+		};
+		E3E089922B372252006421A4 /* Closed-Principle-(OCP)-Galactic-ExplorerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E3E089932B372252006421A4 /* Closed_Principle__OCP__Galactic_ExplorerUITests.swift */,
+				E3E089952B372252006421A4 /* Closed_Principle__OCP__Galactic_ExplorerUITestsLaunchTests.swift */,
+			);
+			path = "Closed-Principle-(OCP)-Galactic-ExplorerUITests";
+			sourceTree = "<group>";
+		};
+		E3E089A22B37249D006421A4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E3E089A52B3725CC006421A4 /* SpaceEntity.swift */,
+				E3E089A72B3725DC006421A4 /* Planet.swift */,
+				E3E089A92B3725EC006421A4 /* Star.swift */,
+				E3E089AF2B372E6F006421A4 /* Comet.swift */,
+				E3E089B12B3730BC006421A4 /* SpaceEntityProtocols.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E3E089A32B3724A4006421A4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E3E089AB2B3728CF006421A4 /* GalacticExplorerView.swift */,
+				E3E089B52B37324B006421A4 /* SpaceEntityView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E3E089A42B3724B0006421A4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E3E089AD2B3728F9006421A4 /* SpaceEntityLoader.swift */,
+				E3E089B32B373204006421A4 /* EntityInteractionSimulator.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E3E089742B37224F006421A4 /* Open-Closed-Principle-(OCP)-Galactic-Explorer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3E089992B372252006421A4 /* Build configuration list for PBXNativeTarget "Open-Closed-Principle-(OCP)-Galactic-Explorer" */;
+			buildPhases = (
+				E3E089712B37224F006421A4 /* Sources */,
+				E3E089722B37224F006421A4 /* Frameworks */,
+				E3E089732B37224F006421A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Open-Closed-Principle-(OCP)-Galactic-Explorer";
+			productName = "Closed-Principle-(OCP)-Galactic-Explorer";
+			productReference = E3E089752B37224F006421A4 /* Open-Closed-Principle-(OCP)-Galactic-Explorer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E3E089842B372252006421A4 /* Open-Closed-Principle-(OCP)-Galactic-ExplorerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3E0899C2B372252006421A4 /* Build configuration list for PBXNativeTarget "Open-Closed-Principle-(OCP)-Galactic-ExplorerTests" */;
+			buildPhases = (
+				E3E089812B372252006421A4 /* Sources */,
+				E3E089822B372252006421A4 /* Frameworks */,
+				E3E089832B372252006421A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E3E089872B372252006421A4 /* PBXTargetDependency */,
+			);
+			name = "Open-Closed-Principle-(OCP)-Galactic-ExplorerTests";
+			productName = "Closed-Principle-(OCP)-Galactic-ExplorerTests";
+			productReference = E3E089852B372252006421A4 /* Open-Closed-Principle-(OCP)-Galactic-ExplorerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E3E0898E2B372252006421A4 /* Open-Closed-Principle-(OCP)-Galactic-ExplorerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3E0899F2B372252006421A4 /* Build configuration list for PBXNativeTarget "Open-Closed-Principle-(OCP)-Galactic-ExplorerUITests" */;
+			buildPhases = (
+				E3E0898B2B372252006421A4 /* Sources */,
+				E3E0898C2B372252006421A4 /* Frameworks */,
+				E3E0898D2B372252006421A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E3E089912B372252006421A4 /* PBXTargetDependency */,
+			);
+			name = "Open-Closed-Principle-(OCP)-Galactic-ExplorerUITests";
+			productName = "Closed-Principle-(OCP)-Galactic-ExplorerUITests";
+			productReference = E3E0898F2B372252006421A4 /* Open-Closed-Principle-(OCP)-Galactic-ExplorerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E3E0896D2B37224F006421A4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					E3E089742B37224F006421A4 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					E3E089842B372252006421A4 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = E3E089742B37224F006421A4;
+					};
+					E3E0898E2B372252006421A4 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = E3E089742B37224F006421A4;
+					};
+				};
+			};
+			buildConfigurationList = E3E089702B37224F006421A4 /* Build configuration list for PBXProject "Open-Closed-Principle-(OCP)-Galactic-Explorer" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E3E0896C2B37224F006421A4;
+			productRefGroup = E3E089762B37224F006421A4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E3E089742B37224F006421A4 /* Open-Closed-Principle-(OCP)-Galactic-Explorer */,
+				E3E089842B372252006421A4 /* Open-Closed-Principle-(OCP)-Galactic-ExplorerTests */,
+				E3E0898E2B372252006421A4 /* Open-Closed-Principle-(OCP)-Galactic-ExplorerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E3E089732B37224F006421A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3E089802B372252006421A4 /* Preview Assets.xcassets in Resources */,
+				E3E0897D2B372252006421A4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3E089832B372252006421A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3E0898D2B372252006421A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E3E089712B37224F006421A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3E089B62B37324B006421A4 /* SpaceEntityView.swift in Sources */,
+				E3E089B82B3831EE006421A4 /* FutureConsiderations.swift in Sources */,
+				E3E089AE2B3728F9006421A4 /* SpaceEntityLoader.swift in Sources */,
+				E3E089A62B3725CC006421A4 /* SpaceEntity.swift in Sources */,
+				E3E089AC2B3728CF006421A4 /* GalacticExplorerView.swift in Sources */,
+				E3E0897B2B37224F006421A4 /* ContentView.swift in Sources */,
+				E3E089792B37224F006421A4 /* Closed_Principle__OCP__Galactic_ExplorerApp.swift in Sources */,
+				E3E089B22B3730BC006421A4 /* SpaceEntityProtocols.swift in Sources */,
+				E3E089B42B373204006421A4 /* EntityInteractionSimulator.swift in Sources */,
+				E3E089AA2B3725EC006421A4 /* Star.swift in Sources */,
+				E3E089B02B372E6F006421A4 /* Comet.swift in Sources */,
+				E3E089A82B3725DC006421A4 /* Planet.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3E089812B372252006421A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3E0898A2B372252006421A4 /* Closed_Principle__OCP__Galactic_ExplorerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3E0898B2B372252006421A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3E089962B372252006421A4 /* Closed_Principle__OCP__Galactic_ExplorerUITestsLaunchTests.swift in Sources */,
+				E3E089942B372252006421A4 /* Closed_Principle__OCP__Galactic_ExplorerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E3E089872B372252006421A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E3E089742B37224F006421A4 /* Open-Closed-Principle-(OCP)-Galactic-Explorer */;
+			targetProxy = E3E089862B372252006421A4 /* PBXContainerItemProxy */;
+		};
+		E3E089912B372252006421A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E3E089742B37224F006421A4 /* Open-Closed-Principle-(OCP)-Galactic-Explorer */;
+			targetProxy = E3E089902B372252006421A4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E3E089972B372252006421A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E3E089982B372252006421A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E3E0899A2B372252006421A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Closed-Principle-(OCP)-Galactic-Explorer/Preview Content\"";
+				DEVELOPMENT_TEAM = J2452P8KTA;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "GobiasLtd.Closed-Principle--OCP--Galactic-Explorer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E3E0899B2B372252006421A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Closed-Principle-(OCP)-Galactic-Explorer/Preview Content\"";
+				DEVELOPMENT_TEAM = J2452P8KTA;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "GobiasLtd.Closed-Principle--OCP--Galactic-Explorer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E3E0899D2B372252006421A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J2452P8KTA;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "GobiasLtd.Closed-Principle--OCP--Galactic-ExplorerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Open-Closed-Principle-(OCP)-Galactic-Explorer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Open-Closed-Principle-(OCP)-Galactic-Explorer";
+			};
+			name = Debug;
+		};
+		E3E0899E2B372252006421A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J2452P8KTA;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "GobiasLtd.Closed-Principle--OCP--Galactic-ExplorerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Open-Closed-Principle-(OCP)-Galactic-Explorer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Open-Closed-Principle-(OCP)-Galactic-Explorer";
+			};
+			name = Release;
+		};
+		E3E089A02B372252006421A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J2452P8KTA;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "GobiasLtd.Closed-Principle--OCP--Galactic-ExplorerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Closed-Principle-(OCP)-Galactic-Explorer";
+			};
+			name = Debug;
+		};
+		E3E089A12B372252006421A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J2452P8KTA;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "GobiasLtd.Closed-Principle--OCP--Galactic-ExplorerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Closed-Principle-(OCP)-Galactic-Explorer";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E3E089702B37224F006421A4 /* Build configuration list for PBXProject "Open-Closed-Principle-(OCP)-Galactic-Explorer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3E089972B372252006421A4 /* Debug */,
+				E3E089982B372252006421A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E3E089992B372252006421A4 /* Build configuration list for PBXNativeTarget "Open-Closed-Principle-(OCP)-Galactic-Explorer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3E0899A2B372252006421A4 /* Debug */,
+				E3E0899B2B372252006421A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E3E0899C2B372252006421A4 /* Build configuration list for PBXNativeTarget "Open-Closed-Principle-(OCP)-Galactic-ExplorerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3E0899D2B372252006421A4 /* Debug */,
+				E3E0899E2B372252006421A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E3E0899F2B372252006421A4 /* Build configuration list for PBXNativeTarget "Open-Closed-Principle-(OCP)-Galactic-ExplorerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3E089A02B372252006421A4 /* Debug */,
+				E3E089A12B372252006421A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E3E0896D2B37224F006421A4 /* Project object */;
+}
