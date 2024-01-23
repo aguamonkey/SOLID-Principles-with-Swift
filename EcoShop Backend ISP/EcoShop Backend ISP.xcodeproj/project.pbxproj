@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5800CCEC2B5F8C1D00B06954 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5800CCEB2B5F8C1D00B06954 /* Product.swift */; };
+		5800CCEE2B5F8C2700B06954 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5800CCED2B5F8C2700B06954 /* Order.swift */; };
+		5800CCF02B5F8C3100B06954 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5800CCEF2B5F8C3100B06954 /* Review.swift */; };
+		5800CCF22B5F8C4500B06954 /* ProductManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5800CCF12B5F8C4500B06954 /* ProductManaging.swift */; };
+		5800CCF42B5F8C5300B06954 /* OrderProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5800CCF32B5F8C5300B06954 /* OrderProcessing.swift */; };
+		5800CCF62B5F8C5C00B06954 /* ReviewHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5800CCF52B5F8C5C00B06954 /* ReviewHandling.swift */; };
+		5800CCF82B5F8C7500B06954 /* ProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5800CCF72B5F8C7500B06954 /* ProductManager.swift */; };
+		5800CCFA2B5F8C8E00B06954 /* OrderProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5800CCF92B5F8C8E00B06954 /* OrderProcessor.swift */; };
+		5800CCFC2B5F8C9D00B06954 /* ReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5800CCFB2B5F8C9D00B06954 /* ReviewManager.swift */; };
+		5800CCFE2B5F8CAF00B06954 /* DatabaseConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5800CCFD2B5F8CAF00B06954 /* DatabaseConnector.swift */; };
 		E3FC05382B419DDE0082CF96 /* EcoShop_Backend_ISPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC05372B419DDE0082CF96 /* EcoShop_Backend_ISPApp.swift */; };
 		E3FC053A2B419DDE0082CF96 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC05392B419DDE0082CF96 /* ContentView.swift */; };
 		E3FC053C2B419DE10082CF96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3FC053B2B419DE10082CF96 /* Assets.xcassets */; };
@@ -34,6 +44,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5800CCEB2B5F8C1D00B06954 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Product.swift; path = "../../../../../J & The Bees/Finished Album Logic Files/Product.swift"; sourceTree = "<group>"; };
+		5800CCED2B5F8C2700B06954 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Order.swift; path = "../../../../../J & The Bees/Finished Album Logic Files/Order.swift"; sourceTree = "<group>"; };
+		5800CCEF2B5F8C3100B06954 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Review.swift; path = "../../../../../J & The Bees/Finished Album Logic Files/Review.swift"; sourceTree = "<group>"; };
+		5800CCF12B5F8C4500B06954 /* ProductManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductManaging.swift; path = "../../../../../J & The Bees/Finished Album Logic Files/ProductManaging.swift"; sourceTree = "<group>"; };
+		5800CCF32B5F8C5300B06954 /* OrderProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrderProcessing.swift; path = "../../../../../J & The Bees/Finished Album Logic Files/OrderProcessing.swift"; sourceTree = "<group>"; };
+		5800CCF52B5F8C5C00B06954 /* ReviewHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReviewHandling.swift; path = "../../../../../J & The Bees/Finished Album Logic Files/ReviewHandling.swift"; sourceTree = "<group>"; };
+		5800CCF72B5F8C7500B06954 /* ProductManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProductManager.swift; path = "../../../../../J & The Bees/Finished Album Logic Files/ProductManager.swift"; sourceTree = "<group>"; };
+		5800CCF92B5F8C8E00B06954 /* OrderProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrderProcessor.swift; path = "../../../../../J & The Bees/Finished Album Logic Files/OrderProcessor.swift"; sourceTree = "<group>"; };
+		5800CCFB2B5F8C9D00B06954 /* ReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReviewManager.swift; path = "../../../../../J & The Bees/Finished Album Logic Files/ReviewManager.swift"; sourceTree = "<group>"; };
+		5800CCFD2B5F8CAF00B06954 /* DatabaseConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DatabaseConnector.swift; path = "../../../../../J & The Bees/Finished Album Logic Files/DatabaseConnector.swift"; sourceTree = "<group>"; };
 		E3FC05342B419DDE0082CF96 /* EcoShop Backend ISP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EcoShop Backend ISP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3FC05372B419DDE0082CF96 /* EcoShop_Backend_ISPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoShop_Backend_ISPApp.swift; sourceTree = "<group>"; };
 		E3FC05392B419DDE0082CF96 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +91,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5800CCE72B5F8BDF00B06954 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5800CCEB2B5F8C1D00B06954 /* Product.swift */,
+				5800CCED2B5F8C2700B06954 /* Order.swift */,
+				5800CCEF2B5F8C3100B06954 /* Review.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5800CCE82B5F8BE800B06954 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5800CCFD2B5F8CAF00B06954 /* DatabaseConnector.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		5800CCE92B5F8BF200B06954 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5800CCF72B5F8C7500B06954 /* ProductManager.swift */,
+				5800CCF92B5F8C8E00B06954 /* OrderProcessor.swift */,
+				5800CCFB2B5F8C9D00B06954 /* ReviewManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5800CCEA2B5F8BF900B06954 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				5800CCF12B5F8C4500B06954 /* ProductManaging.swift */,
+				5800CCF32B5F8C5300B06954 /* OrderProcessing.swift */,
+				5800CCF52B5F8C5C00B06954 /* ReviewHandling.swift */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
 		E3FC052B2B419DDE0082CF96 = {
 			isa = PBXGroup;
 			children = (
@@ -94,12 +152,12 @@
 		E3FC05362B419DDE0082CF96 /* EcoShop Backend ISP */ = {
 			isa = PBXGroup;
 			children = (
+				5800CCE72B5F8BDF00B06954 /* Models */,
+				5800CCEA2B5F8BF900B06954 /* Interfaces */,
+				5800CCE92B5F8BF200B06954 /* Services */,
+				5800CCE82B5F8BE800B06954 /* Utilities */,
 				E3FC05372B419DDE0082CF96 /* EcoShop_Backend_ISPApp.swift */,
 				E3FC05392B419DDE0082CF96 /* ContentView.swift */,
-				E3FC05642B419F310082CF96 /* Utilities */,
-				E3FC05632B419F240082CF96 /* Services */,
-				E3FC05622B419EDE0082CF96 /* Interfaces */,
-				E3FC05612B419ED20082CF96 /* Models */,
 				E3FC053B2B419DE10082CF96 /* Assets.xcassets */,
 				E3FC053D2B419DE10082CF96 /* Preview Content */,
 			);
@@ -129,34 +187,6 @@
 				E3FC05542B419DE10082CF96 /* EcoShop_Backend_ISPUITestsLaunchTests.swift */,
 			);
 			path = "EcoShop Backend ISPUITests";
-			sourceTree = "<group>";
-		};
-		E3FC05612B419ED20082CF96 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		E3FC05622B419EDE0082CF96 /* Interfaces */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Interfaces;
-			sourceTree = "<group>";
-		};
-		E3FC05632B419F240082CF96 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		E3FC05642B419F310082CF96 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,8 +319,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5800CCF42B5F8C5300B06954 /* OrderProcessing.swift in Sources */,
+				5800CCF02B5F8C3100B06954 /* Review.swift in Sources */,
 				E3FC053A2B419DDE0082CF96 /* ContentView.swift in Sources */,
 				E3FC05382B419DDE0082CF96 /* EcoShop_Backend_ISPApp.swift in Sources */,
+				5800CCFC2B5F8C9D00B06954 /* ReviewManager.swift in Sources */,
+				5800CCF82B5F8C7500B06954 /* ProductManager.swift in Sources */,
+				5800CCF22B5F8C4500B06954 /* ProductManaging.swift in Sources */,
+				5800CCEE2B5F8C2700B06954 /* Order.swift in Sources */,
+				5800CCF62B5F8C5C00B06954 /* ReviewHandling.swift in Sources */,
+				5800CCEC2B5F8C1D00B06954 /* Product.swift in Sources */,
+				5800CCFE2B5F8CAF00B06954 /* DatabaseConnector.swift in Sources */,
+				5800CCFA2B5F8C8E00B06954 /* OrderProcessor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
