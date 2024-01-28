@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5800CCFE2B5F8CAF00B06954 /* DatabaseConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5800CCFD2B5F8CAF00B06954 /* DatabaseConnector.swift */; };
+		58E3F5812B66B1C000CFCF46 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E3F5802B66B1C000CFCF46 /* Product.swift */; };
+		58E3F5832B66B1E800CFCF46 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E3F5822B66B1E800CFCF46 /* Order.swift */; };
+		58E3F5852B66B20000CFCF46 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E3F5842B66B20000CFCF46 /* Review.swift */; };
+		58E3F5882B66B2DB00CFCF46 /* ProductManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E3F5872B66B2DB00CFCF46 /* ProductManaging.swift */; };
+		58E3F58A2B66B2F500CFCF46 /* OrderProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E3F5892B66B2F500CFCF46 /* OrderProcessing.swift */; };
+		58E3F58C2B66B30800CFCF46 /* ReviewHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E3F58B2B66B30800CFCF46 /* ReviewHandling.swift */; };
 		E3FC05382B419DDE0082CF96 /* EcoShop_Backend_ISPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC05372B419DDE0082CF96 /* EcoShop_Backend_ISPApp.swift */; };
 		E3FC053A2B419DDE0082CF96 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC05392B419DDE0082CF96 /* ContentView.swift */; };
 		E3FC053C2B419DE10082CF96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3FC053B2B419DE10082CF96 /* Assets.xcassets */; };
@@ -34,6 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5800CCFD2B5F8CAF00B06954 /* DatabaseConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DatabaseConnector.swift; path = "../../../../../J & The Bees/Finished Album Logic Files/DatabaseConnector.swift"; sourceTree = "<group>"; };
+		58E3F5802B66B1C000CFCF46 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		58E3F5822B66B1E800CFCF46 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		58E3F5842B66B20000CFCF46 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		58E3F5872B66B2DB00CFCF46 /* ProductManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductManaging.swift; sourceTree = "<group>"; };
+		58E3F5892B66B2F500CFCF46 /* OrderProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderProcessing.swift; sourceTree = "<group>"; };
+		58E3F58B2B66B30800CFCF46 /* ReviewHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHandling.swift; sourceTree = "<group>"; };
 		E3FC05342B419DDE0082CF96 /* EcoShop Backend ISP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EcoShop Backend ISP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3FC05372B419DDE0082CF96 /* EcoShop_Backend_ISPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoShop_Backend_ISPApp.swift; sourceTree = "<group>"; };
 		E3FC05392B419DDE0082CF96 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +85,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5800CCE82B5F8BE800B06954 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5800CCFD2B5F8CAF00B06954 /* DatabaseConnector.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		58E3F57F2B66B1B400CFCF46 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				58E3F5802B66B1C000CFCF46 /* Product.swift */,
+				58E3F5822B66B1E800CFCF46 /* Order.swift */,
+				58E3F5842B66B20000CFCF46 /* Review.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		58E3F5862B66B2C700CFCF46 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				58E3F5872B66B2DB00CFCF46 /* ProductManaging.swift */,
+				58E3F5892B66B2F500CFCF46 /* OrderProcessing.swift */,
+				58E3F58B2B66B30800CFCF46 /* ReviewHandling.swift */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
 		E3FC052B2B419DDE0082CF96 = {
 			isa = PBXGroup;
 			children = (
@@ -94,12 +136,11 @@
 		E3FC05362B419DDE0082CF96 /* EcoShop Backend ISP */ = {
 			isa = PBXGroup;
 			children = (
+				58E3F5862B66B2C700CFCF46 /* Interfaces */,
+				58E3F57F2B66B1B400CFCF46 /* Models */,
+				5800CCE82B5F8BE800B06954 /* Utilities */,
 				E3FC05372B419DDE0082CF96 /* EcoShop_Backend_ISPApp.swift */,
 				E3FC05392B419DDE0082CF96 /* ContentView.swift */,
-				E3FC05642B419F310082CF96 /* Utilities */,
-				E3FC05632B419F240082CF96 /* Services */,
-				E3FC05622B419EDE0082CF96 /* Interfaces */,
-				E3FC05612B419ED20082CF96 /* Models */,
 				E3FC053B2B419DE10082CF96 /* Assets.xcassets */,
 				E3FC053D2B419DE10082CF96 /* Preview Content */,
 			);
@@ -131,34 +172,6 @@
 			path = "EcoShop Backend ISPUITests";
 			sourceTree = "<group>";
 		};
-		E3FC05612B419ED20082CF96 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		E3FC05622B419EDE0082CF96 /* Interfaces */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Interfaces;
-			sourceTree = "<group>";
-		};
-		E3FC05632B419F240082CF96 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		E3FC05642B419F310082CF96 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -175,6 +188,8 @@
 			dependencies = (
 			);
 			name = "EcoShop Backend ISP";
+			packageProductDependencies = (
+			);
 			productName = "EcoShop Backend ISP";
 			productReference = E3FC05342B419DDE0082CF96 /* EcoShop Backend ISP.app */;
 			productType = "com.apple.product-type.application";
@@ -247,6 +262,8 @@
 				Base,
 			);
 			mainGroup = E3FC052B2B419DDE0082CF96;
+			packageReferences = (
+			);
 			productRefGroup = E3FC05352B419DDE0082CF96 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -289,8 +306,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58E3F5882B66B2DB00CFCF46 /* ProductManaging.swift in Sources */,
 				E3FC053A2B419DDE0082CF96 /* ContentView.swift in Sources */,
 				E3FC05382B419DDE0082CF96 /* EcoShop_Backend_ISPApp.swift in Sources */,
+				58E3F5852B66B20000CFCF46 /* Review.swift in Sources */,
+				58E3F58A2B66B2F500CFCF46 /* OrderProcessing.swift in Sources */,
+				58E3F58C2B66B30800CFCF46 /* ReviewHandling.swift in Sources */,
+				58E3F5832B66B1E800CFCF46 /* Order.swift in Sources */,
+				5800CCFE2B5F8CAF00B06954 /* DatabaseConnector.swift in Sources */,
+				58E3F5812B66B1C000CFCF46 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
