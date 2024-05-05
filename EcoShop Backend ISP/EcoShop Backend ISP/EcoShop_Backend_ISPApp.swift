@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct EcoShop_Backend_ISPApp: App {
+    // Mock dependencies for demonstration purposes
+    let productManager = MockProductManager()
+    let orderProcessor = MockOrderProcessor()
+    let reviewHandler = MockReviewHandler()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(productManager: productManager, orderProcessor: orderProcessor, reviewHandler: reviewHandler)
         }
     }
 }

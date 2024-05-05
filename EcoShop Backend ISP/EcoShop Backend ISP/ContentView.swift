@@ -9,19 +9,26 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
-}
+    var productManager: ProductManaging
+    var orderProcessor: OrderProcessing
+    var reviewHandler: ReviewHandling
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    var body: some View {
+        TabView {
+            ProductManagementView(viewModel: ProductViewModel(productManager: productManager))
+                .tabItem {
+                    Label("Products", systemImage: "cube.box")
+                }
+
+            OrderManagementView(viewModel: OrderViewModel(orderProcessor: orderProcessor))
+                .tabItem {
+                    Label("Orders", systemImage: "cart")
+                }
+
+            ReviewManagementView(viewModel: ReviewViewModel(reviewHandler: reviewHandler))
+                .tabItem {
+                    Label("Reviews", systemImage: "star.circle")
+                }
+        }
     }
 }
