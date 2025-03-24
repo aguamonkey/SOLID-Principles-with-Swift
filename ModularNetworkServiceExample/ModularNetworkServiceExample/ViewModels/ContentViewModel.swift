@@ -4,32 +4,30 @@
 //
 //  Created by Joshua Browne on 24/03/2025.
 //
-
 import Foundation
 import SwiftUI
 
 @MainActor
-class ContentViewModel: ObservableObject {
-    private let networkService: NetworkServiceProtocol
+// Public view model for the presentation layer.
+public class ContentViewModel: ObservableObject {
+    private let networkRepository: NetworkRepository
     
-    @Published var fetchedData: Data?
-    @Published var errorMessage: String?
+    @Published public var fetchedData: Data?
+    @Published public var errorMessage: String?
     
-    init(networkService: NetworkServiceProtocol = AsyncURLSessionNetworkService()) {
-        self.networkService = networkService
+    // Ensure the initializer’s parameter label matches the DI registration.
+    public init(networkRepository: NetworkRepository) {
+        self.networkRepository = networkRepository
     }
     
-    func loadData(from url: URL) {
+    public func loadData(from url: URL) {
         Task {
             do {
-                // Using RetryManager to attempt the fetch multiple times if needed.
-                let data = try await RetryManager.retry {
-                    try await self.networkService.fetchData(from: url)
-                }
+                let data = try await networkRepository.getData(from: url)
                 self.fetchedData = data
             } catch {
                 self.errorMessage = error.localizedDescription
-                LoggingService.shared.log("Error loading data: \(error.localizedDescription)")
+                LoggingService.shared.log("Error loading data: \(error.localizedDescription)", level: .error)
             }
         }
     }
