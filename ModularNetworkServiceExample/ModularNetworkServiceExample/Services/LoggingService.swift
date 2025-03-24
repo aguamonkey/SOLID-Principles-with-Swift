@@ -7,13 +7,19 @@
 
 import Foundation
 
-class LoggingService {
-    static let shared = LoggingService()
+public enum LogLevel: String {
+    case debug = "DEBUG"
+    case info = "INFO"
+    case error = "ERROR"
+}
+
+public class LoggingService {
+    public static let shared = LoggingService()
     
     private init() {}
     
-    func log(_ message: String) {
-        // For production apps, you might integrate with a logging framework or remote monitoring.
-        print("[LOG] \(message)")
+    public func log(_ message: String, level: LogLevel = .debug) {
+        print("[\(level.rawValue)] \(message)")
     }
 }
+

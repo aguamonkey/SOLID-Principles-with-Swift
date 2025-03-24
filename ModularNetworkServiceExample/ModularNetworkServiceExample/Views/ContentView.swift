@@ -7,10 +7,14 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @StateObject private var viewModel = ContentViewModel()
+// The SwiftUI view that uses the view model from DI.
+public struct ContentView: View {
+    // Resolve the view model via our DI container.
+    @StateObject private var viewModel: ContentViewModel = DIContainer.shared.resolve(ContentViewModel.self)
     
-    var body: some View {
+    public init() {}
+    
+    public var body: some View {
         VStack {
             if let data = viewModel.fetchedData {
                 Text("Data loaded: \(data.count) bytes")
@@ -22,14 +26,14 @@ struct ContentView: View {
                     .padding()
             } else {
                 Text("Loading...")
+                    .padding()
                     .onAppear {
-                        if let url = URL(string: "https://api.example.com/data") {
+                        if let url = URL(string: ConfigManager.shared.apiEndpoint) {
                             viewModel.loadData(from: url)
                         }
                     }
             }
         }
-        .padding()
     }
 }
 
