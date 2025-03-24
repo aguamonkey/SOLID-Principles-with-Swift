@@ -30,7 +30,7 @@ The SOLID principles are a set of design guidelines in object-oriented programmi
 
 ### Dependency Inversion Principle (DIP)
 
-- **Project:** DIPExample
+- **Project:** ModularNetworkServiceExample
 - **Description:** Illustrates DIP in SwiftUI by creating high-level modules independent from low-level modules, using abstractions to achieve decoupling.
 
 ## Getting Started
