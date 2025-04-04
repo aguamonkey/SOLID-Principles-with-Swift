@@ -9,6 +9,7 @@ import SwiftUI
 
 // DemonView's sole responsibility is the UI representation of a Demon.
 // It remains unaware of the underlying data or behaviors of a Demon.
+// DemonView is solely responsible for the UI representation of a demon.
 struct DemonView: View {
     var demon: DemonModel
 
@@ -26,4 +27,3 @@ struct DemonView: View {
         .cornerRadius(10)
     }
 }
-

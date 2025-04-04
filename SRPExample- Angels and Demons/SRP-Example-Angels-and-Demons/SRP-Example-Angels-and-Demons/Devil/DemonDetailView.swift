@@ -10,6 +10,7 @@ import SwiftUI
 
 // DemonDetailView is responsible for presenting detailed information about a specific demon.
 // It maintains SRP by focusing exclusively on the detail presentation of a Demon.
+// DemonDetailView presents detailed information about a specific demon.
 struct DemonDetailView: View {
     var demon: DemonModel
 
@@ -23,12 +24,5 @@ struct DemonDetailView: View {
         }
         .padding()
         .navigationBarTitle("Demon Details", displayMode: .inline)
-    }
-}
-
-// Preview for SwiftUI Canvas
-struct DemonDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DemonDetailView(demon: DemonModel(name: "Lucifer", ability: "Illusion"))
     }
 }

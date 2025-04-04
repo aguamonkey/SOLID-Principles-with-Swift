@@ -10,8 +10,8 @@ import Foundation
 struct AngelHierarchy {
     var rank: String
     var angels: [AngelModel]
-
-    // Method to describe the hierarchy. This keeps hierarchy-related logic within this model.
+    
+    // Encapsulates hierarchy-related logic.
     func describeHierarchy() -> String {
         return "Hierarchy: \(rank) with \(angels.count) angels."
     }

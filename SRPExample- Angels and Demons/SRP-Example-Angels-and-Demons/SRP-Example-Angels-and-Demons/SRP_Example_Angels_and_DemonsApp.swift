@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct SRP_Example_Angels_and_DemonsApp: App {
+    let dataService: DataServiceProtocol = DataService()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(dataService: dataService)
         }
     }
 }

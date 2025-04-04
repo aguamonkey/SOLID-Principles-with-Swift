@@ -10,12 +10,13 @@ import Foundation
 // AngelModel is responsible for representing the data and behavior of an Angel.
 // It adheres to the Single Responsibility Principle by focusing solely on angel-related data and logic.
 
+// MARK: - Models
+
 struct AngelModel {
     var name: String
     var power: String
-
-    // Functionality specific to an Angel can be added here.
-    // For example, a function to describe the Angel's power.
+    
+    // Functionality specific to an Angel.
     func describePower() -> String {
         return "\(name) possesses the power of \(power)."
     }

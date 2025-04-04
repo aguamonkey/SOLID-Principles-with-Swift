@@ -10,6 +10,7 @@ import SwiftUI
 
 // AngelDetailView is responsible for presenting detailed information about a specific angel.
 // It adheres to SRP by focusing solely on the detail presentation of an Angel.
+// AngelDetailView presents detailed information about a specific angel.
 struct AngelDetailView: View {
     var angel: AngelModel
 
@@ -24,12 +25,5 @@ struct AngelDetailView: View {
         }
         .padding()
         .navigationBarTitle("Angel Details", displayMode: .inline)
-    }
-}
-
-// Preview for SwiftUI Canvas
-struct AngelDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        AngelDetailView(angel: AngelModel(name: "Michael", power: "Healing"))
     }
 }

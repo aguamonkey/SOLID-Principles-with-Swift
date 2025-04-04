@@ -10,25 +10,31 @@ import SwiftUI
 
 // DemonListView is responsible for displaying a list of demons.
 // It maintains SRP by focusing only on the presentation of DemonView instances.
+// DemonListView handles asynchronous loading of demon data and builds the hierarchy.
 struct DemonListView: View {
-    var hierarchy: DemonHierarchy
+    let dataService: DataServiceProtocol
+    @State private var hierarchy: DemonHierarchy?
     
     var body: some View {
-        List(hierarchy.demons, id: \.name) { demon in
-            NavigationLink(destination: DemonDetailView(demon: demon)) {
-                DemonView(demon: demon)
-                // Similar to AngelListView, this view is concerned only with listing demons, using DemonView for individual demon representation.
+        Group {
+            if let hierarchy = hierarchy {
+                List(hierarchy.demons, id: \.name) { demon in
+                    NavigationLink(destination: DemonDetailView(demon: demon)) {
+                        DemonView(demon: demon)
+                    }
+                }
+                .navigationBarTitle("Demons - \(hierarchy.rank)")
+            } else {
+                ProgressView("Loading Demons...")
             }
-            // Each demon in the list is linked to its detailed view.
         }
-        .navigationBarTitle("Demons")
+        .task {
+            do {
+                let demons = try await dataService.getAllDemons()
+                hierarchy = DemonHierarchy(rank: "Greater Demon", demons: demons)
+            } catch {
+                print("Error fetching demons: \(error)")
+            }
+        }
     }
 }
-
-// Preview for SwiftUI Canvas
-struct DemonListView_Previews: PreviewProvider {
-    static var previews: some View {
-        DemonListView(hierarchy: DemonHierarchy(rank: "Greater Demon", demons: DataService().getAllDemons()))
-    }
-}
-
