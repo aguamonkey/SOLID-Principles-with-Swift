@@ -7,25 +7,22 @@
 
 import SwiftUI
 
-// ContentView is responsible for coordinating the presentation of AngelListView and DemonListView.
 // It adheres to SRP by focusing solely on the layout and navigation between these views.
+// ContentView coordinates navigation between AngelListView and DemonListView.
 struct ContentView: View {
-    // Instance of DataService to fetch angel and demon data.
-    let dataService = DataService()
+    let dataService: DataServiceProtocol
 
     var body: some View {
         NavigationView {
-            VStack {
-                // Navigation link to AngelListView
-                NavigationLink(destination: AngelListView(hierarchy: AngelHierarchy(rank: "Archangel", angels: dataService.getAllAngels()))) {
+            VStack(spacing: 20) {
+                NavigationLink(destination: AngelListView(dataService: dataService)) {
                     Text("View Angels")
                         .foregroundColor(.blue)
                         .padding()
                         .border(Color.blue)
                 }
-
-                // Navigation link to DemonListView
-                NavigationLink(destination: DemonListView(hierarchy: DemonHierarchy(rank: "Greater Demon", demons: dataService.getAllDemons()))) {
+                
+                NavigationLink(destination: DemonListView(dataService: dataService)) {
                     Text("View Demons")
                         .foregroundColor(.red)
                         .padding()
@@ -34,12 +31,5 @@ struct ContentView: View {
             }
             .navigationBarTitle("Angels and Demons")
         }
-    }
-}
-
-// Preview for SwiftUI Canvas
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }

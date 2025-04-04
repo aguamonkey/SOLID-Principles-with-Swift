@@ -12,9 +12,10 @@ import Foundation
 struct DemonModel {
     var name: String
     var ability: String
-
-    // This function is specific to a Demon, describing its unique ability.
+    
+    // Functionality specific to a Demon.
     func describeAbility() -> String {
         return "\(name) wields the ability of \(ability)."
     }
 }
+

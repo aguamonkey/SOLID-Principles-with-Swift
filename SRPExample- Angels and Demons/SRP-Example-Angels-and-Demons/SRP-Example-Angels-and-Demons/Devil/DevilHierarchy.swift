@@ -10,10 +10,8 @@ import Foundation
 struct DemonHierarchy {
     var rank: String
     var demons: [DemonModel]
-
-    // Method to describe the hierarchy. This encapsulates demon hierarchy logic within this model.
+    
     func describeHierarchy() -> String {
         return "Hierarchy: \(rank) with \(demons.count) demons."
     }
 }
-

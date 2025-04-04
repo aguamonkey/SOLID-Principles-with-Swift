@@ -13,6 +13,7 @@ import SwiftUI
 
 // AngelView is responsible only for the UI representation of an Angel.
 // It does not manage the Angel's data or behaviors, adhering to SRP.
+// AngelView is solely responsible for the UI representation of an angel.
 struct AngelView: View {
     var angel: AngelModel
 
