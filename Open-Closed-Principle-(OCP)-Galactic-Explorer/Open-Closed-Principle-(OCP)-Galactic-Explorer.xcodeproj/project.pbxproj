@@ -7,8 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		581DB0472DD89FAC00A5435E /* entities.json in Resources */ = {isa = PBXBuildFile; fileRef = 581DB0462DD89FAC00A5435E /* entities.json */; };
+		583D69312DD88A6300B81BBF /* EntityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583D69302DD88A6300B81BBF /* EntityFactory.swift */; };
+		583D69332DD8965900B81BBF /* SpaceEntityDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583D69322DD8965900B81BBF /* SpaceEntityDataLoader.swift */; };
+		583D69352DD8966F00B81BBF /* JSONSpaceEntityLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583D69342DD8966F00B81BBF /* JSONSpaceEntityLoader.swift */; };
+		583D69372DD8967F00B81BBF /* APISpaceEntityLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583D69362DD8967F00B81BBF /* APISpaceEntityLoader.swift */; };
+		583D69392DD8969200B81BBF /* CompositeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583D69382DD8969200B81BBF /* CompositeLoader.swift */; };
+		583D693B2DD896A400B81BBF /* PollingEntityLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583D693A2DD896A400B81BBF /* PollingEntityLoader.swift */; };
+		583D693E2DD896C600B81BBF /* ExplorerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583D693D2DD896C600B81BBF /* ExplorerViewModel.swift */; };
+		583D69402DD896DB00B81BBF /* ReactiveExplorerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583D693F2DD896DB00B81BBF /* ReactiveExplorerViewModel.swift */; };
+		583D69422DD896FE00B81BBF /* ReactiveGalacticExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583D69412DD896FE00B81BBF /* ReactiveGalacticExplorerView.swift */; };
+		583D69442DD897F500B81BBF /* EntityRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583D69432DD897F500B81BBF /* EntityRegistration.swift */; };
+		583D69462DD89A2900B81BBF /* EntityInteractionSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583D69452DD89A2900B81BBF /* EntityInteractionSimulator.swift */; };
 		E3E089792B37224F006421A4 /* Closed_Principle__OCP__Galactic_ExplorerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089782B37224F006421A4 /* Closed_Principle__OCP__Galactic_ExplorerApp.swift */; };
-		E3E0897B2B37224F006421A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E0897A2B37224F006421A4 /* ContentView.swift */; };
 		E3E0897D2B372252006421A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3E0897C2B372251006421A4 /* Assets.xcassets */; };
 		E3E089802B372252006421A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3E0897F2B372252006421A4 /* Preview Assets.xcassets */; };
 		E3E0898A2B372252006421A4 /* Closed_Principle__OCP__Galactic_ExplorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089892B372252006421A4 /* Closed_Principle__OCP__Galactic_ExplorerTests.swift */; };
@@ -18,10 +29,8 @@
 		E3E089A82B3725DC006421A4 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089A72B3725DC006421A4 /* Planet.swift */; };
 		E3E089AA2B3725EC006421A4 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089A92B3725EC006421A4 /* Star.swift */; };
 		E3E089AC2B3728CF006421A4 /* GalacticExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089AB2B3728CF006421A4 /* GalacticExplorerView.swift */; };
-		E3E089AE2B3728F9006421A4 /* SpaceEntityLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089AD2B3728F9006421A4 /* SpaceEntityLoader.swift */; };
 		E3E089B02B372E6F006421A4 /* Comet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089AF2B372E6F006421A4 /* Comet.swift */; };
 		E3E089B22B3730BC006421A4 /* SpaceEntityProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089B12B3730BC006421A4 /* SpaceEntityProtocols.swift */; };
-		E3E089B42B373204006421A4 /* EntityInteractionSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089B32B373204006421A4 /* EntityInteractionSimulator.swift */; };
 		E3E089B62B37324B006421A4 /* SpaceEntityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089B52B37324B006421A4 /* SpaceEntityView.swift */; };
 		E3E089B82B3831EE006421A4 /* FutureConsiderations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089B72B3831EE006421A4 /* FutureConsiderations.swift */; };
 /* End PBXBuildFile section */
@@ -44,9 +53,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		581DB0462DD89FAC00A5435E /* entities.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = entities.json; sourceTree = "<group>"; };
+		583D69302DD88A6300B81BBF /* EntityFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityFactory.swift; sourceTree = "<group>"; };
+		583D69322DD8965900B81BBF /* SpaceEntityDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEntityDataLoader.swift; sourceTree = "<group>"; };
+		583D69342DD8966F00B81BBF /* JSONSpaceEntityLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSpaceEntityLoader.swift; sourceTree = "<group>"; };
+		583D69362DD8967F00B81BBF /* APISpaceEntityLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISpaceEntityLoader.swift; sourceTree = "<group>"; };
+		583D69382DD8969200B81BBF /* CompositeLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeLoader.swift; sourceTree = "<group>"; };
+		583D693A2DD896A400B81BBF /* PollingEntityLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingEntityLoader.swift; sourceTree = "<group>"; };
+		583D693D2DD896C600B81BBF /* ExplorerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerViewModel.swift; sourceTree = "<group>"; };
+		583D693F2DD896DB00B81BBF /* ReactiveExplorerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveExplorerViewModel.swift; sourceTree = "<group>"; };
+		583D69412DD896FE00B81BBF /* ReactiveGalacticExplorerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveGalacticExplorerView.swift; sourceTree = "<group>"; };
+		583D69432DD897F500B81BBF /* EntityRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityRegistration.swift; sourceTree = "<group>"; };
+		583D69452DD89A2900B81BBF /* EntityInteractionSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityInteractionSimulator.swift; sourceTree = "<group>"; };
 		E3E089752B37224F006421A4 /* Open-Closed-Principle-(OCP)-Galactic-Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Open-Closed-Principle-(OCP)-Galactic-Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3E089782B37224F006421A4 /* Closed_Principle__OCP__Galactic_ExplorerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closed_Principle__OCP__Galactic_ExplorerApp.swift; sourceTree = "<group>"; };
-		E3E0897A2B37224F006421A4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E3E0897C2B372251006421A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3E0897F2B372252006421A4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E3E089852B372252006421A4 /* Open-Closed-Principle-(OCP)-Galactic-ExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Open-Closed-Principle-(OCP)-Galactic-ExplorerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,10 +78,8 @@
 		E3E089A72B3725DC006421A4 /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 		E3E089A92B3725EC006421A4 /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		E3E089AB2B3728CF006421A4 /* GalacticExplorerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalacticExplorerView.swift; sourceTree = "<group>"; };
-		E3E089AD2B3728F9006421A4 /* SpaceEntityLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEntityLoader.swift; sourceTree = "<group>"; };
 		E3E089AF2B372E6F006421A4 /* Comet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comet.swift; sourceTree = "<group>"; };
 		E3E089B12B3730BC006421A4 /* SpaceEntityProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEntityProtocols.swift; sourceTree = "<group>"; };
-		E3E089B32B373204006421A4 /* EntityInteractionSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityInteractionSimulator.swift; sourceTree = "<group>"; };
 		E3E089B52B37324B006421A4 /* SpaceEntityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEntityView.swift; sourceTree = "<group>"; };
 		E3E089B72B3831EE006421A4 /* FutureConsiderations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureConsiderations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +109,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		583D693C2DD896BD00B81BBF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				583D693D2DD896C600B81BBF /* ExplorerViewModel.swift */,
+				583D693F2DD896DB00B81BBF /* ReactiveExplorerViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		E3E0896C2B37224F006421A4 = {
 			isa = PBXGroup;
 			children = (
@@ -114,11 +141,12 @@
 		E3E089772B37224F006421A4 /* Closed-Principle-(OCP)-Galactic-Explorer */ = {
 			isa = PBXGroup;
 			children = (
+				583D693C2DD896BD00B81BBF /* ViewModels */,
 				E3E089A42B3724B0006421A4 /* Services */,
 				E3E089A32B3724A4006421A4 /* Views */,
 				E3E089A22B37249D006421A4 /* Models */,
 				E3E089782B37224F006421A4 /* Closed_Principle__OCP__Galactic_ExplorerApp.swift */,
-				E3E0897A2B37224F006421A4 /* ContentView.swift */,
+				581DB0462DD89FAC00A5435E /* entities.json */,
 				E3E0897C2B372251006421A4 /* Assets.xcassets */,
 				E3E0897E2B372252006421A4 /* Preview Content */,
 				E3E089B72B3831EE006421A4 /* FutureConsiderations.swift */,
@@ -167,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				E3E089AB2B3728CF006421A4 /* GalacticExplorerView.swift */,
+				583D69412DD896FE00B81BBF /* ReactiveGalacticExplorerView.swift */,
 				E3E089B52B37324B006421A4 /* SpaceEntityView.swift */,
 			);
 			path = Views;
@@ -175,8 +204,14 @@
 		E3E089A42B3724B0006421A4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E3E089AD2B3728F9006421A4 /* SpaceEntityLoader.swift */,
-				E3E089B32B373204006421A4 /* EntityInteractionSimulator.swift */,
+				583D69302DD88A6300B81BBF /* EntityFactory.swift */,
+				583D69322DD8965900B81BBF /* SpaceEntityDataLoader.swift */,
+				583D69342DD8966F00B81BBF /* JSONSpaceEntityLoader.swift */,
+				583D69362DD8967F00B81BBF /* APISpaceEntityLoader.swift */,
+				583D69382DD8969200B81BBF /* CompositeLoader.swift */,
+				583D693A2DD896A400B81BBF /* PollingEntityLoader.swift */,
+				583D69432DD897F500B81BBF /* EntityRegistration.swift */,
+				583D69452DD89A2900B81BBF /* EntityInteractionSimulator.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -245,7 +280,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					E3E089742B37224F006421A4 = {
 						CreatedOnToolsVersion = 14.2;
@@ -286,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3E089802B372252006421A4 /* Preview Assets.xcassets in Resources */,
+				581DB0472DD89FAC00A5435E /* entities.json in Resources */,
 				E3E0897D2B372252006421A4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,18 +347,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				583D69422DD896FE00B81BBF /* ReactiveGalacticExplorerView.swift in Sources */,
 				E3E089B62B37324B006421A4 /* SpaceEntityView.swift in Sources */,
+				583D693B2DD896A400B81BBF /* PollingEntityLoader.swift in Sources */,
+				583D69402DD896DB00B81BBF /* ReactiveExplorerViewModel.swift in Sources */,
 				E3E089B82B3831EE006421A4 /* FutureConsiderations.swift in Sources */,
-				E3E089AE2B3728F9006421A4 /* SpaceEntityLoader.swift in Sources */,
 				E3E089A62B3725CC006421A4 /* SpaceEntity.swift in Sources */,
+				583D69392DD8969200B81BBF /* CompositeLoader.swift in Sources */,
+				583D69442DD897F500B81BBF /* EntityRegistration.swift in Sources */,
 				E3E089AC2B3728CF006421A4 /* GalacticExplorerView.swift in Sources */,
-				E3E0897B2B37224F006421A4 /* ContentView.swift in Sources */,
+				583D69332DD8965900B81BBF /* SpaceEntityDataLoader.swift in Sources */,
+				583D69312DD88A6300B81BBF /* EntityFactory.swift in Sources */,
+				583D69352DD8966F00B81BBF /* JSONSpaceEntityLoader.swift in Sources */,
 				E3E089792B37224F006421A4 /* Closed_Principle__OCP__Galactic_ExplorerApp.swift in Sources */,
 				E3E089B22B3730BC006421A4 /* SpaceEntityProtocols.swift in Sources */,
-				E3E089B42B373204006421A4 /* EntityInteractionSimulator.swift in Sources */,
 				E3E089AA2B3725EC006421A4 /* Star.swift in Sources */,
 				E3E089B02B372E6F006421A4 /* Comet.swift in Sources */,
 				E3E089A82B3725DC006421A4 /* Planet.swift in Sources */,
+				583D69462DD89A2900B81BBF /* EntityInteractionSimulator.swift in Sources */,
+				583D69372DD8967F00B81BBF /* APISpaceEntityLoader.swift in Sources */,
+				583D693E2DD896C600B81BBF /* ExplorerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,8 +437,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = J2452P8KTA;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -453,8 +499,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = J2452P8KTA;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -481,7 +529,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Closed-Principle-(OCP)-Galactic-Explorer/Preview Content\"";
-				DEVELOPMENT_TEAM = J2452P8KTA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -510,7 +557,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Closed-Principle-(OCP)-Galactic-Explorer/Preview Content\"";
-				DEVELOPMENT_TEAM = J2452P8KTA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -534,11 +580,9 @@
 		E3E0899D2B372252006421A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J2452P8KTA;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
@@ -554,11 +598,9 @@
 		E3E0899E2B372252006421A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J2452P8KTA;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MARKETING_VERSION = 1.0;
@@ -574,10 +616,8 @@
 		E3E089A02B372252006421A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J2452P8KTA;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "GobiasLtd.Closed-Principle--OCP--Galactic-ExplorerUITests";
@@ -592,10 +632,8 @@
 		E3E089A12B372252006421A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J2452P8KTA;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "GobiasLtd.Closed-Principle--OCP--Galactic-ExplorerUITests";

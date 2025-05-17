@@ -1,0 +1,21 @@
+[
+    {
+      "type": "Planet",
+      "name": "Earth",
+      "description": "A planet with diverse ecosystems",
+      "numberOfMoons": 1
+    },
+    {
+      "type": "Star",
+      "name": "Sun",
+      "description": "Our local star",
+      "type": "G-Type"
+    },
+    {
+      "type": "Comet",
+      "name": "Halley",
+      "description": "Returns every 76 years",
+      "tailLength": 24.0
+    }
+  ]
+  
