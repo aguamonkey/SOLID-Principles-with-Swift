@@ -6,21 +6,38 @@
 //
 
 import Foundation
+import SwiftUI
 
-// Models/Comet.swift
+/// Comet entity.
+public class Comet: SpaceEntity {
+    public let name: String
+    public let description: String
+    public let tailLength: Double
 
-// Comet is a new subclass of SpaceEntity, added without modifying any existing classes.
-class Comet: SpaceEntity {
-    var tailLength: Double
-
-    init(name: String, description: String, tailLength: Double) {
+    public init(name: String, description: String, tailLength: Double) {
+        self.name = name
+        self.description = description
         self.tailLength = tailLength
-        super.init(name: name, description: description)
     }
-    
-    required init(from decoder: Decoder) throws {
-        fatalError("init(from:) has not been implemented")
+
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.description = try container.decode(String.self, forKey: .description)
+        self.tailLength = try container.decode(Double.self, forKey: .tailLength)
     }
-    
-    // Comet-specific properties and methods can be added here.
+
+    private enum CodingKeys: String, CodingKey {
+        case name, description, tailLength
+    }
+
+    public func makeView() -> AnyView {
+        AnyView(
+            VStack(alignment: .leading) {
+                Text("Comet: \(name)")
+                Text("Tail: \(tailLength) km")
+            }
+            .padding()
+        )
+    }
 }

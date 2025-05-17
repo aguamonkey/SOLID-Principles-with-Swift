@@ -6,19 +6,33 @@
 //
 
 import Foundation
+import SwiftUI
 
-// Models/SpaceEntity.swift
+// MARK: - 1. Base Protocol for Space Entities
 
-// SpaceEntity is the base class for all space entities. It defines common properties and methods.
-// Aligning with OCP, it's designed to be extended (for new space entities) without needing modification.
-class SpaceEntity: Codable {
-    var name: String
-    var description: String
+/// All space entities conform to this protocol.
+/// OCP: Open for extension via new types conforming; Closed for modification of existing behavior.
+public protocol SpaceEntity: Codable, Identifiable {
+    var id: UUID { get }
+    var name: String { get }
+    var description: String { get }
+    /// Provides a type-erased SwiftUI view for this entity.
+    /// OCP: New entity types supply their own view without editing consumers.
+    func makeView() -> AnyView
+}
 
-    init(name: String, description: String) {
-        self.name = name
-        self.description = description
-    }
+public extension SpaceEntity {
+    // Default unique id
+    var id: UUID { UUID() }
     
-    // Common functionality that all space entities will share can be defined here.
+    // Default view shows basic info; can be overridden.
+    func makeView() -> AnyView {
+        AnyView(
+            VStack(alignment: .leading) {
+                Text("Name: \(name)")
+                Text("Description: \(description)")
+            }
+            .padding()
+        )
+    }
 }
