@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58B004D82DE89DA500C31CCA /* Playable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B004D72DE89DA500C31CCA /* Playable.swift */; };
+		58B004DA2DE89DB000C31CCA /* Tunable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B004D92DE89DB000C31CCA /* Tunable.swift */; };
+		58B004DC2DE89DBA00C31CCA /* Blowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B004DB2DE89DBA00C31CCA /* Blowable.swift */; };
+		58B004DF2DE8A0A300C31CCA /* Bundle+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B004DE2DE8A0A300C31CCA /* Bundle+Decodable.swift */; };
+		58B004E12DE8A0BD00C31CCA /* InstrumentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B004E02DE8A0BD00C31CCA /* InstrumentInfo.swift */; };
+		58B004E32DE8A0EE00C31CCA /* InstrumentInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B004E22DE8A0EE00C31CCA /* InstrumentInfoStore.swift */; };
+		58B004E52DE8A11B00C31CCA /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B004E42DE8A11B00C31CCA /* AudioService.swift */; };
+		58B004E72DE8A13200C31CCA /* InstrumentRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B004E62DE8A13200C31CCA /* InstrumentRowView.swift */; };
+		58B004EA2DE8A1FF00C31CCA /* instruments.json in Resources */ = {isa = PBXBuildFile; fileRef = 58B004E92DE8A1FF00C31CCA /* instruments.json */; };
+		58B004F22DE8A43400C31CCA /* trumpet.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58B004EE2DE8A43400C31CCA /* trumpet.mp3 */; };
+		58B004F32DE8A43400C31CCA /* trumpet.png in Resources */ = {isa = PBXBuildFile; fileRef = 58B004EF2DE8A43400C31CCA /* trumpet.png */; };
+		58B004F42DE8A43400C31CCA /* violin.png in Resources */ = {isa = PBXBuildFile; fileRef = 58B004F12DE8A43400C31CCA /* violin.png */; };
+		58B004F62DE8A43400C31CCA /* violin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58B004F02DE8A43400C31CCA /* violin.mp3 */; };
+		58B004F72DE8A43400C31CCA /* flute.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 58B004EB2DE8A43400C31CCA /* flute.mp3 */; };
+		58B004F82DE8A43400C31CCA /* flute.png in Resources */ = {isa = PBXBuildFile; fileRef = 58B004EC2DE8A43400C31CCA /* flute.png */; };
 		E3FC04EF2B41897F0082CF96 /* LSPExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC04EE2B41897F0082CF96 /* LSPExampleApp.swift */; };
 		E3FC04F12B41897F0082CF96 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC04F02B41897F0082CF96 /* ContentView.swift */; };
 		E3FC04F32B4189830082CF96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3FC04F22B4189830082CF96 /* Assets.xcassets */; };
@@ -14,7 +29,6 @@
 		E3FC05002B4189830082CF96 /* LSPExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC04FF2B4189830082CF96 /* LSPExampleTests.swift */; };
 		E3FC050A2B4189830082CF96 /* LSPExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC05092B4189830082CF96 /* LSPExampleUITests.swift */; };
 		E3FC050C2B4189830082CF96 /* LSPExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC050B2B4189830082CF96 /* LSPExampleUITestsLaunchTests.swift */; };
-		E3FC051C2B418A080082CF96 /* Instrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC051B2B418A080082CF96 /* Instrument.swift */; };
 		E3FC051E2B418A1F0082CF96 /* StringInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC051D2B418A1F0082CF96 /* StringInstrument.swift */; };
 		E3FC05202B418A2E0082CF96 /* WindInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC051F2B418A2E0082CF96 /* WindInstrument.swift */; };
 		E3FC05222B418B540082CF96 /* OrchestraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC05212B418B540082CF96 /* OrchestraService.swift */; };
@@ -42,6 +56,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		58B004D72DE89DA500C31CCA /* Playable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playable.swift; sourceTree = "<group>"; };
+		58B004D92DE89DB000C31CCA /* Tunable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tunable.swift; sourceTree = "<group>"; };
+		58B004DB2DE89DBA00C31CCA /* Blowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blowable.swift; sourceTree = "<group>"; };
+		58B004DE2DE8A0A300C31CCA /* Bundle+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Decodable.swift"; sourceTree = "<group>"; };
+		58B004E02DE8A0BD00C31CCA /* InstrumentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentInfo.swift; sourceTree = "<group>"; };
+		58B004E22DE8A0EE00C31CCA /* InstrumentInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentInfoStore.swift; sourceTree = "<group>"; };
+		58B004E42DE8A11B00C31CCA /* AudioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioService.swift; sourceTree = "<group>"; };
+		58B004E62DE8A13200C31CCA /* InstrumentRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentRowView.swift; sourceTree = "<group>"; };
+		58B004E92DE8A1FF00C31CCA /* instruments.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = instruments.json; sourceTree = "<group>"; };
+		58B004EB2DE8A43400C31CCA /* flute.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = flute.mp3; sourceTree = "<group>"; };
+		58B004EC2DE8A43400C31CCA /* flute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flute.png; sourceTree = "<group>"; };
+		58B004EE2DE8A43400C31CCA /* trumpet.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trumpet.mp3; sourceTree = "<group>"; };
+		58B004EF2DE8A43400C31CCA /* trumpet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trumpet.png; sourceTree = "<group>"; };
+		58B004F02DE8A43400C31CCA /* violin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = violin.mp3; sourceTree = "<group>"; };
+		58B004F12DE8A43400C31CCA /* violin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = violin.png; sourceTree = "<group>"; };
 		E3FC04EB2B41897F0082CF96 /* LSPExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LSPExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3FC04EE2B41897F0082CF96 /* LSPExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSPExampleApp.swift; sourceTree = "<group>"; };
 		E3FC04F02B41897F0082CF96 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,7 +81,6 @@
 		E3FC05052B4189830082CF96 /* LSPExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LSPExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3FC05092B4189830082CF96 /* LSPExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSPExampleUITests.swift; sourceTree = "<group>"; };
 		E3FC050B2B4189830082CF96 /* LSPExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSPExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		E3FC051B2B418A080082CF96 /* Instrument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instrument.swift; sourceTree = "<group>"; };
 		E3FC051D2B418A1F0082CF96 /* StringInstrument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringInstrument.swift; sourceTree = "<group>"; };
 		E3FC051F2B418A2E0082CF96 /* WindInstrument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindInstrument.swift; sourceTree = "<group>"; };
 		E3FC05212B418B540082CF96 /* OrchestraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrchestraService.swift; sourceTree = "<group>"; };
@@ -87,6 +115,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		58B004D62DE89D4400C31CCA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				58B004D72DE89DA500C31CCA /* Playable.swift */,
+				58B004D92DE89DB000C31CCA /* Tunable.swift */,
+				58B004DB2DE89DBA00C31CCA /* Blowable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		58B004DD2DE8A08D00C31CCA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				58B004DE2DE8A0A300C31CCA /* Bundle+Decodable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		58B004E82DE8A1C300C31CCA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				58B004E92DE8A1FF00C31CCA /* instruments.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		E3FC04E22B41897F0082CF96 = {
 			isa = PBXGroup;
 			children = (
@@ -110,11 +164,20 @@
 		E3FC04ED2B41897F0082CF96 /* LSPExample */ = {
 			isa = PBXGroup;
 			children = (
+				58B004E82DE8A1C300C31CCA /* Resources */,
+				58B004DD2DE8A08D00C31CCA /* Extensions */,
+				58B004D62DE89D4400C31CCA /* Protocols */,
 				E3FC051A2B4189A50082CF96 /* Views */,
 				E3FC05192B41899E0082CF96 /* Services */,
 				E3FC05182B41898C0082CF96 /* Models */,
 				E3FC04EE2B41897F0082CF96 /* LSPExampleApp.swift */,
 				E3FC04F02B41897F0082CF96 /* ContentView.swift */,
+				58B004EB2DE8A43400C31CCA /* flute.mp3 */,
+				58B004EE2DE8A43400C31CCA /* trumpet.mp3 */,
+				58B004F02DE8A43400C31CCA /* violin.mp3 */,
+				58B004EC2DE8A43400C31CCA /* flute.png */,
+				58B004EF2DE8A43400C31CCA /* trumpet.png */,
+				58B004F12DE8A43400C31CCA /* violin.png */,
 				E3FC04F22B4189830082CF96 /* Assets.xcassets */,
 				E3FC04F42B4189830082CF96 /* Preview Content */,
 			);
@@ -149,10 +212,10 @@
 		E3FC05182B41898C0082CF96 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E3FC051B2B418A080082CF96 /* Instrument.swift */,
 				E3FC051D2B418A1F0082CF96 /* StringInstrument.swift */,
 				E3FC05252B4191140082CF96 /* BrassInstrument.swift */,
 				E3FC051F2B418A2E0082CF96 /* WindInstrument.swift */,
+				58B004E02DE8A0BD00C31CCA /* InstrumentInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -161,6 +224,8 @@
 			isa = PBXGroup;
 			children = (
 				E3FC05212B418B540082CF96 /* OrchestraService.swift */,
+				58B004E22DE8A0EE00C31CCA /* InstrumentInfoStore.swift */,
+				58B004E42DE8A11B00C31CCA /* AudioService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -171,6 +236,7 @@
 				E3FC05232B418C340082CF96 /* OrchestraView.swift */,
 				E3FC05272B4195F40082CF96 /* InstrumentSelectionView.swift */,
 				E3FC05292B4196270082CF96 /* OrchestraPerformanceView.swift */,
+				58B004E62DE8A13200C31CCA /* InstrumentRowView.swift */,
 			);
 			name = Views;
 			path = "New Group";
@@ -280,7 +346,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58B004EA2DE8A1FF00C31CCA /* instruments.json in Resources */,
 				E3FC04F62B4189830082CF96 /* Preview Assets.xcassets in Resources */,
+				58B004F22DE8A43400C31CCA /* trumpet.mp3 in Resources */,
+				58B004F32DE8A43400C31CCA /* trumpet.png in Resources */,
+				58B004F42DE8A43400C31CCA /* violin.png in Resources */,
+				58B004F62DE8A43400C31CCA /* violin.mp3 in Resources */,
+				58B004F72DE8A43400C31CCA /* flute.mp3 in Resources */,
+				58B004F82DE8A43400C31CCA /* flute.png in Resources */,
 				E3FC04F32B4189830082CF96 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,15 +379,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58B004E52DE8A11B00C31CCA /* AudioService.swift in Sources */,
 				E3FC05242B418C340082CF96 /* OrchestraView.swift in Sources */,
+				58B004DF2DE8A0A300C31CCA /* Bundle+Decodable.swift in Sources */,
 				E3FC04F12B41897F0082CF96 /* ContentView.swift in Sources */,
 				E3FC051E2B418A1F0082CF96 /* StringInstrument.swift in Sources */,
 				E3FC05202B418A2E0082CF96 /* WindInstrument.swift in Sources */,
+				58B004E32DE8A0EE00C31CCA /* InstrumentInfoStore.swift in Sources */,
 				E3FC05282B4195F40082CF96 /* InstrumentSelectionView.swift in Sources */,
+				58B004DA2DE89DB000C31CCA /* Tunable.swift in Sources */,
 				E3FC05262B4191140082CF96 /* BrassInstrument.swift in Sources */,
-				E3FC051C2B418A080082CF96 /* Instrument.swift in Sources */,
+				58B004D82DE89DA500C31CCA /* Playable.swift in Sources */,
+				58B004E72DE8A13200C31CCA /* InstrumentRowView.swift in Sources */,
 				E3FC052A2B4196270082CF96 /* OrchestraPerformanceView.swift in Sources */,
+				58B004DC2DE89DBA00C31CCA /* Blowable.swift in Sources */,
 				E3FC04EF2B41897F0082CF96 /* LSPExampleApp.swift in Sources */,
+				58B004E12DE8A0BD00C31CCA /* InstrumentInfo.swift in Sources */,
 				E3FC05222B418B540082CF96 /* OrchestraService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,20 +11,20 @@ import Foundation
 import SwiftUI
 
 struct InstrumentSelectionView: View {
-    @ObservedObject var orchestraService: OrchestraService
+  @ObservedObject var orchestraService: OrchestraService
 
-    var body: some View {
-        VStack {
-            Text("Select Instruments")
-                .font(.headline)
-            // Example instrument selection buttons
-            Button("Add Violin") {
-                orchestraService.addInstrument(StringInstrument(name: "Violin"))
-            }
-            Button("Add Flute") {
-                orchestraService.addInstrument(WindInstrument(name: "Flute", reedType: "Woodwind"))
-            }
-            // Add more buttons for different instruments
+  var body: some View {
+    VStack {
+      Text("Select Instruments")
+        .font(.headline)
+
+      List(InstrumentInfoStore.all) { info in
+        InstrumentRowView(info: info) {
+          // <-- create the real instrument here:
+          let playable = info.makePlayable()
+          orchestraService.addInstrument(playable)
         }
+      }
     }
+  }
 }

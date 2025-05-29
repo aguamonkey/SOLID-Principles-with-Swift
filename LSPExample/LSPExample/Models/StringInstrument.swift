@@ -5,15 +5,18 @@
 //  Created by Gobias LTD on 31/12/2023.
 //
 
+
 import Foundation
 
-// Models/StringInstrument.swift
+struct StringInstrument: Playable, Tunable {
+    let id: UUID
+    let name: String
 
-// A subclass of Instrument representing string instruments.
-class StringInstrument: Instrument {
-    // Additional properties and methods specific to string instruments can be added here.
-
-    override func play() -> String {
+    func play() -> String {
         return "\(name), a string instrument, is playing melodious tunes."
+    }
+
+    func tune() -> String {
+        return "Tuning \(name): tightening strings for perfect pitch."
     }
 }
