@@ -13,32 +13,25 @@ import Combine
 // OrchestraService is responsible for managing a collection of instruments.
 // It adheres to LSP by treating all instruments, regardless of their specific subclass, uniformly.
 
-class OrchestraService: ObservableObject {
-    @Published var instruments: [Instrument] = []
+import Foundation
+import Combine
 
-    // Adds an instrument to the orchestra
-    func addInstrument(_ instrument: Instrument) {
+class OrchestraService: ObservableObject {
+    @Published var instruments: [any Playable] = []
+
+    func addInstrument(_ instrument: any Playable) {
         instruments.append(instrument)
     }
 
-    // Simulates tuning all instruments in the orchestra
-    func tuneInstruments() -> String {
-        // Simulating tuning for each instrument
-        let tuningResults = instruments.map { "\($0.name) is being tuned." }
-        return tuningResults.joined(separator: "\n")
-    }
-
-    // Organizes a concert with a specific sequence of instrument play
-    func organizeConcert(withSequence sequence: [Instrument]) -> String {
-        // Simulating a concert based on the given sequence
-        let concertPerformance = sequence.map { $0.play() }
-        return concertPerformance.joined(separator: "\n")
-    }
-
-    // Simulates an entire concert
     func performConcert() -> [String] {
-        return instruments.map { $0.play() }
+        instruments.map { $0.play() }
     }
 
-    // Additional orchestral management functions can be added here
+    func tuneAll() -> [String] {
+        instruments.compactMap { ($0 as? Tunable)?.tune() }
+    }
+
+    func blowAll() -> [String] {
+        instruments.compactMap { ($0 as? Blowable)?.blow() }
+    }
 }

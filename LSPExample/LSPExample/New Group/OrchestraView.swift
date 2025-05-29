@@ -10,8 +10,6 @@ import SwiftUI
 
 // Views/OrchestraView.swift
 
-import SwiftUI
-
 struct OrchestraView: View {
     @ObservedObject var orchestraService = OrchestraService()
 
@@ -19,23 +17,19 @@ struct OrchestraView: View {
         VStack {
             Text("Orchestra Performance")
                 .font(.headline)
-            List {
-                ForEach(orchestraService.performConcert(), id: \.self) { sound in
-                    Text(sound)
-                }
+
+            List(orchestraService.performConcert(), id: \.self) { sound in
+                Text(sound)
             }
         }
-        .onAppear {
-            setupOrchestra()
-        }
+        .onAppear(perform: setupOrchestra)
     }
 
     private func setupOrchestra() {
-        // Make sure this function is adding instruments to the orchestra
-        orchestraService.addInstrument(StringInstrument(name: "Violin"))
-        orchestraService.addInstrument(WindInstrument(name: "Flute", reedType: "N/A"))
-        orchestraService.addInstrument(BrassInstrument(name: "Trumpet", valveCount: 6))
-        // Add more instruments here if needed
+        // Replace the old manual adds with your JSON-driven factory:
+        InstrumentInfoStore.all.forEach { info in
+            let instrument = info.makePlayable()
+            orchestraService.addInstrument(instrument)
+        }
     }
 }
-

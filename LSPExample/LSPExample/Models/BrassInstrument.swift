@@ -11,22 +11,22 @@ import Foundation
 
 // A subclass of Instrument representing brass instruments.
 // Adheres to LSP by fulfilling the contract established by the Instrument class.
-class BrassInstrument: Instrument {
-    var valveCount: Int
 
-    init(name: String, valveCount: Int) {
-        self.valveCount = valveCount
-        super.init(name: name)
-    }
+struct BrassInstrument: Playable, Tunable, Blowable {
+    let id: UUID
+    let name: String
+    let valveCount: Int
 
-    // Overrides the play method with behavior specific to brass instruments.
-    override func play() -> String {
+    func play() -> String {
         return "\(name), with \(valveCount) valves, produces a rich, loud sound."
     }
-    
-    // Specific method for brass instruments, demonstrating unique behavior while maintaining LSP.
+
+    func tune() -> String {
+        return "Tuning \(name): adjusting \(valveCount) valves for harmony."
+    }
+
     func blow() -> String {
-        return "\(name) is being blown, utilizing its \(valveCount) valves."
+        return "Blowing into \(name) uses all \(valveCount) valves for that bold brass tone."
     }
 }
 

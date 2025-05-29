@@ -11,22 +11,22 @@ import Foundation
 
 // A subclass of Instrument representing wind instruments.
 // Follows LSP by being a proper substitute for the Instrument class.
-class WindInstrument: Instrument {
-    var reedType: String
+import Foundation
 
-    init(name: String, reedType: String) {
-        self.reedType = reedType
-        super.init(name: name)
-    }
+struct WindInstrument: Playable, Tunable, Blowable {
+    let id: UUID
+    let name: String
+    let reedType: String
 
-    // Overrides the play method with behavior specific to wind instruments.
-    override func play() -> String {
+    func play() -> String {
         return "\(name), using a \(reedType) reed, produces melodious tunes."
     }
 
-    // Specific method for wind instruments, showcasing unique behavior.
+    func tune() -> String {
+        return "Tuning \(name): refining the \(reedType) reed's response."
+    }
+
     func blow() -> String {
-        return "\(name) is being played by blowing air through the \(reedType) reed."
+        return "Blowing into \(name) involves air flow through the \(reedType) reed."
     }
 }
-

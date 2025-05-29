@@ -18,7 +18,7 @@ struct OrchestraPerformanceView: View {
         VStack {
             Text("Orchestra Performance")
                 .font(.headline)
-            List(orchestraService.instruments) { instrument in
+            List(orchestraService.instruments, id: \.id) { instrument in
                 Text(instrument.play())
             }
         }
