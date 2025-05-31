@@ -8,13 +8,28 @@
 import SwiftUI
 
 struct OrderManagementView: View {
-    @ObservedObject var viewModel: OrderViewModel
-    @State private var showingAddOrderView = false  // State to control the display of an add order form
-
+    @StateObject private var viewModel: OrderViewModel
+    @State private var showingAddOrderView = false
+    
+    init(orderProcessor: OrderProcessing) {
+        _viewModel = StateObject(wrappedValue: OrderViewModel(orderProcessor: orderProcessor))
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
+                if viewModel.isLoading {
+                    ProgressView("Loading...")
+                        .padding()
+                }
+                
                 orderList
+                
+                if let error = viewModel.errorMessage {
+                    Text(error)
+                        .foregroundColor(.red)
+                        .padding()
+                }
             }
             .navigationTitle("Order Management")
             .toolbar {
@@ -25,17 +40,14 @@ struct OrderManagementView: View {
                 }
             }
             .sheet(isPresented: $showingAddOrderView) {
-                // Assuming AddOrderView exists and is designed to handle the addition of orders
                 AddOrderView(viewModel: viewModel)
             }
-        }
-        .onAppear {
-            Task {
+            .task {
                 await viewModel.loadOrders()
             }
         }
     }
-
+    
     private var orderList: some View {
         List {
             ForEach(viewModel.orders, id: \.id) { order in
@@ -44,25 +56,16 @@ struct OrderManagementView: View {
                     Text("Total: $\(order.totalAmount, specifier: "%.2f")")
                     Text("Date: \(order.orderDate, formatter: dateFormatter)")
                     Button("Cancel Order") {
-                        viewModel.cancelOrder(order.id)
+                        Task {
+                            await viewModel.cancelOrder(order.id)
+                        }
                     }
                     .foregroundColor(.red)
                 }
             }
-            .onDelete(perform: deleteOrder)
         }
     }
-
-    private func deleteOrder(at offsets: IndexSet) {
-        offsets.forEach { index in
-            let order = viewModel.orders[index]
-            viewModel.cancelOrder(order.id)
-        }
-    }
-}
-
-// DateFormatter for displaying the order date
-extension OrderManagementView {
+    
     private var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
@@ -71,53 +74,45 @@ extension OrderManagementView {
     }
 }
 
-// Assuming AddOrderView is defined elsewhere
 struct AddOrderView: View {
     @ObservedObject var viewModel: OrderViewModel
     @State private var productIds: String = ""
     @State private var totalAmount: String = ""
-
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
         NavigationView {
             Form {
                 TextField("Product IDs (comma-separated)", text: $productIds)
                 TextField("Total Amount", text: $totalAmount)
                 Button("Place Order") {
-                    placeOrder()
+                    Task {
+                        await placeOrder()
+                    }
                 }
             }
             .navigationTitle("New Order")
-            .navigationBarItems(leading: Button("Dismiss") {
+            .navigationBarItems(leading: Button("Cancel") {
                 dismiss()
             })
         }
     }
-
-    private func placeOrder() {
-        let ids = productIds.split(separator: ",").map { String($0) }
+    
+    private func placeOrder() async {
+        let ids = productIds.split(separator: ",").map { String($0.trimmingCharacters(in: .whitespaces)) }
         if let total = Double(totalAmount) {
-            let newOrder = Order(id: UUID().uuidString, productIds: ids, orderDate: Date(), totalAmount: total)
-            viewModel.placeOrder(newOrder)
+            let newOrder = Order(
+                id: UUID().uuidString,
+                productIds: ids,
+                orderDate: Date(),
+                totalAmount: total
+            )
+            await viewModel.placeOrder(newOrder)
+            dismiss()
         }
-        dismiss()
-    }
-
-    private func dismiss() {
-        // Logic to dismiss this view
     }
 }
 
-// Preview for SwiftUI previews
-struct OrderManagementView_Previews: PreviewProvider {
-    static var previews: some View {
-        OrderManagementView(viewModel: OrderViewModel(orderProcessor: MockOrderProcessor()))
-    }
-}
-
-class MockOrderProcessor: OrderProcessing {
-    func findAllOrders() async -> [Order] { return [] }
-    func placeOrder(_ order: Order) {}
-    func updateOrder(_ order: Order) {}
-    func cancelOrder(_ orderId: String) {}
-    func getOrder(_ orderId: String) -> Order? { return nil }
+#Preview {
+    OrderManagementView(orderProcessor: MockOrderProcessor())
 }

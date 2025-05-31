@@ -7,14 +7,12 @@
 
 import Foundation
 
-// Interfaces/ReviewHandling.swift
-
-/// The directive for managing the chorus of customer voices, an integral part of President Principle's democratic vision.
-/// This interface ensures that every critique and commendation is heard loud and clear.
+// INTERFACE SEGREGATION: Dedicated interface for review management
+// Clients that only need review functionality don't need to know about products or orders
 protocol ReviewHandling {
-    func addReview(_ review: Review)
-    func updateReview(_ review: Review)
-    func deleteReview(_ reviewId: String)
-    func getReview(_ reviewId: String) -> Review?
-    func findAllReviews() async -> [Review]
+    func addReview(_ review: Review) async throws
+    func updateReview(_ review: Review) async throws
+    func deleteReview(_ reviewId: String) async throws
+    func getReview(_ reviewId: String) async throws -> Review?
+    func findAllReviews() async throws -> [Review]
 }
