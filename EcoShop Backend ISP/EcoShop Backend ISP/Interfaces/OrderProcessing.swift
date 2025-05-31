@@ -7,14 +7,12 @@
 
 import Foundation
 
-// Interfaces/OrderProcessing.swift
-
-/// The legislative framework for order orchestration, a pivotal part of President Principle's grand economic plan.
-/// It defines how orders shall waltz through our system, ensuring a ballet of efficiency and precision.
+// INTERFACE SEGREGATION: Focused interface for order operations
+// Each method has a clear, single responsibility
 protocol OrderProcessing {
-    func placeOrder(_ order: Order)
-    func updateOrder(_ order: Order)
-    func cancelOrder(_ orderId: String)
-    func getOrder(_ orderId: String) -> Order?
-    func findAllOrders() async -> [Order]
+    func placeOrder(_ order: Order) async throws
+    func updateOrder(_ order: Order) async throws
+    func cancelOrder(_ orderId: String) async throws
+    func getOrder(_ orderId: String) async throws -> Order?
+    func findAllOrders() async throws -> [Order]
 }

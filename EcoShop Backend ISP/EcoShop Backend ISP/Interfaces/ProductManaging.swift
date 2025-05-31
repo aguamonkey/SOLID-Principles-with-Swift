@@ -7,14 +7,29 @@
 
 import Foundation
 
-// Interfaces/ProductManaging.swift
+// INTERFACE SEGREGATION: This protocol is focused only on product management
+// We could further segregate this into smaller protocols if needed:
+// - ProductReading (for read operations)
+// - ProductWriting (for write operations)
+// But for now, this level of segregation is appropriate
 
-/// The constitution of product governance, authored by President Interface S. Principle.
-/// This document declares the rights and duties of all entities that manage our marketplace's products.
+/// Protocol for managing products - follows ISP by grouping related operations
 protocol ProductManaging {
-    func addProduct(_ product: Product)
-    func updateProduct(_ product: Product)
-    func deleteProduct(_ productId: String)
-    func findProduct(byId productId: String) -> Product?
-    func findAllProducts() async -> [Product]  // Asynchronously retrieve all products
+    func addProduct(_ product: Product) async throws
+    func updateProduct(_ product: Product) async throws
+    func deleteProduct(_ productId: String) async throws
+    func findProduct(byId productId: String) async throws -> Product?
+    func findAllProducts() async throws -> [Product]
+}
+
+// INTERFACE SEGREGATION: Optional - We could segregate further if needed
+protocol ProductReading {
+    func findProduct(byId productId: String) async throws -> Product?
+    func findAllProducts() async throws -> [Product]
+}
+
+protocol ProductWriting {
+    func addProduct(_ product: Product) async throws
+    func updateProduct(_ product: Product) async throws
+    func deleteProduct(_ productId: String) async throws
 }

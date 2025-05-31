@@ -8,13 +8,28 @@
 import SwiftUI
 
 struct ReviewManagementView: View {
-    @ObservedObject var viewModel: ReviewViewModel
-    @State private var showingAddReviewView = false  // State to control the display of an add review form
-
+    @StateObject private var viewModel: ReviewViewModel
+    @State private var showingAddReviewView = false
+    
+    init(reviewHandler: ReviewHandling) {
+        _viewModel = StateObject(wrappedValue: ReviewViewModel(reviewHandler: reviewHandler))
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
+                if viewModel.isLoading {
+                    ProgressView("Loading...")
+                        .padding()
+                }
+                
                 reviewList
+                
+                if let error = viewModel.errorMessage {
+                    Text(error)
+                        .foregroundColor(.red)
+                        .padding()
+                }
             }
             .navigationTitle("Review Management")
             .toolbar {
@@ -25,17 +40,14 @@ struct ReviewManagementView: View {
                 }
             }
             .sheet(isPresented: $showingAddReviewView) {
-                // Assuming AddReviewView exists and is designed to handle the addition of reviews
                 AddReviewView(viewModel: viewModel)
             }
-        }
-        .onAppear {
-            Task {
+            .task {
                 await viewModel.loadReviews()
             }
         }
     }
-
+    
     private var reviewList: some View {
         List {
             ForEach(viewModel.reviews, id: \.id) { review in
@@ -43,11 +55,18 @@ struct ReviewManagementView: View {
                     Text("Product ID: \(review.productId)")
                     Text("Title: \(review.title)").font(.headline)
                     Text("Content: \(review.content)")
-                    Text("Rating: \(review.rating)/5")
+                    HStack {
+                        ForEach(0..<5) { star in
+                            Image(systemName: star < review.rating ? "star.fill" : "star")
+                                .foregroundColor(.yellow)
+                        }
+                    }
                 }
                 .swipeActions {
                     Button(role: .destructive) {
-                        viewModel.deleteReview(review.id)
+                        Task {
+                            await viewModel.deleteReview(review.id)
+                        }
                     } label: {
                         Label("Delete", systemImage: "trash")
                     }
@@ -57,14 +76,14 @@ struct ReviewManagementView: View {
     }
 }
 
-// Assuming AddReviewView is defined elsewhere
 struct AddReviewView: View {
     @ObservedObject var viewModel: ReviewViewModel
     @State private var productId: String = ""
     @State private var title: String = ""
     @State private var content: String = ""
     @State private var rating: Int = 5
-
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
         NavigationView {
             Form {
@@ -74,38 +93,31 @@ struct AddReviewView: View {
                     .frame(height: 200)
                 Stepper("Rating: \(rating)", value: $rating, in: 1...5)
                 Button("Add Review") {
-                    addReview()
+                    Task {
+                        await addReview()
+                    }
                 }
             }
             .navigationTitle("New Review")
-            .navigationBarItems(leading: Button("Dismiss") {
+            .navigationBarItems(leading: Button("Cancel") {
                 dismiss()
             })
         }
     }
-
-    private func addReview() {
-        let newReview = Review(id: UUID().uuidString, productId: productId, title: title, content: content, rating: rating)
-        viewModel.addReview(newReview)
+    
+    private func addReview() async {
+        let newReview = Review(
+            id: UUID().uuidString,
+            productId: productId,
+            title: title,
+            content: content,
+            rating: rating
+        )
+        await viewModel.addReview(newReview)
         dismiss()
     }
-
-    private func dismiss() {
-        // Logic to dismiss this view
-    }
 }
 
-// Preview for SwiftUI previews
-struct ReviewManagementView_Previews: PreviewProvider {
-    static var previews: some View {
-        ReviewManagementView(viewModel: ReviewViewModel(reviewHandler: MockReviewHandler()))
-    }
-}
-
-class MockReviewHandler: ReviewHandling {
-    func findAllReviews() async -> [Review] { return [] }
-    func addReview(_ review: Review) {}
-    func updateReview(_ review: Review) {}
-    func deleteReview(_ reviewId: String) {}
-    func getReview(_ reviewId: String) -> Review? { return nil }
+#Preview {
+    ReviewManagementView(reviewHandler: MockReviewHandler())
 }

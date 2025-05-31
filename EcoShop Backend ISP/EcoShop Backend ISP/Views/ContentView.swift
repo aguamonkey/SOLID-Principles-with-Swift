@@ -9,26 +9,36 @@
 import SwiftUI
 
 struct ContentView: View {
+    // INTERFACE SEGREGATION: Each dependency is separate
+    // This view can work with any implementation of these protocols
     var productManager: ProductManaging
     var orderProcessor: OrderProcessing
     var reviewHandler: ReviewHandling
-
+    
     var body: some View {
         TabView {
-            ProductManagementView(viewModel: ProductViewModel(productManager: productManager))
+            ProductManagementView(productManager: productManager)
                 .tabItem {
                     Label("Products", systemImage: "cube.box")
                 }
-
-            OrderManagementView(viewModel: OrderViewModel(orderProcessor: orderProcessor))
+            
+            OrderManagementView(orderProcessor: orderProcessor)
                 .tabItem {
                     Label("Orders", systemImage: "cart")
                 }
-
-            ReviewManagementView(viewModel: ReviewViewModel(reviewHandler: reviewHandler))
+            
+            ReviewManagementView(reviewHandler: reviewHandler)
                 .tabItem {
                     Label("Reviews", systemImage: "star.circle")
                 }
         }
     }
+}
+
+#Preview {
+    ContentView(
+        productManager: MockProductManager(),
+        orderProcessor: MockOrderProcessor(),
+        reviewHandler: MockReviewHandler()
+    )
 }
