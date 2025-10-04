@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5863A1772DF4988E009D6F5A /* FetchDataUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5863A1762DF4988E009D6F5A /* FetchDataUseCaseProtocol.swift */; };
+		5863A17D2DF49932009D6F5A /* LoggingServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5863A17C2DF49932009D6F5A /* LoggingServiceProtocol.swift */; };
+		5863A1872DF49B20009D6F5A /* ContentViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5863A1862DF49B20009D6F5A /* ContentViewModelTests.swift */; };
+		5863A18B2DF49E45009D6F5A /* NetworkRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5863A18A2DF49E45009D6F5A /* NetworkRepositoryProtocol.swift */; };
 		58A47F9C2D91310B0081CC5D /* ModularNetworkServiceExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A47F9B2D91310B0081CC5D /* ModularNetworkServiceExampleApp.swift */; };
 		58A47F9E2D91310B0081CC5D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A47F9D2D91310B0081CC5D /* ContentView.swift */; };
 		58A47FA02D91310D0081CC5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58A47F9F2D91310D0081CC5D /* Assets.xcassets */; };
@@ -16,13 +20,8 @@
 		58A47FB92D91310D0081CC5D /* ModularNetworkServiceExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A47FB82D91310D0081CC5D /* ModularNetworkServiceExampleUITestsLaunchTests.swift */; };
 		58A47FCA2D91319C0081CC5D /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A47FC92D91319C0081CC5D /* NetworkServiceProtocol.swift */; };
 		58A47FCE2D9131EC0081CC5D /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A47FCD2D9131EC0081CC5D /* ContentViewModel.swift */; };
-		58A47FD02D91365D0081CC5D /* AsyncURLSessionNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A47FCF2D91365D0081CC5D /* AsyncURLSessionNetworkService.swift */; };
 		58A47FD32D9136C30081CC5D /* RetryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A47FD22D9136C30081CC5D /* RetryManager.swift */; };
-		58A47FD52D9136DD0081CC5D /* LoggingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A47FD42D9136DD0081CC5D /* LoggingService.swift */; };
-		58A47FD72D91373B0081CC5D /* CombineURLSessionNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A47FD62D91373B0081CC5D /* CombineURLSessionNetworkService.swift */; };
 		58A47FDA2D9142FA0081CC5D /* DataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A47FD92D9142FA0081CC5D /* DataError.swift */; };
-		58A47FDD2D9143300081CC5D /* FetchDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A47FDC2D9143300081CC5D /* FetchDataUseCase.swift */; };
-		58A47FDF2D9144A70081CC5D /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A47FDE2D9144A70081CC5D /* NetworkRepository.swift */; };
 		58A47FE12D91473B0081CC5D /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A47FE02D91473B0081CC5D /* ConfigManager.swift */; };
 		58A47FE32D9148350081CC5D /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A47FE22D9148350081CC5D /* DIContainer.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5863A1762DF4988E009D6F5A /* FetchDataUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDataUseCaseProtocol.swift; sourceTree = "<group>"; };
+		5863A17C2DF49932009D6F5A /* LoggingServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingServiceProtocol.swift; sourceTree = "<group>"; };
+		5863A1862DF49B20009D6F5A /* ContentViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModelTests.swift; sourceTree = "<group>"; };
+		5863A18A2DF49E45009D6F5A /* NetworkRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepositoryProtocol.swift; sourceTree = "<group>"; };
 		58A47F982D91310B0081CC5D /* ModularNetworkServiceExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModularNetworkServiceExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58A47F9B2D91310B0081CC5D /* ModularNetworkServiceExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModularNetworkServiceExampleApp.swift; sourceTree = "<group>"; };
 		58A47F9D2D91310B0081CC5D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,16 +60,18 @@
 		58A47FB82D91310D0081CC5D /* ModularNetworkServiceExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModularNetworkServiceExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		58A47FC92D91319C0081CC5D /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		58A47FCD2D9131EC0081CC5D /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
-		58A47FCF2D91365D0081CC5D /* AsyncURLSessionNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncURLSessionNetworkService.swift; sourceTree = "<group>"; };
 		58A47FD22D9136C30081CC5D /* RetryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryManager.swift; sourceTree = "<group>"; };
-		58A47FD42D9136DD0081CC5D /* LoggingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingService.swift; sourceTree = "<group>"; };
-		58A47FD62D91373B0081CC5D /* CombineURLSessionNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineURLSessionNetworkService.swift; sourceTree = "<group>"; };
 		58A47FD92D9142FA0081CC5D /* DataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
-		58A47FDC2D9143300081CC5D /* FetchDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDataUseCase.swift; sourceTree = "<group>"; };
-		58A47FDE2D9144A70081CC5D /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
 		58A47FE02D91473B0081CC5D /* ConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
 		58A47FE22D9148350081CC5D /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		5863A1742DF4986C009D6F5A /* UseCases */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = UseCases; sourceTree = "<group>"; };
+		5863A1782DF498A7009D6F5A /* Repositories */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Repositories; sourceTree = "<group>"; };
+		5863A17E2DF49939009D6F5A /* Network */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Network; sourceTree = "<group>"; };
+		5863A1812DF4995C009D6F5A /* Logging */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Logging; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		58A47F952D91310B0081CC5D /* Frameworks */ = {
@@ -142,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				58A47FAC2D91310D0081CC5D /* ModularNetworkServiceExampleTests.swift */,
+				5863A1862DF49B20009D6F5A /* ContentViewModelTests.swift */,
 			);
 			path = ModularNetworkServiceExampleTests;
 			sourceTree = "<group>";
@@ -159,6 +165,9 @@
 			isa = PBXGroup;
 			children = (
 				58A47FC92D91319C0081CC5D /* NetworkServiceProtocol.swift */,
+				5863A17C2DF49932009D6F5A /* LoggingServiceProtocol.swift */,
+				5863A18A2DF49E45009D6F5A /* NetworkRepositoryProtocol.swift */,
+				5863A1762DF4988E009D6F5A /* FetchDataUseCaseProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -166,10 +175,9 @@
 		58A47FC62D91316B0081CC5D /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				58A47FCF2D91365D0081CC5D /* AsyncURLSessionNetworkService.swift */,
-				58A47FD62D91373B0081CC5D /* CombineURLSessionNetworkService.swift */,
-				58A47FD42D9136DD0081CC5D /* LoggingService.swift */,
 				58A47FE22D9148350081CC5D /* DIContainer.swift */,
+				5863A1812DF4995C009D6F5A /* Logging */,
+				5863A17E2DF49939009D6F5A /* Network */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -210,8 +218,8 @@
 		58A47FDB2D9143210081CC5D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				58A47FDC2D9143300081CC5D /* FetchDataUseCase.swift */,
-				58A47FDE2D9144A70081CC5D /* NetworkRepository.swift */,
+				5863A1742DF4986C009D6F5A /* UseCases */,
+				5863A1782DF498A7009D6F5A /* Repositories */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -230,6 +238,12 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5863A1742DF4986C009D6F5A /* UseCases */,
+				5863A1782DF498A7009D6F5A /* Repositories */,
+				5863A17E2DF49939009D6F5A /* Network */,
+				5863A1812DF4995C009D6F5A /* Logging */,
 			);
 			name = ModularNetworkServiceExample;
 			productName = ModularNetworkServiceExample;
@@ -346,18 +360,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58A47FDD2D9143300081CC5D /* FetchDataUseCase.swift in Sources */,
-				58A47FD52D9136DD0081CC5D /* LoggingService.swift in Sources */,
+				5863A17D2DF49932009D6F5A /* LoggingServiceProtocol.swift in Sources */,
+				5863A18B2DF49E45009D6F5A /* NetworkRepositoryProtocol.swift in Sources */,
 				58A47F9E2D91310B0081CC5D /* ContentView.swift in Sources */,
 				58A47F9C2D91310B0081CC5D /* ModularNetworkServiceExampleApp.swift in Sources */,
+				5863A1772DF4988E009D6F5A /* FetchDataUseCaseProtocol.swift in Sources */,
 				58A47FD32D9136C30081CC5D /* RetryManager.swift in Sources */,
-				58A47FD02D91365D0081CC5D /* AsyncURLSessionNetworkService.swift in Sources */,
 				58A47FE32D9148350081CC5D /* DIContainer.swift in Sources */,
-				58A47FDF2D9144A70081CC5D /* NetworkRepository.swift in Sources */,
 				58A47FCA2D91319C0081CC5D /* NetworkServiceProtocol.swift in Sources */,
 				58A47FDA2D9142FA0081CC5D /* DataError.swift in Sources */,
 				58A47FCE2D9131EC0081CC5D /* ContentViewModel.swift in Sources */,
-				58A47FD72D91373B0081CC5D /* CombineURLSessionNetworkService.swift in Sources */,
 				58A47FE12D91473B0081CC5D /* ConfigManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,6 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5863A1872DF49B20009D6F5A /* ContentViewModelTests.swift in Sources */,
 				58A47FAD2D91310D0081CC5D /* ModularNetworkServiceExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

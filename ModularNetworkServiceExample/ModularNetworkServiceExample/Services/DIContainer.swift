@@ -19,20 +19,26 @@ public class DIContainer {
     
     @MainActor
     private func registerDependencies() {
-        // Register the network service for NetworkServiceProtocol.
+        // Register network service (concrete implementation)
         register(NetworkServiceProtocol.self) { _ in
             AsyncURLSessionNetworkService()
         }
         
-        // Register the repository.
-        register(NetworkRepository.self) { container in
+        // Register use case (concrete implementation with protocol dependency)
+        register(FetchDataUseCaseProtocol.self) { container in
             let networkService = container.resolve(NetworkServiceProtocol.self)
-            return NetworkRepository(networkService: networkService)
+            return FetchDataUseCase(networkService: networkService)
         }
         
-        // Register the view model.
+        // Register repository (concrete implementation with protocol dependency)
+        register(NetworkRepositoryProtocol.self) { container in
+            let useCase = container.resolve(FetchDataUseCaseProtocol.self)
+            return NetworkRepository(fetchDataUseCase: useCase)
+        }
+        
+        // Register view model (concrete with protocol dependency)
         register(ContentViewModel.self) { container in
-            let repository = container.resolve(NetworkRepository.self)
+            let repository = container.resolve(NetworkRepositoryProtocol.self)
             return ContentViewModel(networkRepository: repository)
         }
     }

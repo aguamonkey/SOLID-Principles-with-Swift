@@ -13,7 +13,7 @@ public enum LogLevel: String {
     case error = "ERROR"
 }
 
-public class LoggingService {
+public class LoggingService: LoggingServiceProtocol {
     public static let shared = LoggingService()
     
     private init() {}
