@@ -7,7 +7,7 @@
 
 import Foundation
 
-// INTERFACE SEGREGATION: Separate mock for order processing
+// Tests and previews can exercise order flows without catalog or review fixtures.
 class MockOrderProcessor: OrderProcessing {
     private var mockOrders: [Order] = [
         Order(id: "1", productIds: ["1", "2"], orderDate: Date(), totalAmount: 3499.98)

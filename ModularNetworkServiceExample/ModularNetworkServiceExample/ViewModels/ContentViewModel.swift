@@ -33,13 +33,13 @@ public class ContentViewModel: ObservableObject {
         loadingTask?.cancel()
 
         let task = Task {
-            await loadDataAsync(from: url)
+            await performLoad(from: url)
         }
         loadingTask = task
         return task
     }
 
-    public func loadDataAsync(from url: URL) async {
+    private func performLoad(from url: URL) async {
         let loadID = UUID()
         activeLoadID = loadID
         isLoading = true

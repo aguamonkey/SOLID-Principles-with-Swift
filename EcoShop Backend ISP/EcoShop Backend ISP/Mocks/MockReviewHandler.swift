@@ -7,7 +7,7 @@
 
 import Foundation
 
-// INTERFACE SEGREGATION: Dedicated mock for review handling
+// Review previews stay small because this mock only models review behavior.
 class MockReviewHandler: ReviewHandling {
     private var mockReviews: [Review] = [
         Review(id: "1", productId: "1", title: "Great Phone!", content: "Love this iPhone", rating: 5),

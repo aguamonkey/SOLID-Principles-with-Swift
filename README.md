@@ -37,6 +37,10 @@ This repository is built as a guided learning path. Each project focuses on one 
 
 ## Learning Path
 
+### How To Read Each Project
+
+For each principle, start with the model or protocol named in the project map, then follow the dependency outward to the service, view model, view, and test. The tests are the fastest way to see the design rule in action: they show what can change without forcing unrelated code to change.
+
 ### 1. Single Responsibility Principle
 
 Project: `SRPExample- Angels and Demons`
@@ -86,7 +90,15 @@ Each project contains a test target. The most useful tests are the ones that des
 - ISP: a consumer can depend on a focused product interface.
 - DIP: the network view model can use mock networking and mock logging through protocols.
 
-Run tests from Xcode with `Cmd+U`, or use `xcodebuild test` from the command line for an individual project and scheme.
+Run tests from Xcode with `Cmd+U`. From the repository root, these commands build each test bundle into `/tmp` so they work better in sandboxed or local automation environments:
+
+```sh
+xcodebuild build-for-testing -project "SRPExample- Angels and Demons/SRP-Example-Angels-and-Demons/SRP-Example-Angels-and-Demons.xcodeproj" -scheme "SRP-Example-Angels-and-Demons" -destination "generic/platform=iOS Simulator" -derivedDataPath /tmp/solid-srp-dd CODE_SIGNING_ALLOWED=NO
+xcodebuild build-for-testing -project "Open-Closed-Principle-(OCP)-Galactic-Explorer/Open-Closed-Principle-(OCP)-Galactic-Explorer.xcodeproj" -scheme "Open-Closed-Principle-(OCP)-Galactic-Explorer" -destination "generic/platform=iOS Simulator" -derivedDataPath /tmp/solid-ocp-dd CODE_SIGNING_ALLOWED=NO
+xcodebuild build-for-testing -project "LSPExample/LSPExample.xcodeproj" -scheme "LSPExample" -destination "generic/platform=iOS Simulator" -derivedDataPath /tmp/solid-lsp-dd CODE_SIGNING_ALLOWED=NO
+xcodebuild build-for-testing -project "EcoShop Backend ISP/EcoShop Backend ISP.xcodeproj" -scheme "EcoShop Backend ISP" -destination "generic/platform=iOS Simulator" -derivedDataPath /tmp/solid-isp-dd CODE_SIGNING_ALLOWED=NO
+xcodebuild build-for-testing -project "ModularNetworkServiceExample/ModularNetworkServiceExample.xcodeproj" -scheme "ModularNetworkServiceExample" -destination "generic/platform=iOS Simulator" -derivedDataPath /tmp/solid-dip-dd CODE_SIGNING_ALLOWED=NO
+```
 
 ## Repository Goals
 

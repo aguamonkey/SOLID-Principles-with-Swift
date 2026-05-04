@@ -7,11 +7,10 @@
 
 import Foundation
 
-// INTERFACE SEGREGATION: ReviewViewModel only knows about ReviewHandling
-// This separation allows different implementations without affecting other parts
+// Review UI policy is insulated from unrelated product and order operations.
 @MainActor
 class ReviewViewModel: ObservableObject {
-    private let reviewHandler: ReviewHandling // ISP: Single-purpose dependency
+    private let reviewHandler: ReviewHandling
     
     @Published var reviews: [Review] = []
     @Published var errorMessage: String?

@@ -7,11 +7,10 @@
 
 import Foundation
 
-// INTERFACE SEGREGATION: This ViewModel only depends on OrderProcessing
-// It's not forced to implement or know about product or review functionality
+// Order UI policy depends on the smallest service shape that can support it.
 @MainActor
 class OrderViewModel: ObservableObject {
-    private let orderProcessor: OrderProcessing // ISP: Focused dependency
+    private let orderProcessor: OrderProcessing
     
     @Published var orders: [Order] = []
     @Published var errorMessage: String?

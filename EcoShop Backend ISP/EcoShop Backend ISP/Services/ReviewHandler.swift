@@ -7,7 +7,7 @@
 
 import Foundation
 
-// INTERFACE SEGREGATION: Focused implementation for review handling only
+// Review storage concerns remain separate from ordering and product editing.
 class ReviewHandler: ReviewHandling {
     private var reviews: [Review] = []
     

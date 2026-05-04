@@ -7,8 +7,7 @@
 
 import Foundation
 
-// INTERFACE SEGREGATION: Dedicated interface for review management
-// Clients that only need review functionality don't need to know about products or orders
+// Review clients can stay isolated from catalog and checkout workflows.
 protocol ReviewHandling {
     func addReview(_ review: Review) async throws
     func updateReview(_ review: Review) async throws

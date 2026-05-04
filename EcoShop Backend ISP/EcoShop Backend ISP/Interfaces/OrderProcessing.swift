@@ -7,8 +7,7 @@
 
 import Foundation
 
-// INTERFACE SEGREGATION: Focused interface for order operations
-// Each method has a clear, single responsibility
+// Order screens should not need product or review APIs just to manage checkout state.
 protocol OrderProcessing {
     func placeOrder(_ order: Order) async throws
     func updateOrder(_ order: Order) async throws

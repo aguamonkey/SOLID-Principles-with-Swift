@@ -8,8 +8,7 @@
 import Foundation
 
 /// A model representing a product in our e-commerce system.
-/// INTERFACE SEGREGATION: This model only implements the protocols it needs (IdentifiableWithStringID)
-/// It doesn't implement any unnecessary interfaces
+/// It stays limited to identity, coding, and equality so service protocols own behavior.
 struct Product: IdentifiableWithStringID, Codable, Equatable {
     var id: String
     var name: String

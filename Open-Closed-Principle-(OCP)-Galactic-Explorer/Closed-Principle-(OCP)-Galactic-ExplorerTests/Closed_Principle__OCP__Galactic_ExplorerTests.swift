@@ -11,6 +11,30 @@ import SwiftUI
 
 final class Closed_Principle__OCP__Galactic_ExplorerTests: XCTestCase {
 
+    func testBeforeAndAfterShowsWhyRegistrationKeepsDecoderClosedForChange() throws {
+        XCTAssertThrowsError(try BeforeSolidEntitySwitch.decode(type: "Asteroid"))
+
+        let registry = EntityRegistry()
+        registry.register("Asteroid") { decoder in
+            try Asteroid(from: decoder)
+        }
+
+        let json = """
+        {
+            "type": "Asteroid",
+            "name": "Vesta",
+            "description": "A large asteroid in the main belt",
+            "diameter": 525.0
+        }
+        """.data(using: .utf8)!
+
+        let decoder = JSONDecoder()
+        decoder.userInfo[.entityRegistry] = registry
+        let decoded = try decoder.decode(AnySpaceEntity.self, from: json)
+
+        XCTAssertTrue(decoded.entity is Asteroid)
+    }
+
     func testFactoryDecodesRegisteredEntityWithoutChangingCoreDecoder() throws {
         let registry = EntityRegistry()
         registry.register("Asteroid") { decoder in
@@ -33,6 +57,21 @@ final class Closed_Principle__OCP__Galactic_ExplorerTests: XCTestCase {
         let asteroid = try XCTUnwrap(decoded.entity as? Asteroid)
         XCTAssertEqual(asteroid.name, "Vesta")
         XCTAssertEqual(asteroid.diameter, 525.0)
+    }
+}
+
+private enum BeforeSolidEntitySwitch {
+    static func decode(type: String) throws -> String {
+        switch type {
+        case "Planet", "Star", "Comet":
+            return type
+        default:
+            throw UnsupportedEntityError.typeRequiresEditingSwitch
+        }
+    }
+
+    enum UnsupportedEntityError: Error {
+        case typeRequiresEditingSwitch
     }
 }
 

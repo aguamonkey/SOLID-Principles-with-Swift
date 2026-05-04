@@ -9,8 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    // INTERFACE SEGREGATION: Each dependency is separate
-    // This view can work with any implementation of these protocols
+    // Separate workflow dependencies keep product, order, and review changes independent.
     var productManager: ProductManaging
     var orderProcessor: OrderProcessing
     var reviewHandler: ReviewHandling

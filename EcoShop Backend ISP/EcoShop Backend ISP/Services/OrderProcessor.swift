@@ -7,7 +7,7 @@
 
 import Foundation
 
-// INTERFACE SEGREGATION: Implements only OrderProcessing interface
+// A real order service can evolve its persistence without widening product clients.
 class OrderProcessor: OrderProcessing {
     private var orders: [Order] = []
     

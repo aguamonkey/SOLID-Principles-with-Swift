@@ -9,8 +9,7 @@ import SwiftUI
 
 @main
 struct EcoShop_Backend_ISPApp: App {
-    // INTERFACE SEGREGATION: We can easily swap implementations
-    // For example, we could use real services in production and mocks in development
+    // The app boundary chooses concrete services; views receive only the capabilities they use.
     #if DEBUG
     let productManager: ProductManaging = MockProductManager()
     let orderProcessor: OrderProcessing = MockOrderProcessor()

@@ -8,7 +8,7 @@
 import Foundation
 
 /// A model representing a customer review of a product.
-/// INTERFACE SEGREGATION: Each model implements only what it needs
+/// Review behavior lives behind review services, keeping this value easy to persist and test.
 struct Review: IdentifiableWithStringID, Codable, Equatable {
     var id: String
     var productId: String

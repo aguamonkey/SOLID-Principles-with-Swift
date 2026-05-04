@@ -8,7 +8,7 @@
 import Foundation
 
 /// Represents an order in our e-commerce platform.
-/// INTERFACE SEGREGATION: Implements only the protocols needed for an Order
+/// Order behavior lives in services; the model remains a transferable value.
 struct Order: IdentifiableWithStringID, Codable, Equatable {
     var id: String
     var productIds: [String]
