@@ -10,7 +10,6 @@ import Foundation
 public class NetworkRepository: NetworkRepositoryProtocol {
     private let fetchDataUseCase: FetchDataUseCaseProtocol
     
-    // NOW expects FetchDataUseCaseProtocol, not NetworkServiceProtocol
     public init(fetchDataUseCase: FetchDataUseCaseProtocol) {
         self.fetchDataUseCase = fetchDataUseCase
     }

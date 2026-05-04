@@ -10,27 +10,31 @@ import XCTest
 
 final class LSPExampleTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testOrchestraCanPerformWithAnyPlayableInstrument() {
+        let orchestra = OrchestraService()
+        let violin = StringInstrument(id: UUID(), name: "Violin")
+        let trumpet = BrassInstrument(id: UUID(), name: "Trumpet", valveCount: 3)
+        let flute = WindInstrument(id: UUID(), name: "Flute", reedType: "lip plate")
+        
+        orchestra.addInstrument(violin)
+        orchestra.addInstrument(trumpet)
+        orchestra.addInstrument(flute)
+        
+        let performance = orchestra.performConcert()
+        
+        XCTAssertEqual(performance.count, 3)
+        XCTAssertTrue(performance[0].contains("Violin"))
+        XCTAssertTrue(performance[1].contains("Trumpet"))
+        XCTAssertTrue(performance[2].contains("Flute"))
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testCapabilitySpecificOperationsDoNotBreakPlayableSubstitution() {
+        let orchestra = OrchestraService()
+        orchestra.addInstrument(StringInstrument(id: UUID(), name: "Violin"))
+        orchestra.addInstrument(BrassInstrument(id: UUID(), name: "Trumpet", valveCount: 3))
+        
+        XCTAssertEqual(orchestra.performConcert().count, 2)
+        XCTAssertEqual(orchestra.tuneAll().count, 2)
+        XCTAssertEqual(orchestra.blowAll().count, 1)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

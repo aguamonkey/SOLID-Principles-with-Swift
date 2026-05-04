@@ -8,13 +8,8 @@
 import Foundation
 import Combine
 
-// Services/OrchestraService.swift
-
 // OrchestraService is responsible for managing a collection of instruments.
 // It adheres to LSP by treating all instruments, regardless of their specific subclass, uniformly.
-
-import Foundation
-import Combine
 
 class OrchestraService: ObservableObject {
     @Published var instruments: [any Playable] = []

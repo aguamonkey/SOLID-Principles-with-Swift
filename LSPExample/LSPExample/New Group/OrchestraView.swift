@@ -26,7 +26,6 @@ struct OrchestraView: View {
     }
 
     private func setupOrchestra() {
-        // Replace the old manual adds with your JSON-driven factory:
         InstrumentInfoStore.all.forEach { info in
             let instrument = info.makePlayable()
             orchestraService.addInstrument(instrument)

@@ -11,30 +11,39 @@ import SwiftUI
 
 @MainActor
 public class ContentViewModel: ObservableObject {
-    private let networkRepository: NetworkRepositoryProtocol  // Protocol, not concrete!
+    private let networkRepository: NetworkRepositoryProtocol
+    private let logger: LoggingServiceProtocol
     
     @Published public var fetchedData: Data?
     @Published public var errorMessage: String?
     @Published public var isLoading = false
     
-    public init(networkRepository: NetworkRepositoryProtocol) {
+    public init(
+        networkRepository: NetworkRepositoryProtocol,
+        logger: LoggingServiceProtocol = LoggingService.shared
+    ) {
         self.networkRepository = networkRepository
+        self.logger = logger
     }
     
     public func loadData(from url: URL) {
         Task {
-            isLoading = true
-            defer { isLoading = false }
-            
-            do {
-                let data = try await networkRepository.getData(from: url)
-                self.fetchedData = data
-                self.errorMessage = nil
-            } catch {
-                self.errorMessage = error.localizedDescription
-                self.fetchedData = nil
-                LoggingService.shared.log("Error loading data: \(error.localizedDescription)", level: .error)
-            }
+            await loadDataAsync(from: url)
+        }
+    }
+    
+    public func loadDataAsync(from url: URL) async {
+        isLoading = true
+        defer { isLoading = false }
+        
+        do {
+            let data = try await networkRepository.getData(from: url)
+            self.fetchedData = data
+            self.errorMessage = nil
+        } catch {
+            self.errorMessage = error.localizedDescription
+            self.fetchedData = nil
+            logger.log("Error loading data: \(error.localizedDescription)", level: .error)
         }
     }
 }

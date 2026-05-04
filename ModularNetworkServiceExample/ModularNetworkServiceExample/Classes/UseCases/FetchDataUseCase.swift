@@ -9,20 +9,25 @@ import Foundation
 
 public class FetchDataUseCase: FetchDataUseCaseProtocol {
     private let networkService: NetworkServiceProtocol
+    private let logger: LoggingServiceProtocol
     
-    public init(networkService: NetworkServiceProtocol) {
+    public init(
+        networkService: NetworkServiceProtocol,
+        logger: LoggingServiceProtocol = LoggingService.shared
+    ) {
         self.networkService = networkService
+        self.logger = logger
     }
     
     public func execute(url: URL) async throws -> Data {
-        LoggingService.shared.log("Executing fetch data use case for URL: \(url)", level: .debug)
+        logger.log("Executing fetch data use case for URL: \(url)", level: .debug)
         
         do {
             let data = try await networkService.fetchData(from: url)
-            LoggingService.shared.log("Successfully fetched \(data.count) bytes", level: .info)
+            logger.log("Successfully fetched \(data.count) bytes", level: .info)
             return data
         } catch {
-            LoggingService.shared.log("Failed to fetch data: \(error)", level: .error)
+            logger.log("Failed to fetch data: \(error)", level: .error)
             throw error
         }
     }

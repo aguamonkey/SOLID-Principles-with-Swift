@@ -27,14 +27,9 @@ final class ContentViewModelTests: XCTestCase {
             logger: mockLogger
         )
         
-        // Act
         let url = URL(string: "https://test.com")!
-        viewModel.loadData(from: url)
+        await viewModel.loadDataAsync(from: url)
         
-        // Wait for async operation
-        try? await Task.sleep(nanoseconds: 100_000_000) // 0.1 seconds
-        
-        // Assert
         XCTAssertNotNil(viewModel.fetchedData)
         XCTAssertNil(viewModel.errorMessage)
         XCTAssertFalse(viewModel.isLoading)
@@ -57,14 +52,9 @@ final class ContentViewModelTests: XCTestCase {
             logger: mockLogger
         )
         
-        // Act
         let url = URL(string: "https://test.com")!
-        viewModel.loadData(from: url)
+        await viewModel.loadDataAsync(from: url)
         
-        // Wait for async operation
-        try? await Task.sleep(nanoseconds: 100_000_000) // 0.1 seconds
-        
-        // Assert
         XCTAssertNil(viewModel.fetchedData)
         XCTAssertNotNil(viewModel.errorMessage)
         XCTAssertFalse(viewModel.isLoading)

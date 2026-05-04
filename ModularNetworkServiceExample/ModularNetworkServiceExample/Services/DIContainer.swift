@@ -19,6 +19,10 @@ public class DIContainer {
     
     @MainActor
     private func registerDependencies() {
+        register(LoggingServiceProtocol.self) { _ in
+            LoggingService.shared
+        }
+        
         // Register network service (concrete implementation)
         register(NetworkServiceProtocol.self) { _ in
             AsyncURLSessionNetworkService()
@@ -27,7 +31,8 @@ public class DIContainer {
         // Register use case (concrete implementation with protocol dependency)
         register(FetchDataUseCaseProtocol.self) { container in
             let networkService = container.resolve(NetworkServiceProtocol.self)
-            return FetchDataUseCase(networkService: networkService)
+            let logger = container.resolve(LoggingServiceProtocol.self)
+            return FetchDataUseCase(networkService: networkService, logger: logger)
         }
         
         // Register repository (concrete implementation with protocol dependency)
@@ -39,7 +44,8 @@ public class DIContainer {
         // Register view model (concrete with protocol dependency)
         register(ContentViewModel.self) { container in
             let repository = container.resolve(NetworkRepositoryProtocol.self)
-            return ContentViewModel(networkRepository: repository)
+            let logger = container.resolve(LoggingServiceProtocol.self)
+            return ContentViewModel(networkRepository: repository, logger: logger)
         }
     }
     

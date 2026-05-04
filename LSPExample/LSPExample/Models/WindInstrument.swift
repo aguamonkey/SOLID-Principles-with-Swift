@@ -7,12 +7,6 @@
 
 import Foundation
 
-// Models/WindInstrument.swift
-
-// A subclass of Instrument representing wind instruments.
-// Follows LSP by being a proper substitute for the Instrument class.
-import Foundation
-
 struct WindInstrument: Playable, Tunable, Blowable {
     let id: UUID
     let name: String

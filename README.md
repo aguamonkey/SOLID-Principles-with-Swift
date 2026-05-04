@@ -1,60 +1,113 @@
 # SOLID Principles with Swift
 
-## Overview
+Practical Swift and SwiftUI examples for learning the five SOLID design principles through small, runnable Xcode projects.
 
-This repository is dedicated to demonstrating the SOLID principles in the context of Swift and SwiftUI programming. Each principle is explored through a series of SwiftUI projects, clearly annotated to highlight their practical application and benefits. Our aim is to provide a hands-on learning experience for developers who wish to deepen their understanding of SOLID principles in Swift development.
+This repository is built as a guided learning path. Each project focuses on one principle, uses a memorable domain, and keeps the code close enough to real app architecture that the lesson transfers into production Swift code.
 
-## Principles
+## Who This Is For
 
-The SOLID principles are a set of design guidelines in object-oriented programming that enable more understandable, flexible, and maintainable software. We'll explore each principle as follows:
+- Swift developers who know the language basics and want cleaner app architecture.
+- iOS developers learning how protocols, view models, services, and dependency injection fit together.
+- Interview or portfolio preparation where you want concrete examples of maintainable design.
+- Mentors and study groups looking for compact projects to discuss principle by principle.
 
-### Single Responsibility Principle (SRP)
+## Project Map
 
-- **Project:** SRPExample
-- **Description:** This project illustrates SRP by creating a SwiftUI view that focuses on a single functionality, ensuring that each class has only one reason to change.
+| Principle | Project | Domain | Start Here | What To Notice |
+| --- | --- | --- | --- | --- |
+| SRP | `SRPExample- Angels and Demons` | Angels and demons browser | `DataService/DataService.swift` | Data access, hierarchy logic, and SwiftUI views have separate reasons to change. |
+| OCP | `Open-Closed-Principle-(OCP)-Galactic-Explorer` | Galactic explorer | `Services/EntityFactory.swift` | New space entities can be registered and decoded without changing the core factory. |
+| LSP | `LSPExample` | Orchestra instruments | `Services/OrchestraService.swift` | The orchestra can perform with any `Playable` instrument through the same abstraction. |
+| ISP | `EcoShop Backend ISP` | E-commerce backend views | `Interfaces/ProductManaging.swift` | Product, order, and review workflows depend on focused interfaces instead of one large API. |
+| DIP | `ModularNetworkServiceExample` | Network service module | `Services/DIContainer.swift` | High-level view models depend on protocols, while concrete services are supplied at the boundary. |
 
-### Open/Closed Principle (OCP)
+## Requirements
 
-- **Project:** OCPExample
-- **Description:** Demonstrates OCP using SwiftUI components that are open for extension but closed for modification, promoting reusable and maintainable code.
-
-### Liskov Substitution Principle (LSP)
-
-- **Project:** LSPExample
-- **Description:** Showcases LSP by implementing interchangeable subclasses that don't alter the expected behavior of the program.
-
-### Interface Segregation Principle (ISP)
-
-- **Project:** ISPExample
-- **Description:** Focuses on ISP by designing small and specific protocols for SwiftUI components, ensuring that the implementing classes only need to know about relevant methods.
-
-### Dependency Inversion Principle (DIP)
-
-- **Project:** ModularNetworkServiceExample
-- **Description:** Illustrates DIP in SwiftUI by creating high-level modules independent from low-level modules, using abstractions to achieve decoupling.
+- Xcode 15 or newer recommended.
+- Swift 5.9 or newer recommended.
+- iOS Simulator support through the included Xcode projects.
 
 ## Getting Started
 
-To get started with the projects:
-
 1. Clone the repository.
-2. Navigate to the project directory of the principle you want to explore.
-3. Open the project in Xcode.
-4. Review the source code and comments to understand the application of the SOLID principle.
-5. Run the project in the simulator to see the principle in action.
+2. Open the Xcode project for the principle you want to study.
+3. Run the app target to see the example in motion.
+4. Open the matching test target to see the principle expressed as assertions.
+5. Change or add one concrete type, then confirm the rest of the system does not need to change.
 
-## Contribution
+## Learning Path
 
-Contributions to enhance the examples or to add additional SwiftUI examples demonstrating the SOLID principles are welcome. Please adhere to the following guidelines:
+### 1. Single Responsibility Principle
 
-- Ensure that any contributions are clear and concise.
-- Comments and documentation should be detailed enough to explain the application of the SOLID principle.
-- Keep the SwiftUI views simple and focused on demonstrating the principle.
+Project: `SRPExample- Angels and Demons`
+
+The SRP example separates SwiftUI navigation, data loading, domain models, and hierarchy description. The core lesson is that a file or type should have one reason to change: UI layout changes should not force data-service edits, and hierarchy-rule changes should not require rewriting views.
+
+Suggested exercise: add a new property to angels or demons and decide which type should own that change.
+
+### 2. Open/Closed Principle
+
+Project: `Open-Closed-Principle-(OCP)-Galactic-Explorer`
+
+The OCP example uses `SpaceEntity`, `EntityFactory`, and registration functions so new entity types can be introduced through extension points. The factory remains closed to modification while the entity set remains open to extension.
+
+Suggested exercise: add an `Asteroid` entity and register it without changing the factory's decoding algorithm.
+
+### 3. Liskov Substitution Principle
+
+Project: `LSPExample`
+
+The LSP example models an orchestra that performs with any `Playable`. More specific capabilities, such as `Tunable` and `Blowable`, are handled separately so a general `Playable` can still be substituted safely.
+
+Suggested exercise: add a `PercussionInstrument` that can play but cannot be blown into, then confirm the orchestra still performs correctly.
+
+### 4. Interface Segregation Principle
+
+Project: `EcoShop Backend ISP`
+
+The ISP example separates product, order, and review responsibilities into focused interfaces. It also includes smaller read/write protocol shapes so consumers can depend only on the operations they actually need.
+
+Suggested exercise: introduce a read-only product screen that depends on `ProductReading` instead of full product management.
+
+### 5. Dependency Inversion Principle
+
+Project: `ModularNetworkServiceExample`
+
+The DIP example places protocols between high-level policy and low-level networking/logging details. View models depend on repositories, repositories depend on use cases, and concrete services are registered through the dependency container.
+
+Suggested exercise: swap the real network service for `MockNetworkService` in tests without touching the view model.
+
+## Tests
+
+Each project contains a test target. The most useful tests are the ones that describe the principle directly:
+
+- LSP: any `Playable` can be used by `OrchestraService`.
+- OCP: a newly registered entity can be decoded by the existing factory.
+- ISP: a consumer can depend on a focused product interface.
+- DIP: the network view model can use mock networking and mock logging through protocols.
+
+Run tests from Xcode with `Cmd+U`, or use `xcodebuild test` from the command line for an individual project and scheme.
+
+## Repository Goals
+
+This is not intended to be a framework or production app. The goal is to make SOLID visible in Swift code:
+
+- examples should stay small enough to read in one sitting;
+- abstractions should exist because they teach a design pressure;
+- tests should act as executable documentation;
+- comments should explain intent, not repeat the code.
+
+## Contributing
+
+Contributions are welcome when they make a principle clearer, improve build reliability, or add focused tests. Please keep examples compact and avoid unrelated refactors inside principle projects.
+
+Good contributions include:
+
+- adding a before/after example for a principle;
+- improving a test so it documents the design rule;
+- fixing project naming or setup friction;
+- adding screenshots or short demo GIFs.
 
 ## License
 
-This project is open-sourced under the MIT License.
-
----
-
-**Note:** This README sets the stage for your repository. You can add more sections as needed, such as "Installation Requirements", "Project Structure", or "FAQs" to make it more comprehensive.
+This project is open source under the MIT License.
