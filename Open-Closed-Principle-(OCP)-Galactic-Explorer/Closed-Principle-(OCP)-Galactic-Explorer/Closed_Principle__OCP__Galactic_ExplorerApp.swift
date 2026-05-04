@@ -15,21 +15,18 @@ import SwiftUI
 
 @main
 struct OCPGalacticExplorerApp: App {
-    init() {
-        // Register all the SpaceEntity types for decoding
-        registerEntityTypes()
-    }
+    private let entityRegistry = makeProductionEntityRegistry()
 
     var body: some Scene {
         WindowGroup {
             NavigationView {
                 // Use only the bundle JSON loader:
-                let jsonLoader = JSONSpaceEntityLoader() // defaults to “entities.json” in app bundle
+                let jsonLoader = JSONSpaceEntityLoader(registry: entityRegistry) // defaults to “entities.json” in app bundle
 
                 // If you still want API fallback, you can swap in the composite:
                 // let loader = CompositeSpaceEntityLoader(loaders: [
-                //     JSONSpaceEntityLoader(),
-                //     APISpaceEntityLoader(endpoint: URL(string: "https://api.example.com/entities")!)
+                //     JSONSpaceEntityLoader(registry: entityRegistry),
+                //     APISpaceEntityLoader(endpoint: URL(string: "https://api.example.com/entities")!, registry: entityRegistry)
                 // ])
 
                 GalacticExplorerView(

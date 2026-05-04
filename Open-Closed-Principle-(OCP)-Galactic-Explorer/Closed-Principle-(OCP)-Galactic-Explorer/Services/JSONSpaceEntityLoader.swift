@@ -8,7 +8,8 @@
 import Foundation
 
 /// Loads SpaceEntity data from a local JSON file.
-/// Decodes into [`AnySpaceEntity`](EntityFactory.swift) wrappers, then extracts the real entities.
+/// Decodes into `AnySpaceEntity` wrappers using an EntityRegistry,
+/// then extracts the real entities.
 //
 //  JSONSpaceEntityLoader.swift
 //  OCPGalacticExplorer
@@ -21,11 +22,17 @@ import Foundation
 public struct JSONSpaceEntityLoader: SpaceEntityDataLoader {
     private let resourceName: String
     private let resourceExtension: String
+    private let registry: EntityRegistry
 
     /// - Parameters:
     ///   - resourceName: the base filename in your bundle (no “.json” suffix)
     ///   - resourceExtension: the file extension (usually “json”)
-    public init(resourceName: String = "entities", resourceExtension: String = "json") {
+    public init(
+        registry: EntityRegistry,
+        resourceName: String = "entities",
+        resourceExtension: String = "json"
+    ) {
+        self.registry = registry
         self.resourceName = resourceName
         self.resourceExtension = resourceExtension
     }
@@ -49,7 +56,9 @@ public struct JSONSpaceEntityLoader: SpaceEntityDataLoader {
         let data = try Data(contentsOf: url)
 
         // 3. Decode via our AnySpaceEntity wrapper
-        let wrappers = try JSONDecoder().decode([AnySpaceEntity].self, from: data)
+        let decoder = JSONDecoder()
+        decoder.userInfo[.entityRegistry] = registry
+        let wrappers = try decoder.decode([AnySpaceEntity].self, from: data)
         let entities = wrappers.map { $0.entity }
         print("[JSONLoader] Decoded \(entities.count) entities:", entities.map { $0.name })
 

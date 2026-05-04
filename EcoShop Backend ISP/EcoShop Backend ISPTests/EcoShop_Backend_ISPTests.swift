@@ -11,13 +11,15 @@ import XCTest
 final class EcoShop_Backend_ISPTests: XCTestCase {
 
     @MainActor
-    func testProductViewModelDependsOnlyOnProductManaging() async {
-        let productManager: ProductManaging = MockProductManager()
-        let viewModel = ProductViewModel(productManager: productManager)
+    func testProductListViewModelDependsOnlyOnProductReading() async {
+        let productReader: ProductReading = ReadOnlyProductCatalog(products: [
+            Product(id: "book", name: "SOLID Swift", description: "Design principles in practice", price: 24.99)
+        ])
+        let viewModel = ProductListViewModel(productReader: productReader)
         
         await viewModel.loadProducts()
         
-        XCTAssertEqual(viewModel.products.count, 2)
+        XCTAssertEqual(viewModel.products.map(\.name), ["SOLID Swift"])
         XCTAssertNil(viewModel.errorMessage)
     }
 
@@ -30,6 +32,20 @@ final class EcoShop_Backend_ISPTests: XCTestCase {
         
         XCTAssertEqual(products.map(\.name), ["SOLID Swift"])
     }
+
+    @MainActor
+    func testProductMutationViewModelDependsOnlyOnProductWriting() async {
+        let productWriter = WriteOnlyProductSink()
+        let viewModel = ProductMutationViewModel(productWriter: productWriter)
+        let product = Product(id: "pen", name: "Refactor Pen", description: "Writes small protocols", price: 3.99)
+
+        await viewModel.addProduct(product)
+        await viewModel.deleteProduct(product.id)
+
+        XCTAssertEqual(productWriter.addedProducts.map(\.id), ["pen"])
+        XCTAssertEqual(productWriter.deletedProductIds, ["pen"])
+        XCTAssertNil(viewModel.errorMessage)
+    }
 }
 
 private struct ReadOnlyProductCatalog: ProductReading {
@@ -41,5 +57,20 @@ private struct ReadOnlyProductCatalog: ProductReading {
     
     func findAllProducts() async throws -> [Product] {
         products
+    }
+}
+
+private final class WriteOnlyProductSink: ProductWriting {
+    private(set) var addedProducts: [Product] = []
+    private(set) var deletedProductIds: [String] = []
+    
+    func addProduct(_ product: Product) async throws {
+        addedProducts.append(product)
+    }
+    
+    func updateProduct(_ product: Product) async throws {}
+    
+    func deleteProduct(_ productId: String) async throws {
+        deletedProductIds.append(productId)
     }
 }

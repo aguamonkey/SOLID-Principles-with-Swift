@@ -9,22 +9,26 @@
 import SwiftUI
 
 struct ProductManagementView: View {
-    // INTERFACE SEGREGATION: This view only needs ProductViewModel
-    // It doesn't need to know about orders or reviews
-    @StateObject private var viewModel: ProductViewModel
+    @StateObject private var listViewModel: ProductListViewModel
+    @StateObject private var mutationViewModel: ProductMutationViewModel
     @State private var productName: String = ""
     @State private var productDescription: String = ""
     @State private var productPrice: String = ""
     @State private var showingAlert: Bool = false
     
+    init(productReader: ProductReading, productWriter: ProductWriting) {
+        _listViewModel = StateObject(wrappedValue: ProductListViewModel(productReader: productReader))
+        _mutationViewModel = StateObject(wrappedValue: ProductMutationViewModel(productWriter: productWriter))
+    }
+    
     init(productManager: ProductManaging) {
-        _viewModel = StateObject(wrappedValue: ProductViewModel(productManager: productManager))
+        self.init(productReader: productManager, productWriter: productManager)
     }
     
     var body: some View {
         NavigationView {
             VStack {
-                if viewModel.isLoading {
+                if listViewModel.isLoading {
                     ProgressView("Loading...")
                         .padding()
                 }
@@ -32,7 +36,7 @@ struct ProductManagementView: View {
                 productList
                 productInputSection
                 
-                if let error = viewModel.errorMessage {
+                if let error = listViewModel.errorMessage ?? mutationViewModel.errorMessage {
                     Text(error)
                         .foregroundColor(.red)
                         .padding()
@@ -43,14 +47,14 @@ struct ProductManagementView: View {
                 Button("OK", role: .cancel) {}
             }
             .task {
-                await viewModel.loadProducts()
+                await listViewModel.loadProducts()
             }
         }
     }
     
     private var productList: some View {
         List {
-            ForEach(viewModel.products, id: \.id) { product in
+            ForEach(listViewModel.products, id: \.id) { product in
                 VStack(alignment: .leading) {
                     Text(product.name).font(.headline)
                     Text(product.description)
@@ -94,7 +98,8 @@ struct ProductManagementView: View {
             price: price
         )
         
-        await viewModel.addProduct(newProduct)
+        await mutationViewModel.addProduct(newProduct)
+        await listViewModel.loadProducts()
         
         // Clear the input fields
         productName = ""
@@ -105,9 +110,10 @@ struct ProductManagementView: View {
     private func deleteProduct(at offsets: IndexSet) {
         Task {
             for index in offsets {
-                let productId = viewModel.products[index].id
-                await viewModel.deleteProduct(productId)
+                let productId = listViewModel.products[index].id
+                await mutationViewModel.deleteProduct(productId)
             }
+            await listViewModel.loadProducts()
         }
     }
 }

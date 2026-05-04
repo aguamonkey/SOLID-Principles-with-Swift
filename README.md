@@ -16,7 +16,7 @@ This repository is built as a guided learning path. Each project focuses on one 
 | Principle | Project | Domain | Start Here | What To Notice |
 | --- | --- | --- | --- | --- |
 | SRP | `SRPExample- Angels and Demons` | Angels and demons browser | `DataService/DataService.swift` | Data access, hierarchy logic, and SwiftUI views have separate reasons to change. |
-| OCP | `Open-Closed-Principle-(OCP)-Galactic-Explorer` | Galactic explorer | `Services/EntityFactory.swift` | New space entities can be registered and decoded without changing the core factory. |
+| OCP | `Open-Closed-Principle-(OCP)-Galactic-Explorer` | Galactic explorer | `Services/EntityRegistry.swift` | New space entities can be registered in an instance-owned registry without changing the core decoder. |
 | LSP | `LSPExample` | Orchestra instruments | `Services/OrchestraService.swift` | The orchestra can perform with any `Playable` instrument through the same abstraction. |
 | ISP | `EcoShop Backend ISP` | E-commerce backend views | `Interfaces/ProductManaging.swift` | Product, order, and review workflows depend on focused interfaces instead of one large API. |
 | DIP | `ModularNetworkServiceExample` | Network service module | `Services/DIContainer.swift` | High-level view models depend on protocols, while concrete services are supplied at the boundary. |
@@ -49,7 +49,7 @@ Suggested exercise: add a new property to angels or demons and decide which type
 
 Project: `Open-Closed-Principle-(OCP)-Galactic-Explorer`
 
-The OCP example uses `SpaceEntity`, `EntityFactory`, and registration functions so new entity types can be introduced through extension points. The factory remains closed to modification while the entity set remains open to extension.
+The OCP example uses `SpaceEntity`, `EntityRegistry`, and registration functions so new entity types can be introduced through extension points. The decoder remains closed to modification while each app or test can own its own registry.
 
 Suggested exercise: add an `Asteroid` entity and register it without changing the factory's decoding algorithm.
 

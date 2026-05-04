@@ -12,7 +12,8 @@ import SwiftUI
 final class Closed_Principle__OCP__Galactic_ExplorerTests: XCTestCase {
 
     func testFactoryDecodesRegisteredEntityWithoutChangingCoreDecoder() throws {
-        EntityFactory.register("Asteroid") { decoder in
+        let registry = EntityRegistry()
+        registry.register("Asteroid") { decoder in
             try Asteroid(from: decoder)
         }
         
@@ -25,7 +26,9 @@ final class Closed_Principle__OCP__Galactic_ExplorerTests: XCTestCase {
         }
         """.data(using: .utf8)!
         
-        let decoded = try JSONDecoder().decode(AnySpaceEntity.self, from: json)
+        let decoder = JSONDecoder()
+        decoder.userInfo[.entityRegistry] = registry
+        let decoded = try decoder.decode(AnySpaceEntity.self, from: json)
         
         let asteroid = try XCTUnwrap(decoded.entity as? Asteroid)
         XCTAssertEqual(asteroid.name, "Vesta")

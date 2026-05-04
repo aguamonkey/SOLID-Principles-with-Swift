@@ -7,10 +7,12 @@
 
 import Foundation
 
-/// Call once at app startup to register all entity decoders.
-public func registerEntityTypes() {
-    EntityFactory.register("Planet") { decoder in try Planet(from: decoder) }
-    EntityFactory.register("Star")   { decoder in try Star(from: decoder)   }
-    EntityFactory.register("Comet")  { decoder in try Comet(from: decoder)  }
+/// Creates the production registry used by app loaders.
+public func makeProductionEntityRegistry() -> EntityRegistry {
+    let registry = EntityRegistry()
+    registry.register("Planet") { decoder in try Planet(from: decoder) }
+    registry.register("Star")   { decoder in try Star(from: decoder)   }
+    registry.register("Comet")  { decoder in try Comet(from: decoder)  }
     // Future entity types can register here without changing the factory.
+    return registry
 }

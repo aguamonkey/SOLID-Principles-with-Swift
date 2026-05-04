@@ -7,8 +7,8 @@
 
 import Foundation
 
-// INTERFACE SEGREGATION: Mock implementation only needs to implement ProductManaging
-// This makes testing easier as we only mock what we need
+// MockProductManager supports the full product capability for previews.
+// Tests can still provide narrower read-only or write-only doubles.
 class MockProductManager: ProductManaging {
     private var mockProducts: [Product] = [
         Product(id: "1", name: "iPhone 15", description: "Latest iPhone", price: 999.99),

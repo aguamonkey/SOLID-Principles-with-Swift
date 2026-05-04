@@ -7,9 +7,8 @@
 
 import Foundation
 
-// INTERFACE SEGREGATION: Concrete implementation that only implements ProductManaging
-// If we had segregated into ProductReading and ProductWriting, we could have
-// separate implementations for read-only vs full access scenarios
+// ProductManager supports both smaller product capabilities for the app's full
+// management screen, while read-only views can still depend on ProductReading.
 class ProductManager: ProductManaging {
     private var products: [Product] = []
     
