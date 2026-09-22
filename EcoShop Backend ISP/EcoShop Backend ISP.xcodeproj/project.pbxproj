@@ -26,6 +26,8 @@
 		E3FC05492B419DE10082CF96 /* EcoShop_Backend_ISPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC05482B419DE10082CF96 /* EcoShop_Backend_ISPTests.swift */; };
 		E3FC05532B419DE10082CF96 /* EcoShop_Backend_ISPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC05522B419DE10082CF96 /* EcoShop_Backend_ISPUITests.swift */; };
 		E3FC05552B419DE10082CF96 /* EcoShop_Backend_ISPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC05542B419DE10082CF96 /* EcoShop_Backend_ISPUITestsLaunchTests.swift */; };
+		AABB10000000000000000000 /* LedgerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB00000000000000000000 /* LedgerStyle.swift */; };
+		AABB10000000000000000001 /* CatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB00000000000000000001 /* CatalogView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		E3FC054E2B419DE10082CF96 /* EcoShop Backend ISPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "EcoShop Backend ISPUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3FC05522B419DE10082CF96 /* EcoShop_Backend_ISPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoShop_Backend_ISPUITests.swift; sourceTree = "<group>"; };
 		E3FC05542B419DE10082CF96 /* EcoShop_Backend_ISPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoShop_Backend_ISPUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AABB00000000000000000000 /* LedgerStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerStyle.swift; sourceTree = "<group>"; };
+		AABB00000000000000000001 /* CatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -114,6 +118,8 @@
 		58DDCF382B66BFBA001F3FCB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AABB00000000000000000000 /* LedgerStyle.swift */,
+				AABB00000000000000000001 /* CatalogView.swift */,
 				58DDCF392B66BFF0001F3FCB /* ProductManagementView.swift */,
 				580980B72BE7D58D000EDE2C /* OrderManagementView.swift */,
 				E3FC05392B419DDE0082CF96 /* ContentView.swift */,
@@ -355,6 +361,8 @@
 				580980B22BE7CDF8000EDE2C /* ProductViewModel.swift in Sources */,
 				58E3F5832B66B1E800CFCF46 /* Order.swift in Sources */,
 				58E3F5812B66B1C000CFCF46 /* Product.swift in Sources */,
+				AABB10000000000000000000 /* LedgerStyle.swift in Sources */,
+				AABB10000000000000000001 /* CatalogView.swift in Sources */,
 				58DDCF3A2B66BFF0001F3FCB /* ProductManagementView.swift in Sources */,
 				580980BA2BE7D7D0000EDE2C /* ReviewManagementView.swift in Sources */,
 			);

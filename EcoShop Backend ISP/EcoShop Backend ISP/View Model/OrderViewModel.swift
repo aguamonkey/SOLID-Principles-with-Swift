@@ -5,11 +5,12 @@
 //  Created by Joshua Browne on 05/05/2024.
 //
 
+import Combine
 import Foundation
 
-// Order UI policy depends on the smallest service shape that can support it.
+// Order UI depends on its workflow interface, without catalog or review operations.
 @MainActor
-class OrderViewModel: ObservableObject {
+final class OrderViewModel: ObservableObject {
     private let orderProcessor: OrderProcessing
     
     @Published var orders: [Order] = []
@@ -34,12 +35,16 @@ class OrderViewModel: ObservableObject {
         isLoading = false
     }
     
-    func placeOrder(_ order: Order) async {
+    @discardableResult
+    func placeOrder(_ order: Order) async -> Bool {
+        errorMessage = nil
         do {
             try await orderProcessor.placeOrder(order)
             await loadOrders()
+            return true
         } catch {
-            errorMessage = "Failed to place order: \(error.localizedDescription)"
+            errorMessage = "Could not save: \(error.localizedDescription)"
+            return false
         }
     }
     

@@ -9,10 +9,7 @@ import Foundation
 
 // Review previews stay small because this mock only models review behavior.
 class MockReviewHandler: ReviewHandling {
-    private var mockReviews: [Review] = [
-        Review(id: "1", productId: "1", title: "Great Phone!", content: "Love this iPhone", rating: 5),
-        Review(id: "2", productId: "2", title: "Powerful Machine", content: "Best laptop ever", rating: 4)
-    ]
+    private var mockReviews: [Review] = ShopSamples.reviews
     
     func addReview(_ review: Review) async throws {
         mockReviews.append(review)

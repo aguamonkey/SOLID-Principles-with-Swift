@@ -8,8 +8,10 @@
 import Foundation
 
 // Review storage concerns remain separate from ordering and product editing.
-class ReviewHandler: ReviewHandling {
-    private var reviews: [Review] = []
+actor ReviewHandler: ReviewHandling {
+    private var reviews: [Review]
+
+    init(reviews: [Review] = []) { self.reviews = reviews }
     
     func addReview(_ review: Review) async throws {
         try await Task.sleep(nanoseconds: 500_000_000)

@@ -15,7 +15,9 @@ Verified with Xcode 26.2 and an iPhone 17 simulator running iOS 26.2 on 22 Septe
 - **Galactic Explorer:** seven unit tests and two atlas UI tests passed.
 - **Orchestra:** nine unit tests and three rehearsal UI tests passed. The two affected UI cases were rerun after the final layout refinements and passed again.
 
-The UI checks cover app interactions and the largest accessibility text size. README screenshots come from the actual running apps. SRP, ISP, DIP, and the separate template launch-test suites were not rerun in these changes.
+- **EcoShop:** thirteen unit tests and five ledger UI tests passed, including catalog refresh, add/edit/remove, empty shelves, and accessibility text. The Goods screen was also visually checked in simulator dark mode.
+
+The UI checks cover app interactions and the largest accessibility text size. README screenshots come from the actual running apps. SRP, DIP, and the separate template launch-test suites were not rerun in these changes.
 
 ## Open and run
 
@@ -70,6 +72,19 @@ xcodebuild test \
   -derivedDataPath /tmp/solid-lsp-dd \
   -only-testing:LSPExampleTests \
   -only-testing:LSPExampleUITests/LSPExampleUITests \
+  CODE_SIGNING_ALLOWED=NO
+```
+
+For the EcoShop capability and ledger checks:
+
+```sh
+xcodebuild test \
+  -project "EcoShop Backend ISP/EcoShop Backend ISP.xcodeproj" \
+  -scheme "EcoShop Backend ISP" \
+  -destination 'platform=iOS Simulator,id=SIMULATOR_ID' \
+  -derivedDataPath /tmp/solid-isp-dd \
+  -only-testing:'EcoShop Backend ISPTests' \
+  -only-testing:'EcoShop Backend ISPUITests/EcoShop_Backend_ISPUITests' \
   CODE_SIGNING_ALLOWED=NO
 ```
 

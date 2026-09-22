@@ -8,8 +8,10 @@
 import Foundation
 
 // A real order service can evolve its persistence without widening product clients.
-class OrderProcessor: OrderProcessing {
-    private var orders: [Order] = []
+actor OrderProcessor: OrderProcessing {
+    private var orders: [Order]
+
+    init(orders: [Order] = []) { self.orders = orders }
     
     func placeOrder(_ order: Order) async throws {
         try await Task.sleep(nanoseconds: 500_000_000)

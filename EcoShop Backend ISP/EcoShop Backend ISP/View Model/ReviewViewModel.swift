@@ -5,11 +5,12 @@
 //  Created by Joshua Browne on 05/05/2024.
 //
 
+import Combine
 import Foundation
 
 // Review UI policy is insulated from unrelated product and order operations.
 @MainActor
-class ReviewViewModel: ObservableObject {
+final class ReviewViewModel: ObservableObject {
     private let reviewHandler: ReviewHandling
     
     @Published var reviews: [Review] = []
@@ -34,12 +35,16 @@ class ReviewViewModel: ObservableObject {
         isLoading = false
     }
     
-    func addReview(_ review: Review) async {
+    @discardableResult
+    func addReview(_ review: Review) async -> Bool {
+        errorMessage = nil
         do {
             try await reviewHandler.addReview(review)
             await loadReviews()
+            return true
         } catch {
-            errorMessage = "Failed to add review: \(error.localizedDescription)"
+            errorMessage = "Could not save: \(error.localizedDescription)"
+            return false
         }
     }
     

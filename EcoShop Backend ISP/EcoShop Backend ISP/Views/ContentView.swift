@@ -1,43 +1,28 @@
-//
-//
-//  ContentView.swift
-//  EcoShop Backend ISP
-//
-//  Created by Gobias LTD on 31/12/2023.
-//
-
 import SwiftUI
 
 struct ContentView: View {
-    // Separate workflow dependencies keep product, order, and review changes independent.
-    var productManager: ProductManaging
-    var orderProcessor: OrderProcessing
-    var reviewHandler: ReviewHandling
-    
+    // Only the composition point needs all capabilities. Each child receives its own.
+    let productManager: ProductManaging
+    let orderProcessor: OrderProcessing
+    let reviewHandler: ReviewHandling
+
+    @State private var productRevision = 0
+
     var body: some View {
         TabView {
-            ProductManagementView(productManager: productManager)
-                .tabItem {
-                    Label("Products", systemImage: "cube.box")
-                }
-            
+            CatalogView(productReader: productManager, refreshVersion: productRevision)
+                .tabItem { Label("Goods", systemImage: "book.closed") }
+            ProductManagementView(productReader: productManager, productWriter: productManager) { productRevision += 1 }
+                .tabItem { Label("Stockroom", systemImage: "shippingbox") }
             OrderManagementView(orderProcessor: orderProcessor)
-                .tabItem {
-                    Label("Orders", systemImage: "cart")
-                }
-            
+                .tabItem { Label("Orders", systemImage: "receipt") }
             ReviewManagementView(reviewHandler: reviewHandler)
-                .tabItem {
-                    Label("Reviews", systemImage: "star.circle")
-                }
+                .tabItem { Label("Reviews", systemImage: "text.bubble") }
         }
+        .tint(LedgerStyle.ink)
     }
 }
 
 #Preview {
-    ContentView(
-        productManager: MockProductManager(),
-        orderProcessor: MockOrderProcessor(),
-        reviewHandler: MockReviewHandler()
-    )
+    ContentView(productManager: MockProductManager(), orderProcessor: MockOrderProcessor(), reviewHandler: MockReviewHandler())
 }

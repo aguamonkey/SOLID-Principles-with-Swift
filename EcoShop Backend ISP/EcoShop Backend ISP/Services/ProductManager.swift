@@ -9,8 +9,10 @@ import Foundation
 
 // ProductManager supports both smaller product capabilities for the app's full
 // management screen, while read-only views can still depend on ProductReading.
-class ProductManager: ProductManaging {
-    private var products: [Product] = []
+actor ProductManager: ProductManaging {
+    private var products: [Product]
+
+    init(products: [Product] = []) { self.products = products }
     
     func addProduct(_ product: Product) async throws {
         // Simulate network delay

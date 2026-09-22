@@ -9,9 +9,7 @@ import Foundation
 
 // Tests and previews can exercise order flows without catalog or review fixtures.
 class MockOrderProcessor: OrderProcessing {
-    private var mockOrders: [Order] = [
-        Order(id: "1", productIds: ["1", "2"], orderDate: Date(), totalAmount: 3499.98)
-    ]
+    private var mockOrders: [Order] = ShopSamples.orders
     
     func placeOrder(_ order: Order) async throws {
         mockOrders.append(order)
