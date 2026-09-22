@@ -33,6 +33,8 @@
 		E3E089B22B3730BC006421A4 /* SpaceEntityProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089B12B3730BC006421A4 /* SpaceEntityProtocols.swift */; };
 		E3E089B62B37324B006421A4 /* SpaceEntityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089B52B37324B006421A4 /* SpaceEntityView.swift */; };
 		E3E089B82B3831EE006421A4 /* FutureConsiderations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089B72B3831EE006421A4 /* FutureConsiderations.swift */; };
+		A71A50000000000000000010 /* OrbitalAtlasStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71A50000000000000000000 /* OrbitalAtlasStyle.swift */; };
+		A71A50000000000000000011 /* OrbitalMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71A50000000000000000001 /* OrbitalMapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		E3E089B12B3730BC006421A4 /* SpaceEntityProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEntityProtocols.swift; sourceTree = "<group>"; };
 		E3E089B52B37324B006421A4 /* SpaceEntityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceEntityView.swift; sourceTree = "<group>"; };
 		E3E089B72B3831EE006421A4 /* FutureConsiderations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureConsiderations.swift; sourceTree = "<group>"; };
+		A71A50000000000000000000 /* OrbitalAtlasStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrbitalAtlasStyle.swift; sourceTree = "<group>"; };
+		A71A50000000000000000001 /* OrbitalMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrbitalMapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +198,8 @@
 		E3E089A32B3724A4006421A4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A71A50000000000000000000 /* OrbitalAtlasStyle.swift */,
+				A71A50000000000000000001 /* OrbitalMapView.swift */,
 				E3E089AB2B3728CF006421A4 /* GalacticExplorerView.swift */,
 				583D69412DD896FE00B81BBF /* ReactiveGalacticExplorerView.swift */,
 				E3E089B52B37324B006421A4 /* SpaceEntityView.swift */,
@@ -355,6 +361,8 @@
 				E3E089A62B3725CC006421A4 /* SpaceEntity.swift in Sources */,
 				583D69392DD8969200B81BBF /* CompositeLoader.swift in Sources */,
 				583D69442DD897F500B81BBF /* EntityRegistration.swift in Sources */,
+				A71A50000000000000000010 /* OrbitalAtlasStyle.swift in Sources */,
+				A71A50000000000000000011 /* OrbitalMapView.swift in Sources */,
 				E3E089AC2B3728CF006421A4 /* GalacticExplorerView.swift in Sources */,
 				583D69332DD8965900B81BBF /* SpaceEntityDataLoader.swift in Sources */,
 				583D69312DD88A6300B81BBF /* EntityRegistry.swift in Sources */,
@@ -625,7 +633,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Closed-Principle-(OCP)-Galactic-Explorer";
+				TEST_TARGET_NAME = "Open-Closed-Principle-(OCP)-Galactic-Explorer";
 			};
 			name = Debug;
 		};
@@ -641,7 +649,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Closed-Principle-(OCP)-Galactic-Explorer";
+				TEST_TARGET_NAME = "Open-Closed-Principle-(OCP)-Galactic-Explorer";
 			};
 			name = Release;
 		};

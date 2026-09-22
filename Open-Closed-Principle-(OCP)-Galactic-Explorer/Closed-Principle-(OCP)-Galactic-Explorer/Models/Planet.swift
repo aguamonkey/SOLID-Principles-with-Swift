@@ -10,9 +10,10 @@ import SwiftUI
 
 // Models/Planet.swift
 
-// Planet is a subclass of SpaceEntity. It extends SpaceEntity without modifying it, adhering to OCP.
+// Planet supplies its decoding and presentation through the SpaceEntity contract.
 /// Planet entity.
 public class Planet: SpaceEntity {
+    public let id = UUID()
     public let name: String
     public let description: String
     public let numberOfMoons: Int
@@ -37,12 +38,6 @@ public class Planet: SpaceEntity {
 
     /// Custom view for planets
     public func makeView() -> AnyView {
-        AnyView(
-            VStack(alignment: .leading) {
-                Text("Name: \(name)")
-                Text("Moons: \(numberOfMoons)")
-            }
-            .padding()
-        )
+        AnyView(AtlasFactView(label: "SATELLITES", value: "\(numberOfMoons) moon\(numberOfMoons == 1 ? "" : "s")"))
     }
 }

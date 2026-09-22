@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Scheme LastUpgradeVersion="2620" version="1.3">
+  <BuildAction parallelizeBuildables="YES" buildImplicitDependencies="YES">
+    <BuildActionEntries>
+      <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+        <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="E3E089742B37224F006421A4" BuildableName="Open-Closed-Principle-(OCP)-Galactic-Explorer.app" BlueprintName="Open-Closed-Principle-(OCP)-Galactic-Explorer" ReferencedContainer="container:Open-Closed-Principle-(OCP)-Galactic-Explorer.xcodeproj" />
+      </BuildActionEntry>
+    </BuildActionEntries>
+  </BuildAction>
+  <TestAction buildConfiguration="Debug" selectedDebuggerIdentifier="Xcode.DebuggerFoundation.Debugger.LLDB" selectedLauncherIdentifier="Xcode.IDEFoundation.Launcher.LLDB" shouldUseLaunchSchemeArgsEnv="YES">
+    <Testables>
+      <TestableReference skipped="NO">
+        <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="E3E089842B372252006421A4" BuildableName="Open-Closed-Principle-(OCP)-Galactic-ExplorerTests.xctest" BlueprintName="Open-Closed-Principle-(OCP)-Galactic-ExplorerTests" ReferencedContainer="container:Open-Closed-Principle-(OCP)-Galactic-Explorer.xcodeproj" />
+      </TestableReference>
+      <TestableReference skipped="NO">
+        <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="E3E0898E2B372252006421A4" BuildableName="Open-Closed-Principle-(OCP)-Galactic-ExplorerUITests.xctest" BlueprintName="Open-Closed-Principle-(OCP)-Galactic-ExplorerUITests" ReferencedContainer="container:Open-Closed-Principle-(OCP)-Galactic-Explorer.xcodeproj" />
+      </TestableReference>
+    </Testables>
+  </TestAction>
+  <LaunchAction buildConfiguration="Debug" selectedDebuggerIdentifier="Xcode.DebuggerFoundation.Debugger.LLDB" selectedLauncherIdentifier="Xcode.IDEFoundation.Launcher.LLDB" launchStyle="0" useCustomWorkingDirectory="NO" ignoresPersistentStateOnLaunch="NO" debugDocumentVersioning="YES" debugServiceExtension="internal" allowLocationSimulation="YES">
+    <BuildableProductRunnable runnableDebuggingMode="0">
+      <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="E3E089742B37224F006421A4" BuildableName="Open-Closed-Principle-(OCP)-Galactic-Explorer.app" BlueprintName="Open-Closed-Principle-(OCP)-Galactic-Explorer" ReferencedContainer="container:Open-Closed-Principle-(OCP)-Galactic-Explorer.xcodeproj" />
+    </BuildableProductRunnable>
+  </LaunchAction>
+  <ProfileAction buildConfiguration="Release" shouldUseLaunchSchemeArgsEnv="YES" savedToolIdentifier="" useCustomWorkingDirectory="NO" debugDocumentVersioning="YES">
+    <BuildableProductRunnable runnableDebuggingMode="0">
+      <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="E3E089742B37224F006421A4" BuildableName="Open-Closed-Principle-(OCP)-Galactic-Explorer.app" BlueprintName="Open-Closed-Principle-(OCP)-Galactic-Explorer" ReferencedContainer="container:Open-Closed-Principle-(OCP)-Galactic-Explorer.xcodeproj" />
+    </BuildableProductRunnable>
+  </ProfileAction>
+  <AnalyzeAction buildConfiguration="Debug" />
+  <ArchiveAction buildConfiguration="Release" revealArchiveInOrganizer="YES" />
+</Scheme>

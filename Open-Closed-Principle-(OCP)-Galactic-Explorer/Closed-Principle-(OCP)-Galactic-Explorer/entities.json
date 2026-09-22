@@ -9,7 +9,7 @@
       "type": "Star",
       "name": "Sun",
       "description": "Our local star",
-      "type": "G-Type"
+      "spectralType": "G-Type"
     },
     {
       "type": "Comet",

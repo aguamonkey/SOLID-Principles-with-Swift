@@ -13,6 +13,7 @@ import SwiftUI
 /// All space entities conform to this protocol.
 /// OCP: Open for extension via new types conforming; Closed for modification of existing behavior.
 public protocol SpaceEntity: Codable, Identifiable {
+    /// Stable for the lifetime of this decoded entity, including view redraws.
     var id: UUID { get }
     var name: String { get }
     var description: String { get }
@@ -22,9 +23,6 @@ public protocol SpaceEntity: Codable, Identifiable {
 }
 
 public extension SpaceEntity {
-    // Default unique id
-    var id: UUID { UUID() }
-    
     // Default view shows basic info; can be overridden.
     func makeView() -> AnyView {
         AnyView(

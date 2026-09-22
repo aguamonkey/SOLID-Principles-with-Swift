@@ -9,10 +9,11 @@ import Foundation
 import SwiftUI
 // Models/Star.swift
 
-// Star is another subclass of SpaceEntity, demonstrating the extendibility of the base class.
+// Star conforms to SpaceEntity and supplies its own decoding and rendering.
 
 /// Star entity.
 public class Star: SpaceEntity {
+    public let id = UUID()
     public let name: String
     public let description: String
     public let type: String
@@ -31,17 +32,13 @@ public class Star: SpaceEntity {
     }
 
     private enum CodingKeys: String, CodingKey {
-        case name, description, type
+        case name, description
+        // Keep the entity discriminator separate from the stellar classification.
+        case type = "spectralType"
     }
 
     public func makeView() -> AnyView {
-        AnyView(
-            VStack(alignment: .leading) {
-                Text("Star: \(name)")
-                Text("Type: \(type)")
-            }
-            .padding()
-        )
+        AnyView(AtlasFactView(label: "CLASSIFICATION", value: type))
     }
 }
 

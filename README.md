@@ -1,125 +1,61 @@
 # SOLID Principles with Swift
 
-Practical Swift and SwiftUI examples for learning the five SOLID design principles through small, runnable Xcode projects.
+Learn the five SOLID principles through small SwiftUI apps, guided code walkthroughs, and tests that demonstrate what can change independently.
 
-This repository is built as a guided learning path. Each project focuses on one principle, uses a memorable domain, and keeps the code close enough to real app architecture that the lesson transfers into production Swift code.
+Each lesson connects a design problem to a concrete Swift example: browse angels and demons, extend a galaxy, assemble an orchestra, manage a shop, or swap a network dependency.
 
-## Who This Is For
+## Start learning
 
-- Swift developers who know the language basics and want cleaner app architecture.
-- iOS developers learning how protocols, view models, services, and dependency injection fit together.
-- Interview or portfolio preparation where you want concrete examples of maintainable design.
-- Mentors and study groups looking for compact projects to discuss principle by principle.
+You should be comfortable with Swift types, protocols, and basic SwiftUI. Follow the lessons in order, or jump to the principle you want to practise. Each app README includes a before/after explanation, a source reading route, relevant tests, and an exercise with a separate solution.
 
-## Project Map
+| Lesson | App | The question it answers |
+| --- | --- | --- |
+| [01 · Single Responsibility](SRPExample-%20Angels%20and%20Demons/README.md) | Angels and Demons | Can data access change independently of presentation? |
+| [02 · Open/Closed](Open-Closed-Principle-%28OCP%29-Galactic-Explorer/README.md) | Galactic Explorer | Can I add an entity without rewriting the decoder? |
+| [03 · Liskov Substitution](LSPExample/README.md) | Orchestra | Can every implementation honour the caller's expectations? |
+| [04 · Interface Segregation](EcoShop%20Backend%20ISP/README.md) | EcoShop | Can a reader depend only on reading operations? |
+| [05 · Dependency Inversion](ModularNetworkServiceExample/README.md) | Network Service | Can I replace infrastructure without rewriting the view model? |
 
-| Principle | Project | Domain | Start Here | What To Notice |
-| --- | --- | --- | --- | --- |
-| SRP | `SRPExample- Angels and Demons` | Angels and demons browser | `DataService/DataService.swift` | Data access, hierarchy logic, and SwiftUI views have separate reasons to change. |
-| OCP | `Open-Closed-Principle-(OCP)-Galactic-Explorer` | Galactic explorer | `Services/EntityRegistry.swift` | New space entities can be registered in an instance-owned registry without changing the core decoder. |
-| LSP | `LSPExample` | Orchestra instruments | `Services/OrchestraService.swift` | The orchestra can perform with any `Playable` instrument through the same abstraction. |
-| ISP | `EcoShop Backend ISP` | E-commerce backend views | `Interfaces/ProductManaging.swift` | Product, order, and review workflows depend on focused interfaces instead of one large API. |
-| DIP | `ModularNetworkServiceExample` | Network service module | `Services/DIContainer.swift` | High-level view models depend on protocols, while concrete services are supplied at the boundary. |
+**Suggested first deep dive:** [extend Galactic Explorer with an asteroid](Open-Closed-Principle-%28OCP%29-Galactic-Explorer/README.md). Trace the registration, inspect the decoder, and read the test that exercises the extension point.
 
-## Requirements
+## Inside Galactic Explorer
 
-- Xcode 15 or newer recommended.
-- Swift 5.9 or newer recommended.
-- iOS Simulator support through the included Xcode projects.
+<img src="docs/images/galactic-explorer-atlas.png" alt="Galactic Explorer running on an iPhone simulator: an orbital atlas with a schematic map, an object index, and Earth selected." width="320">
 
-## Getting Started
+The first implemented design from the collection. [Study how the atlas stays open to new entity types](Open-Closed-Principle-%28OCP%29-Galactic-Explorer/README.md).
 
-1. Clone the repository.
-2. Open the Xcode project for the principle you want to study.
-3. Run the app target to see the example in motion.
-4. Open the matching test target to see the principle expressed as assertions.
-5. Change or add one concrete type, then confirm the rest of the system does not need to change.
+## Run an example
 
-## Learning Path
+1. Open the Xcode project linked from its lesson.
+2. Select a compatible iPhone simulator and press **Cmd+R**.
+3. Press **Cmd+U** to run the tests, then try the lesson's exercise.
 
-### How To Read Each Project
+See [setup and test commands](docs/SETUP.md) for deployment targets, Terminal instructions, and troubleshooting. The apps are independent projects; there is no root app to run.
 
-For each principle, start with the model or protocol named in the project map, then follow the dependency outward to the service, view model, view, and test. The tests are the fastest way to see the design rule in action: they show what can change without forcing unrelated code to change.
+## Engineering decisions to explore
 
-### 1. Single Responsibility Principle
+- **Boundaries with a purpose:** separate changes to data access, domain descriptions, and presentation in SRP.
+- **Explicit extension points:** give each OCP loader or test an instance-owned entity registry.
+- **Behaviour behind protocols:** examine what callers can expect from all `Playable` instruments, and distinguish LSP from capability segregation.
+- **Dependencies shaped by consumers:** let the ISP list view model use a read-only catalog without implementing writes.
+- **Replaceable infrastructure:** supply networking and logging through initializers; inspect DIP tests for success, failure, and request cancellation.
 
-Project: `SRPExample- Angels and Demons`
+These are teaching examples. Each lesson discusses the cost of its abstractions and limitations of the current implementation. SOLID is a way to reason about change, not a requirement to add a protocol to every type.
 
-The SRP example separates SwiftUI navigation, data loading, domain models, and hierarchy description. The core lesson is that a file or type should have one reason to change: UI layout changes should not force data-service edits, and hierarchy-rule changes should not require rewriting views.
+See the [app design direction](docs/DESIGN.md) for the visual identity of each example and implementation status.
 
-Suggested exercise: add a new property to angels or demons and decide which type should own that change.
+## How to study
 
-### 2. Open/Closed Principle
+Read the small before/after example first. Follow the numbered source links, run the relevant tests, then make the proposed change. Before reading the solution, write down which files you expect to edit and which should stay untouched.
 
-Project: `Open-Closed-Principle-(OCP)-Galactic-Explorer`
-
-The OCP example uses `SpaceEntity`, `EntityRegistry`, and registration functions so new entity types can be introduced through extension points. The decoder remains closed to modification while each app or test can own its own registry.
-
-Suggested exercise: add an `Asteroid` entity and register it without changing the factory's decoding algorithm.
-
-### 3. Liskov Substitution Principle
-
-Project: `LSPExample`
-
-The LSP example models an orchestra that performs with any `Playable`. More specific capabilities, such as `Tunable` and `Blowable`, are handled separately so a general `Playable` can still be substituted safely.
-
-Suggested exercise: add a `PercussionInstrument` that can play but cannot be blown into, then confirm the orchestra still performs correctly.
-
-### 4. Interface Segregation Principle
-
-Project: `EcoShop Backend ISP`
-
-The ISP example separates product, order, and review responsibilities into focused interfaces. It also includes smaller read/write protocol shapes so consumers can depend only on the operations they actually need.
-
-Suggested exercise: introduce a read-only product screen that depends on `ProductReading` instead of full product management.
-
-### 5. Dependency Inversion Principle
-
-Project: `ModularNetworkServiceExample`
-
-The DIP example places protocols between high-level policy and low-level networking/logging details. View models depend on repositories, repositories depend on use cases, and concrete services are registered through the dependency container.
-
-Suggested exercise: swap the real network service for `MockNetworkService` in tests without touching the view model.
-
-## Tests
-
-Each project contains a test target. The most useful tests are the ones that describe the principle directly:
-
-- LSP: any `Playable` can be used by `OrchestraService`.
-- OCP: a newly registered entity can be decoded by the existing factory.
-- ISP: a consumer can depend on a focused product interface.
-- DIP: the network view model can use mock networking and mock logging through protocols.
-
-Run tests from Xcode with `Cmd+U`. From the repository root, these commands build each test bundle into `/tmp` so they work better in sandboxed or local automation environments:
-
-```sh
-xcodebuild build-for-testing -project "SRPExample- Angels and Demons/SRP-Example-Angels-and-Demons/SRP-Example-Angels-and-Demons.xcodeproj" -scheme "SRP-Example-Angels-and-Demons" -destination "generic/platform=iOS Simulator" -derivedDataPath /tmp/solid-srp-dd CODE_SIGNING_ALLOWED=NO
-xcodebuild build-for-testing -project "Open-Closed-Principle-(OCP)-Galactic-Explorer/Open-Closed-Principle-(OCP)-Galactic-Explorer.xcodeproj" -scheme "Open-Closed-Principle-(OCP)-Galactic-Explorer" -destination "generic/platform=iOS Simulator" -derivedDataPath /tmp/solid-ocp-dd CODE_SIGNING_ALLOWED=NO
-xcodebuild build-for-testing -project "LSPExample/LSPExample.xcodeproj" -scheme "LSPExample" -destination "generic/platform=iOS Simulator" -derivedDataPath /tmp/solid-lsp-dd CODE_SIGNING_ALLOWED=NO
-xcodebuild build-for-testing -project "EcoShop Backend ISP/EcoShop Backend ISP.xcodeproj" -scheme "EcoShop Backend ISP" -destination "generic/platform=iOS Simulator" -derivedDataPath /tmp/solid-isp-dd CODE_SIGNING_ALLOWED=NO
-xcodebuild build-for-testing -project "ModularNetworkServiceExample/ModularNetworkServiceExample.xcodeproj" -scheme "ModularNetworkServiceExample" -destination "generic/platform=iOS Simulator" -derivedDataPath /tmp/solid-dip-dd CODE_SIGNING_ALLOWED=NO
-```
-
-## Repository Goals
-
-This is not intended to be a framework or production app. The goal is to make SOLID visible in Swift code:
-
-- examples should stay small enough to read in one sitting;
-- abstractions should exist because they teach a design pressure;
-- tests should act as executable documentation;
-- comments should explain intent, not repeat the code.
+For interview preparation, explain the concrete change pressure, the boundary you chose, and a situation where you would keep the design simpler. A useful explanation goes beyond naming the principle.
 
 ## Contributing
 
-Contributions are welcome when they make a principle clearer, improve build reliability, or add focused tests. Please keep examples compact and avoid unrelated refactors inside principle projects.
+Contributions should make a lesson easier to understand or verify. Keep changes focused and include the reason behind a new abstraction. Useful contributions include clearer exercises, behavioural tests, reproducible setup fixes, and real app screenshots.
 
-Good contributions include:
-
-- adding a before/after example for a principle;
-- improving a test so it documents the design rule;
-- fixing project naming or setup friction;
-- adding screenshots or short demo GIFs.
+When changing an example, update its lesson and run the relevant tests. State what you verified in the pull request.
 
 ## License
 
-This project is open source under the MIT License.
+[MIT](LICENSE)

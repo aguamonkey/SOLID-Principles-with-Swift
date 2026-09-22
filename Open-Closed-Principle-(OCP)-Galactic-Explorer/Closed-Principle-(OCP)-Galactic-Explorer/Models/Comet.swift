@@ -10,6 +10,7 @@ import SwiftUI
 
 /// Comet entity.
 public class Comet: SpaceEntity {
+    public let id = UUID()
     public let name: String
     public let description: String
     public let tailLength: Double
@@ -32,12 +33,6 @@ public class Comet: SpaceEntity {
     }
 
     public func makeView() -> AnyView {
-        AnyView(
-            VStack(alignment: .leading) {
-                Text("Comet: \(name)")
-                Text("Tail: \(tailLength) km")
-            }
-            .padding()
-        )
+        AnyView(AtlasFactView(label: "TAIL LENGTH", value: "\(tailLength.formatted()) km"))
     }
 }
