@@ -1,41 +1,89 @@
-//
-//  LSPExampleUITests.swift
-//  LSPExampleUITests
-//
-//  Created by Gobias LTD on 31/12/2023.
-//
-
 import XCTest
 
 final class LSPExampleUITests: XCTestCase {
-
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testRehearsalRestsAVoiceAndPerformsWithRemainingInstruments() {
         let app = XCUIApplication()
         app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let flute = app.buttons["instrument.Flute"]
+        XCTAssertTrue(flute.waitForExistence(timeout: 10))
+        attachScreenshot("Orchestra — Rehearsal score")
+        flute.tap()
+        XCTAssertEqual(flute.value as? String, "Resting")
+        let perform = app.buttons["performConcert"]
+        scrollTo(perform, in: app)
+        perform.tap()
+        let first = app.staticTexts["response.0"]
+        let second = app.staticTexts["response.1"]
+        scrollTo(second, in: app)
+        XCTAssertTrue(first.label.contains("Violin"))
+        XCTAssertTrue(second.label.contains("Trumpet"))
+        XCTAssertFalse(app.staticTexts["response.2"].exists)
+        attachScreenshot("Orchestra — Ensemble response")
     }
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
+    func testEmptyEnsembleDisablesTheCue() {
+        let app = XCUIApplication()
+        app.launch()
+        XCTAssertTrue(app.buttons["instrument.Violin"].waitForExistence(timeout: 10))
+        for name in ["Violin", "Flute", "Trumpet"] {
+            let button = app.buttons["instrument.\(name)"]
+            scrollTo(button, in: app)
+            button.tap()
+        }
+        let perform = app.buttons["performConcert"]
+        scrollTo(perform, in: app)
+        XCTAssertFalse(perform.isEnabled)
+        XCTAssertTrue(app.staticTexts["ensembleCount"].label.contains("0 voices"))
+    }
+
+    func testRehearsalAtAccessibilityTextSize() {
+        let app = XCUIApplication()
+        app.launchArguments = ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
+        app.launch()
+        XCTAssertTrue(app.staticTexts["rehearsalHeading"].waitForExistence(timeout: 10))
+        let flute = app.buttons["instrument.Flute"]
+        scrollTo(flute, in: app)
+        flute.tap()
+        XCTAssertEqual(flute.value as? String, "Resting")
+        let perform = app.buttons["performConcert"]
+        scrollTo(perform, in: app)
+        perform.tap()
+        let response = app.staticTexts["response.0"]
+        scrollTo(response, in: app)
+        XCTAssertTrue(response.label.contains("Violin"))
+        attachScreenshot("Orchestra — Accessibility text")
+    }
+
+    private func scrollTo(_ element: XCUIElement, in app: XCUIApplication) {
+        // A partly visible large-text button can be hittable while its centre is
+        // obscured. Bring the full control into the safe viewport before tapping.
+        let viewport = app.frame.insetBy(dx: 0, dy: 90)
+        for _ in 0..<20 {
+            if element.exists {
+                let frame = element.frame
+                if viewport.contains(frame) && element.isHittable { return }
+                let distance = frame.midY - viewport.midY
+                let fraction = min(abs(distance) / app.frame.height, 0.35)
+                let startY: CGFloat = distance > 0 ? 0.7 : 0.3
+                let endY = startY + (distance > 0 ? -fraction : fraction)
+                app.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: startY))
+                    .press(forDuration: 0.05, thenDragTo:
+                        app.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: endY)))
+            } else {
+                app.swipeUp(velocity: .slow)
             }
         }
+        XCTAssertTrue(element.isHittable)
+    }
+
+    private func attachScreenshot(_ name: String) {
+        let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+        attachment.name = name
+        attachment.lifetime = .keepAlways
+        add(attachment)
     }
 }

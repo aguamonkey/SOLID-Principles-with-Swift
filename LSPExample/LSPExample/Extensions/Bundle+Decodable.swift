@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 extension Bundle {
     /// Decode a JSON file from the main bundle into a Decodable type.
     func decode<T: Decodable>(_ filename: String) -> T {

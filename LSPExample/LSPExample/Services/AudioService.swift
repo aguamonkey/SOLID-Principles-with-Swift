@@ -1,35 +1,30 @@
-//
-//  AudioService.swift
-//  LSPExample
-//
-//  Created by Joshua Browne on 29/05/2025.
-//
-
-import Foundation
 import AVFoundation
 
+/// Optional sample playback is independent of the Playable contract.
+/// Previewing one instrument replaces the previous preview.
 final class AudioService {
-    static let shared = AudioService()
-    private var players: [String: AVAudioPlayer] = [:]
+    private var player: AVAudioPlayer?
 
-    /// Play a sound by its filename (must be in bundle).
-    func play(soundFileName: String) {
-        if let player = players[soundFileName], player.isPlaying {
-            player.stop()
-        }
-
+    @discardableResult
+    func play(soundFileName: String) -> String? {
+        stop()
         guard let url = Bundle.main.url(forResource: soundFileName, withExtension: nil) else {
-            print("🔊 Audio file \(soundFileName) not found.")
-            return
+            return "This instrument's audio preview is unavailable."
         }
-
         do {
-            let player = try AVAudioPlayer(contentsOf: url)
-            players[soundFileName] = player
-            player.prepareToPlay()
-            player.play()
+            let next = try AVAudioPlayer(contentsOf: url)
+            guard next.prepareToPlay(), next.play() else {
+                return "The audio preview could not start."
+            }
+            player = next
+            return nil
         } catch {
-            print("🔊 Failed to play \(soundFileName): \(error)")
+            return "The audio preview could not be opened."
         }
+    }
+
+    func stop() {
+        player?.stop()
+        player = nil
     }
 }

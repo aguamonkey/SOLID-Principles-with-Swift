@@ -18,11 +18,13 @@ You should be comfortable with Swift types, protocols, and basic SwiftUI. Follow
 
 **Suggested first deep dive:** [extend Galactic Explorer with an asteroid](Open-Closed-Principle-%28OCP%29-Galactic-Explorer/README.md). Trace the registration, inspect the decoder, and read the test that exercises the extension point.
 
-## Inside Galactic Explorer
+## Inside the apps
 
-<img src="docs/images/galactic-explorer-atlas.png" alt="Galactic Explorer running on an iPhone simulator: an orbital atlas with a schematic map, an object index, and Earth selected." width="320">
+<img src="docs/images/galactic-explorer-atlas.png" alt="Galactic Explorer running on an iPhone simulator: an orbital atlas with a schematic map, an object index, and Earth selected." width="300">
 
-The first implemented design from the collection. [Study how the atlas stays open to new entity types](Open-Closed-Principle-%28OCP%29-Galactic-Explorer/README.md).
+<img src="docs/images/orchestra-rehearsal.png" alt="Orchestra running on an iPhone simulator: a printed rehearsal score with violin, flute, and trumpet and a conductor cue button." width="300">
+
+Real app screenshots. [Extend the orbital atlas with a new entity](Open-Closed-Principle-%28OCP%29-Galactic-Explorer/README.md), or [test the behavioural contract behind the orchestra](LSPExample/README.md).
 
 ## Run an example
 

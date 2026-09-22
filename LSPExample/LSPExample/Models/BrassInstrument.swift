@@ -7,10 +7,7 @@
 
 import Foundation
 
-// Models/BrassInstrument.swift
-
-// A subclass of Instrument representing brass instruments.
-// Adheres to LSP by fulfilling the contract established by the Instrument class.
+// A protocol conformer: it fulfils Playable without an Instrument superclass.
 
 struct BrassInstrument: Playable, Tunable, Blowable {
     let id: UUID

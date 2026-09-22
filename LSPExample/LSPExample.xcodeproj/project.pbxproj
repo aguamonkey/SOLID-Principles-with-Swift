@@ -32,10 +32,10 @@
 		E3FC051E2B418A1F0082CF96 /* StringInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC051D2B418A1F0082CF96 /* StringInstrument.swift */; };
 		E3FC05202B418A2E0082CF96 /* WindInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC051F2B418A2E0082CF96 /* WindInstrument.swift */; };
 		E3FC05222B418B540082CF96 /* OrchestraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC05212B418B540082CF96 /* OrchestraService.swift */; };
-		E3FC05242B418C340082CF96 /* OrchestraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC05232B418C340082CF96 /* OrchestraView.swift */; };
 		E3FC05262B4191140082CF96 /* BrassInstrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC05252B4191140082CF96 /* BrassInstrument.swift */; };
-		E3FC05282B4195F40082CF96 /* InstrumentSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC05272B4195F40082CF96 /* InstrumentSelectionView.swift */; };
 		E3FC052A2B4196270082CF96 /* OrchestraPerformanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC05292B4196270082CF96 /* OrchestraPerformanceView.swift */; };
+		BEA750000000000000000010 /* RehearsalStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA750000000000000000000 /* RehearsalStyle.swift */; };
+		BEA750000000000000000011 /* ScoreStaffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA750000000000000000001 /* ScoreStaffView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,10 +84,10 @@
 		E3FC051D2B418A1F0082CF96 /* StringInstrument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringInstrument.swift; sourceTree = "<group>"; };
 		E3FC051F2B418A2E0082CF96 /* WindInstrument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindInstrument.swift; sourceTree = "<group>"; };
 		E3FC05212B418B540082CF96 /* OrchestraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrchestraService.swift; sourceTree = "<group>"; };
-		E3FC05232B418C340082CF96 /* OrchestraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrchestraView.swift; sourceTree = "<group>"; };
 		E3FC05252B4191140082CF96 /* BrassInstrument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrassInstrument.swift; sourceTree = "<group>"; };
-		E3FC05272B4195F40082CF96 /* InstrumentSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentSelectionView.swift; sourceTree = "<group>"; };
 		E3FC05292B4196270082CF96 /* OrchestraPerformanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrchestraPerformanceView.swift; sourceTree = "<group>"; };
+		BEA750000000000000000000 /* RehearsalStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RehearsalStyle.swift; sourceTree = "<group>"; };
+		BEA750000000000000000001 /* ScoreStaffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreStaffView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,13 +233,13 @@
 		E3FC051A2B4189A50082CF96 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E3FC05232B418C340082CF96 /* OrchestraView.swift */,
-				E3FC05272B4195F40082CF96 /* InstrumentSelectionView.swift */,
 				E3FC05292B4196270082CF96 /* OrchestraPerformanceView.swift */,
+				BEA750000000000000000000 /* RehearsalStyle.swift */,
+				BEA750000000000000000001 /* ScoreStaffView.swift */,
 				58B004E62DE8A13200C31CCA /* InstrumentRowView.swift */,
 			);
 			name = Views;
-			path = "New Group";
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,16 +380,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				58B004E52DE8A11B00C31CCA /* AudioService.swift in Sources */,
-				E3FC05242B418C340082CF96 /* OrchestraView.swift in Sources */,
 				58B004DF2DE8A0A300C31CCA /* Bundle+Decodable.swift in Sources */,
 				E3FC04F12B41897F0082CF96 /* ContentView.swift in Sources */,
 				E3FC051E2B418A1F0082CF96 /* StringInstrument.swift in Sources */,
 				E3FC05202B418A2E0082CF96 /* WindInstrument.swift in Sources */,
 				58B004E32DE8A0EE00C31CCA /* InstrumentInfoStore.swift in Sources */,
-				E3FC05282B4195F40082CF96 /* InstrumentSelectionView.swift in Sources */,
 				58B004DA2DE89DB000C31CCA /* Tunable.swift in Sources */,
 				E3FC05262B4191140082CF96 /* BrassInstrument.swift in Sources */,
 				58B004D82DE89DA500C31CCA /* Playable.swift in Sources */,
+				BEA750000000000000000010 /* RehearsalStyle.swift in Sources */,
+				BEA750000000000000000011 /* ScoreStaffView.swift in Sources */,
 				58B004E72DE8A13200C31CCA /* InstrumentRowView.swift in Sources */,
 				E3FC052A2B4196270082CF96 /* OrchestraPerformanceView.swift in Sources */,
 				58B004DC2DE89DBA00C31CCA /* Blowable.swift in Sources */,

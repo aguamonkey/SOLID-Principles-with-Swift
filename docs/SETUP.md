@@ -10,7 +10,12 @@ The DIP project targets iOS 17.2. The OCP, LSP, and ISP projects target iOS 16.2
 
 ## Verified environment
 
-On 22 September 2026, Galactic Explorer built and all seven OCP unit tests plus both atlas UI tests passed using Xcode 26.2 and an iPhone 17 simulator running iOS 26.2. The UI checks cover selection/cycling and the largest accessibility text size. The README screenshot is captured from that running app. Other apps and the separate launch-test suite were not rerun in this change.
+Verified with Xcode 26.2 and an iPhone 17 simulator running iOS 26.2 on 22 September 2026:
+
+- **Galactic Explorer:** seven unit tests and two atlas UI tests passed.
+- **Orchestra:** nine unit tests and three rehearsal UI tests passed. The two affected UI cases were rerun after the final layout refinements and passed again.
+
+The UI checks cover app interactions and the largest accessibility text size. README screenshots come from the actual running apps. SRP, ISP, DIP, and the separate template launch-test suites were not rerun in these changes.
 
 ## Open and run
 
@@ -54,6 +59,19 @@ xcodebuild test \
 ```
 
 This command runs the seven OCP unit tests. Omit `-only-testing` to include the scheme's UI tests as well. Use the corresponding project, scheme, and test target for the other lessons. `generic/platform=iOS Simulator` is a build destination, not a device on which tests can execute.
+
+For the Orchestra contract and rehearsal checks:
+
+```sh
+xcodebuild test \
+  -project LSPExample/LSPExample.xcodeproj \
+  -scheme LSPExample \
+  -destination 'platform=iOS Simulator,id=SIMULATOR_ID' \
+  -derivedDataPath /tmp/solid-lsp-dd \
+  -only-testing:LSPExampleTests \
+  -only-testing:LSPExampleUITests/LSPExampleUITests \
+  CODE_SIGNING_ALLOWED=NO
+```
 
 ## If setup fails
 

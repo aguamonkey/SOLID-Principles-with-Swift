@@ -1,21 +1,22 @@
-//
-//  OrchestraService.swift
-//  LSPExample
-//
-//  Created by Gobias LTD on 31/12/2023.
-//
-
-import Foundation
 import Combine
+import Foundation
 
-// OrchestraService is responsible for managing a collection of instruments.
-// It adheres to LSP by treating all instruments, regardless of their specific subclass, uniformly.
-
-class OrchestraService: ObservableObject {
-    @Published var instruments: [any Playable] = []
+/// The concert depends only on Playable's behaviour. Optional capabilities are
+/// queried separately and are never prerequisites for taking part in a concert.
+final class OrchestraService: ObservableObject {
+    @Published private(set) var instruments: [any Playable] = []
 
     func addInstrument(_ instrument: any Playable) {
+        guard !contains(instrument.id) else { return }
         instruments.append(instrument)
+    }
+
+    func removeInstrument(id: UUID) {
+        instruments.removeAll { $0.id == id }
+    }
+
+    func contains(_ id: UUID) -> Bool {
+        instruments.contains { $0.id == id }
     }
 
     func performConcert() -> [String] {
