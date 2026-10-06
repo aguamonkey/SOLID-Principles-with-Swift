@@ -1,23 +1,12 @@
-//
-//  AngelModel.swift
-//  SRP-Example-Angels-and-Demons
-//
-//  Created by Gobias LTD on 17/12/2023.
-//
-
 import Foundation
 
-// AngelModel is responsible for representing the data and behavior of an Angel.
-// It adheres to the Single Responsibility Principle by focusing solely on angel-related data and logic.
-
-// MARK: - Models
-
-struct AngelModel {
+/// A figure's identity and description are independent of loading and SwiftUI.
+struct AngelModel: Identifiable, Equatable {
+    var id: String = UUID().uuidString
     var name: String
     var power: String
-    
-    // Functionality specific to an Angel.
+
     func describePower() -> String {
-        return "\(name) possesses the power of \(power)."
+        "\(name) possesses the power of \(power)."
     }
 }

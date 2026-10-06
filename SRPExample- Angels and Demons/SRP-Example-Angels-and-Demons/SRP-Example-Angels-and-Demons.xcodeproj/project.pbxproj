@@ -26,6 +26,8 @@
 		E37955342B2F1968008F9151 /* AngelDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37955332B2F1968008F9151 /* AngelDetailView.swift */; };
 		E37955362B2F198C008F9151 /* DemonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37955352B2F198C008F9151 /* DemonDetailView.swift */; };
 		E3E0896B2B371D52006421A4 /* FurtherIdeas.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E0896A2B371D52006421A4 /* FurtherIdeas.swift */; };
+		CCAA10000000000000000000 /* GuideStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA00000000000000000000; };
+		CCAA10000000000000000001 /* CatalogViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA00000000000000000001; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		E37955332B2F1968008F9151 /* AngelDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngelDetailView.swift; sourceTree = "<group>"; };
 		E37955352B2F198C008F9151 /* DemonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemonDetailView.swift; sourceTree = "<group>"; };
 		E3E0896A2B371D52006421A4 /* FurtherIdeas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FurtherIdeas.swift; sourceTree = "<group>"; };
+		CCAA00000000000000000000 /* GuideStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideStyle.swift; sourceTree = "<group>"; };
+		CCAA00000000000000000001 /* CatalogViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,8 @@
 			children = (
 				E37955302B2F1916008F9151 /* DataService */,
 				E37954F22B28D6C5008F9151 /* SRP_Example_Angels_and_DemonsApp.swift */,
+				CCAA00000000000000000000 /* GuideStyle.swift */,
+				CCAA00000000000000000001 /* CatalogViewModels.swift */,
 				E37954F42B28D6C5008F9151 /* ContentView.swift */,
 				E379551F2B2F109D008F9151 /* Devil */,
 				E379551E2B2F1091008F9151 /* Angel */,
@@ -317,6 +323,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCAA10000000000000000000 /* GuideStyle.swift in Sources */,
+				CCAA10000000000000000001 /* CatalogViewModels.swift in Sources */,
 				E37954F52B28D6C5008F9151 /* ContentView.swift in Sources */,
 				E37955342B2F1968008F9151 /* AngelDetailView.swift in Sources */,
 				E37955362B2F198C008F9151 /* DemonDetailView.swift in Sources */,
@@ -497,7 +505,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -527,7 +535,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

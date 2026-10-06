@@ -12,6 +12,7 @@ struct DemonHierarchy {
     var demons: [DemonModel]
     
     func describeHierarchy() -> String {
-        return "Hierarchy: \(rank) with \(demons.count) demons."
+        let noun = demons.count == 1 ? "demon" : "demons"
+        return "Hierarchy: \(rank) with \(demons.count) \(noun)."
     }
 }

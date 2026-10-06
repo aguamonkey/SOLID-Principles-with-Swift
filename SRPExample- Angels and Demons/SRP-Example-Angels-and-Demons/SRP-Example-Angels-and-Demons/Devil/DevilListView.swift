@@ -1,40 +1,50 @@
-//
-//  DevilListView.swift
-//  SRP-Example-Angels-and-Demons
-//
-//  Created by Gobias LTD on 17/12/2023.
-//
-
-import Foundation
 import SwiftUI
 
-// DemonListView is responsible for displaying a list of demons.
-// It maintains SRP by focusing only on the presentation of DemonView instances.
-// DemonListView handles asynchronous loading of demon data and builds the hierarchy.
 struct DemonListView: View {
-    let dataService: DataServiceProtocol
-    @State private var hierarchy: DemonHierarchy?
-    
+    @StateObject private var viewModel: DemonCatalogViewModel
+    @State private var selectedID: String?
+
+    init(dataService: DataServiceProtocol) {
+        _viewModel = StateObject(wrappedValue: DemonCatalogViewModel(dataService: dataService))
+    }
+
     var body: some View {
-        Group {
-            if let hierarchy = hierarchy {
-                List(hierarchy.demons, id: \.name) { demon in
-                    NavigationLink(destination: DemonDetailView(demon: demon)) {
-                        DemonView(demon: demon)
+        VStack(alignment: .leading, spacing: 18) {
+            if viewModel.isLoading { ProgressView("Opening the demons index…") }
+            else if let error = viewModel.errorMessage {
+                GuideNotice(message: error) { Task { await viewModel.load() } }
+            } else if let hierarchy = viewModel.hierarchy {
+                if hierarchy.demons.isEmpty {
+                    GuideNotice(message: "No demons in this volume.")
+                } else {
+                    let selected = hierarchy.demons.first { $0.id == selectedID } ?? hierarchy.demons[0]
+                    GuideStyle.label("\(hierarchy.rank.uppercased()) / PLATE \(plateNumber(selected, in: hierarchy.demons))")
+                        .foregroundStyle(GuideStyle.annotation)
+                    DemonDetailView(demon: selected)
+                    Text(hierarchy.describeHierarchy()).font(.system(.caption, design: .serif))
+                        .foregroundStyle(GuideStyle.secondary).accessibilityIdentifier("hierarchy-description")
+                    GuideStyle.divider
+                    GuideStyle.label("IN THIS ORDER")
+                    VStack(spacing: 0) {
+                        ForEach(hierarchy.demons) { figure in
+                            Button { selectedID = figure.id } label: {
+                                HStack(spacing: 14) {
+                                    DemonView(demon: figure)
+                                    Image(systemName: selected.id == figure.id ? "bookmark.fill" : "arrow.up.right")
+                                        .foregroundStyle(GuideStyle.annotation).accessibilityHidden(true)
+                                }.contentShape(Rectangle())
+                            }.buttonStyle(.plain).accessibilityIdentifier("figure-\(figure.id)")
+                                .accessibilityValue(selected.id == figure.id ? "Selected" : "Not selected")
+                            GuideStyle.divider
+                        }
                     }
                 }
-                .navigationBarTitle("Demons - \(hierarchy.rank)")
-            } else {
-                ProgressView("Loading Demons...")
             }
         }
-        .task {
-            do {
-                let demons = try await dataService.getAllDemons()
-                hierarchy = DemonHierarchy(rank: "Greater Demon", demons: demons)
-            } catch {
-                print("Error fetching demons: \(error)")
-            }
-        }
+        .task { await viewModel.load() }
+    }
+
+    private func plateNumber(_ figure: DemonModel, in figures: [DemonModel]) -> String {
+        String(format: "%02d", (figures.firstIndex(where: { $0.id == figure.id }) ?? 0) + 1)
     }
 }

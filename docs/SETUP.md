@@ -6,7 +6,7 @@
 
 Use Xcode with an installed iOS Simulator runtime. The projects use Swift 5 language mode; the compiler bundled with Xcode may have a newer version number. Some source files use `#Preview`, so use Xcode 15 or later, with an SDK that supports the selected target.
 
-The DIP project targets iOS 17.2. The OCP, LSP, and ISP projects target iOS 16.2. The SRP app target specifies iOS 15.4, while its unit test target specifies iOS 16.2. These are project settings, not a claim that every older Xcode release has been verified.
+The DIP project targets iOS 17.2. The OCP, LSP, and ISP projects target iOS 16.2. The SRP app and its tests target iOS 16.2. These are project settings, not a claim that every older Xcode release has been verified.
 
 ## Verified environment
 
@@ -17,9 +17,11 @@ Verified with Xcode 26.2 and an iPhone 17 simulator running iOS 26.2 on 22 Septe
 
 - **EcoShop:** thirteen unit tests and five ledger UI tests passed, including catalog refresh, add/edit/remove, empty shelves, and accessibility text. The Goods screen was also visually checked in simulator dark mode.
 
-The UI checks cover app interactions and the largest accessibility text size. README screenshots come from the actual running apps. SRP and the separate template launch-test suites were not rerun in these changes.
+The UI checks cover app interactions and the largest accessibility text size. README screenshots come from the actual running apps. The separate template launch-test suites were not rerun in these changes.
 
 Network Service was verified on 6 October 2026 with the same Xcode and simulator versions: ten unit tests and four patchboard UI tests passed. The UI cases were rerun after the layout refinement. Dark appearance was also visually checked. These checks use offline inputs and do not validate a live HTTP endpoint.
+
+Angels and Demons was verified on 6 October 2026 with Xcode 26.2 and iOS 26.2: eleven unit tests and three field-guide UI tests passed. The collection/selection case was rerun for the final screenshots. Dark appearance was visually checked.
 
 ## Open and run
 
@@ -100,6 +102,19 @@ xcodebuild test \
   -derivedDataPath /tmp/solid-dip-dd \
   -only-testing:ModularNetworkServiceExampleTests \
   -only-testing:ModularNetworkServiceExampleUITests/ModularNetworkServiceExampleUITests \
+  CODE_SIGNING_ALLOWED=NO
+```
+
+For the celestial field guide's responsibility and selection checks:
+
+```sh
+xcodebuild test \
+  -project "SRPExample- Angels and Demons/SRP-Example-Angels-and-Demons/SRP-Example-Angels-and-Demons.xcodeproj" \
+  -scheme SRP-Example-Angels-and-Demons \
+  -destination 'platform=iOS Simulator,id=SIMULATOR_ID' \
+  -derivedDataPath /tmp/solid-srp-dd \
+  -only-testing:SRP-Example-Angels-and-DemonsTests \
+  -only-testing:SRP-Example-Angels-and-DemonsUITests/SRP_Example_Angels_and_DemonsUITests \
   CODE_SIGNING_ALLOWED=NO
 ```
 

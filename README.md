@@ -20,6 +20,8 @@ You should be comfortable with Swift types, protocols, and basic SwiftUI. Follow
 
 ## Inside the apps
 
+<img src="docs/images/celestial-angels.png" alt="Angels and Demons running on an iPhone simulator: a celestial field guide with numbered plates and a figure index." width="300">
+
 <img src="docs/images/galactic-explorer-atlas.png" alt="Galactic Explorer running on an iPhone simulator: an orbital atlas with a schematic map, an object index, and Earth selected." width="300">
 
 <img src="docs/images/orchestra-rehearsal.png" alt="Orchestra running on an iPhone simulator: a printed rehearsal score with violin, flute, and trumpet and a conductor cue button." width="300">
@@ -28,7 +30,7 @@ You should be comfortable with Swift types, protocols, and basic SwiftUI. Follow
 
 <img src="docs/images/network-patchboard.png" alt="Network Service running on an iPhone simulator: a source patchboard connected to a terminal receiver." width="300">
 
-Real app screenshots. [Extend the orbital atlas with a new entity](Open-Closed-Principle-%28OCP%29-Galactic-Explorer/README.md), [test the behavioural contract behind the orchestra](LSPExample/README.md), [trace the read/write boundary in EcoShop](EcoShop%20Backend%20ISP/README.md), or [swap the network app’s input](ModularNetworkServiceExample/README.md).
+Real app screenshots. [Study the celestial field guide’s responsibilities](SRPExample-%20Angels%20and%20Demons/README.md), [extend the orbital atlas with a new entity](Open-Closed-Principle-%28OCP%29-Galactic-Explorer/README.md), [test the behavioural contract behind the orchestra](LSPExample/README.md), [trace the read/write boundary in EcoShop](EcoShop%20Backend%20ISP/README.md), or [swap the network app’s input](ModularNetworkServiceExample/README.md).
 
 ## Run an example
 

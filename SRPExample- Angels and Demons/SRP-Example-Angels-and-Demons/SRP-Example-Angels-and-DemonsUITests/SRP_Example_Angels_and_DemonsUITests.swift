@@ -1,41 +1,82 @@
-//
-//  SRP_Example_Angels_and_DemonsUITests.swift
-//  SRP-Example-Angels-and-DemonsUITests
-//
-//  Created by Gobias LTD on 12/12/2023.
-//
-
 import XCTest
 
 final class SRP_Example_Angels_and_DemonsUITests: XCTestCase {
+    override func setUpWithError() throws { continueAfterFailure = false }
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testBothCollectionsAndFigureSelection() {
         let app = XCUIApplication()
         app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssertTrue(app.buttons["figure-michael"].waitForExistence(timeout: 5))
+        screenshot("Celestial — Angels index")
+        let gabriel = app.buttons["figure-gabriel"]
+        scrollTo(gabriel, in: app)
+        gabriel.tap()
+        expectation(for: NSPredicate(format: "value == %@", "Selected"), evaluatedWith: gabriel)
+        waitForExpectations(timeout: 3)
+        XCTAssertTrue(app.staticTexts["figure-description"].label.contains("Gabriel"))
+        let demons = app.buttons["collection-Demons"]
+        scrollTo(demons, in: app)
+        demons.tap()
+        XCTAssertTrue(app.buttons["figure-lucifer"].waitForExistence(timeout: 5))
+        app.swipeDown(velocity: .slow)
+        screenshot("Celestial — Demons index")
+        let mammon = app.buttons["figure-mammon"]
+        scrollTo(mammon, in: app)
+        mammon.tap()
+        XCTAssertTrue(app.staticTexts["figure-description"].label.contains("Mammon"))
     }
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
+    func testReopeningAnIndexSelectsItsFirstFigure() {
+        let app = XCUIApplication()
+        app.launch()
+        let gabriel = app.buttons["figure-gabriel"]
+        XCTAssertTrue(gabriel.waitForExistence(timeout: 5))
+        scrollTo(gabriel, in: app)
+        gabriel.tap()
+        XCTAssertTrue(app.staticTexts["figure-description"].label.contains("Gabriel"))
+        let demons = app.buttons["collection-Demons"]
+        scrollTo(demons, in: app)
+        demons.tap()
+        XCTAssertTrue(app.buttons["figure-lucifer"].waitForExistence(timeout: 5))
+        app.buttons["collection-Angels"].tap()
+        XCTAssertTrue(app.buttons["figure-michael"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.staticTexts["figure-description"].label.contains("Michael"))
+    }
+
+    func testSelectionAtAccessibilityTextSize() {
+        let app = XCUIApplication()
+        app.launchArguments = ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
+        app.launch()
+        let gabriel = app.buttons["figure-gabriel"]
+        XCTAssertTrue(gabriel.waitForExistence(timeout: 5))
+        scrollTo(gabriel, in: app)
+        gabriel.tap()
+        let description = app.staticTexts["figure-description"]
+        scrollTo(description, in: app)
+        XCTAssertTrue(description.label.contains("Gabriel"))
+        screenshot("Celestial — Accessibility text")
+    }
+
+    private func scrollTo(_ element: XCUIElement, in app: XCUIApplication) {
+        let viewport = app.frame.insetBy(dx: 0, dy: 95)
+        for _ in 0..<24 {
+            if element.exists {
+                let frame = element.frame
+                if element.isHittable && (viewport.contains(frame) || frame.height > viewport.height && viewport.intersects(frame)) { return }
+                let distance = frame.midY - viewport.midY
+                let fraction = min(abs(distance) / app.frame.height, 0.4)
+                let startY: CGFloat = distance > 0 ? 0.7 : 0.3
+                app.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: startY))
+                    .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: startY + (distance > 0 ? -fraction : fraction))))
+            } else { app.swipeUp(velocity: .slow) }
         }
+        XCTAssertTrue(element.isHittable)
+    }
+
+    private func screenshot(_ name: String) {
+        let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+        attachment.name = name
+        attachment.lifetime = .keepAlways
+        add(attachment)
     }
 }

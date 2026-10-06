@@ -13,6 +13,7 @@ struct AngelHierarchy {
     
     // Encapsulates hierarchy-related logic.
     func describeHierarchy() -> String {
-        return "Hierarchy: \(rank) with \(angels.count) angels."
+        let noun = angels.count == 1 ? "angel" : "angels"
+        return "Hierarchy: \(rank) with \(angels.count) \(noun)."
     }
 }
