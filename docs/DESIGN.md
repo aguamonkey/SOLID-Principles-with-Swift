@@ -10,7 +10,7 @@ The collection shares a small `JB / Swift Studies` signature. Each app uses a di
 | Galactic Explorer | An astronomical atlas, numbered observations, ruled schematic map, ink and paper | New entity types enter the same map, index, and detail flow | Implemented in SwiftUI |
 | Orchestra | A rehearsal score with instrument staves and a conductor's cue | Different playable instruments respond to the same performance action | Implemented in SwiftUI |
 | EcoShop | A shopkeeper's ledger with ruled entries and a separate stockroom | Browsing depends on reading; stockroom actions use writing | Implemented in SwiftUI |
-| Network Service | A patchboard with replaceable inputs and a fixed receiver | Swap a source while keeping the consuming view model unchanged | Approved concept |
+| Network Service | A patchboard with replaceable inputs and a fixed receiver | Swap a source while keeping the consuming view model unchanged | Implemented in SwiftUI |
 
 ## Galactic Explorer boundaries
 
@@ -31,6 +31,12 @@ The score notation is illustrative. Performances are text descriptions, while in
 The Goods register is a reader-only screen. Stockroom composes a reader for its list with a writer for mutations; its editor takes a prefilled value and only a writer. The app composition supplies one shared product store. Switching back to Goods reloads that store. Orders and Reviews keep their independent workflow dependencies.
 
 Ruled entries, serif headings, green ink, GBP prices, and product references give the shop its ledger identity. The content is a fictional sample shop, not a claim about certified sustainable products. Adaptive colours and stacked large-text rows keep the design usable beyond the default screenshot size.
+
+## Network Service boundaries
+
+The patchboard selects local sample, delayed, or disconnected adapters at `NetworkComposition`. Every input feeds the same repository contract. The receiver accepts only an injected repository and logger. Source changes construct a fresh receiver instance and cancel the previous reception; its implementation stays unchanged.
+
+A schematic cable, physical-style source switches, and a green terminal readout distinguish this lesson. The diagram is not a live network trace. All three demo inputs are offline, and the UI says so. The retained URLSession adapter is an extension point rather than a dependency of the receiver.
 
 ## Screenshot criteria
 

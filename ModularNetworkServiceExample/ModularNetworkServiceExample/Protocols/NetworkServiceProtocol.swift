@@ -12,6 +12,6 @@ public protocol NetworkServiceProtocol {
     /// Asynchronously fetches data from the given URL.
     /// - Parameter url: The URL to fetch data from.
     /// - Returns: The data fetched from the URL.
-    /// - Throws: A DataError if the request fails.
+    /// - Throws: A service error on failure, or cancellation when supported.
     func fetchData(from url: URL) async throws -> Data
 }

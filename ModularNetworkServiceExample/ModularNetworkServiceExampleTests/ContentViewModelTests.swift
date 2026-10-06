@@ -30,7 +30,7 @@ final class ContentViewModelTests: XCTestCase {
         let url = URL(string: "https://test.com")!
         await viewModel.loadData(from: url).value
 
-        XCTAssertNotNil(viewModel.fetchedData)
+        XCTAssertEqual(viewModel.fetchedData, Data("Test data".utf8))
         XCTAssertNil(viewModel.errorMessage)
         XCTAssertFalse(viewModel.isLoading)
         XCTAssertTrue(mockLogger.loggedMessages.contains { $0.level == .info })
@@ -62,85 +62,96 @@ final class ContentViewModelTests: XCTestCase {
     }
 
     func testLatestDataLoadWinsWhenRequestsOverlap() async {
-        let repository = DelayedNetworkRepository()
-        let viewModel = ContentViewModel(
-            networkRepository: repository,
-            logger: MockLoggingService()
-        )
-
-        let slowURL = URL(string: "https://test.com/slow")!
-        let fastURL = URL(string: "https://test.com/fast")!
-
-        let slowTask = viewModel.loadData(from: slowURL)
-        let fastTask = viewModel.loadData(from: fastURL)
-
-        await slowTask.value
-        await fastTask.value
-
-        XCTAssertEqual(viewModel.fetchedData, Data("fast".utf8))
-        XCTAssertNil(viewModel.errorMessage)
-        XCTAssertFalse(viewModel.isLoading)
-    }
-
-    func testStartingNewLoadCancelsPreviousTask() async {
-        let repository = DelayedNetworkRepository()
-        let viewModel = ContentViewModel(
-            networkRepository: repository,
-            logger: MockLoggingService()
-        )
-
-        let slowURL = URL(string: "https://test.com/slow")!
-        let fastURL = URL(string: "https://test.com/fast")!
-
-        let slowTask = viewModel.loadData(from: slowURL)
-        XCTAssertFalse(slowTask.isCancelled)
-
-        let fastTask = viewModel.loadData(from: fastURL)
-
-        XCTAssertTrue(slowTask.isCancelled)
-
-        await slowTask.value
-        await fastTask.value
-
-        XCTAssertEqual(viewModel.fetchedData, Data("fast".utf8))
-        XCTAssertFalse(viewModel.isLoading)
+        let repository = ControlledRepository()
+        let model = ContentViewModel(networkRepository: repository, logger: MockLoggingService())
+        let first = URL(string: "https://example.com/first")!
+        let second = URL(string: "https://example.com/second")!
+        let oldTask = model.loadData(from: first)
+        await repository.waitForRequest(first)
+        let newTask = model.loadData(from: second)
+        await repository.waitForRequest(second)
+        XCTAssertTrue(oldTask.isCancelled)
+        await repository.complete(second, with: .success(Data("new".utf8)))
+        await newTask.value
+        // This fixture deliberately ignores cancellation and completes late.
+        await repository.complete(first, with: .success(Data("old".utf8)))
+        await oldTask.value
+        XCTAssertEqual(model.fetchedData, Data("new".utf8))
+        XCTAssertFalse(model.isLoading)
     }
 
     func testCancelledOlderFailureCannotOverwriteNewerSuccess() async {
-        let repository = DelayedNetworkRepository()
-        let viewModel = ContentViewModel(
-            networkRepository: repository,
-            logger: MockLoggingService()
-        )
+        let repository = ControlledRepository()
+        let logger = MockLoggingService()
+        let model = ContentViewModel(networkRepository: repository, logger: logger)
+        let first = URL(string: "https://example.com/first")!
+        let second = URL(string: "https://example.com/second")!
+        let oldTask = model.loadData(from: first)
+        await repository.waitForRequest(first)
+        let newTask = model.loadData(from: second)
+        await repository.waitForRequest(second)
+        await repository.complete(second, with: .success(Data("new".utf8)))
+        await newTask.value
+        await repository.complete(first, with: .failure(DataError.custom("Stale error")))
+        await oldTask.value
+        XCTAssertEqual(model.fetchedData, Data("new".utf8))
+        XCTAssertNil(model.errorMessage)
+        XCTAssertTrue(logger.loggedMessages.isEmpty)
+    }
 
-        let failingSlowURL = URL(string: "https://test.com/failing-slow")!
-        let fastURL = URL(string: "https://test.com/fast")!
+    func testExplicitCancellationIgnoresLateFailure() async {
+        let repository = ControlledRepository()
+        let logger = MockLoggingService()
+        let model = ContentViewModel(networkRepository: repository, logger: logger)
+        let url = URL(string: "https://example.com")!
+        let task = model.loadData(from: url)
+        await repository.waitForRequest(url)
+        model.cancelLoad()
+        XCTAssertTrue(task.isCancelled)
+        XCTAssertFalse(model.isLoading)
+        XCTAssertTrue(model.wasCancelled)
+        await repository.complete(url, with: .failure(URLError(.cancelled)))
+        await task.value
+        XCTAssertNil(model.errorMessage)
+        XCTAssertNil(model.fetchedData)
+        XCTAssertTrue(logger.loggedMessages.isEmpty)
+    }
 
-        let failingTask = viewModel.loadData(from: failingSlowURL)
-        let fastTask = viewModel.loadData(from: fastURL)
+    func testStartingLoadClearsPreviousPayloadImmediately() async {
+        let model = ContentViewModel(networkRepository: NetworkComposition.repository(for: .sample, logger: MockLoggingService()), logger: MockLoggingService())
+        await model.loadData(from: NetworkComposition.demoURL).value
+        XCTAssertNotNil(model.fetchedData)
+        let task = model.loadData(from: NetworkComposition.demoURL)
+        XCTAssertTrue(model.isLoading)
+        XCTAssertNil(model.fetchedData)
+        await task.value
+        XCTAssertEqual(model.fetchedData, SampleNetworkService.payload)
+    }
 
-        await failingTask.value
-        await fastTask.value
-
-        XCTAssertEqual(viewModel.fetchedData, Data("fast".utf8))
-        XCTAssertNil(viewModel.errorMessage)
-        XCTAssertFalse(viewModel.isLoading)
+    func testErrorDescriptionSurvivesTheErrorProtocol() {
+        let error: Error = DataError.custom("Readable failure")
+        XCTAssertEqual(error.localizedDescription, "Readable failure")
     }
 }
 
-private final class DelayedNetworkRepository: NetworkRepositoryProtocol {
+/// Explicit completions make overlap tests deterministic; no timing sleeps required.
+private actor ControlledRepository: NetworkRepositoryProtocol {
+    private var requests: [URL: CheckedContinuation<Data, Error>] = [:]
+    private var arrivals: [URL: CheckedContinuation<Void, Never>] = [:]
+
     func getData(from url: URL) async throws -> Data {
-        if url.absoluteString.contains("failing-slow") {
-            try await Task.sleep(nanoseconds: 100_000_000)
-            throw DataError.custom("Old request failed")
+        try await withCheckedThrowingContinuation { continuation in
+            requests[url] = continuation
+            arrivals.removeValue(forKey: url)?.resume()
         }
+    }
 
-        if url.absoluteString.contains("slow") {
-            try await Task.sleep(nanoseconds: 100_000_000)
-            return Data("slow".utf8)
-        }
+    func waitForRequest(_ url: URL) async {
+        if requests[url] != nil { return }
+        await withCheckedContinuation { arrivals[url] = $0 }
+    }
 
-        try await Task.sleep(nanoseconds: 10_000_000)
-        return Data("fast".utf8)
+    func complete(_ url: URL, with result: Result<Data, Error>) {
+        requests.removeValue(forKey: url)!.resume(with: result)
     }
 }

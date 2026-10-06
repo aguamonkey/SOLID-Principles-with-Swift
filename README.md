@@ -26,7 +26,9 @@ You should be comfortable with Swift types, protocols, and basic SwiftUI. Follow
 
 <img src="docs/images/ecoshop-goods.png" alt="EcoShop running on an iPhone simulator: a ruled goods ledger with everyday products and GBP prices." width="300">
 
-Real app screenshots. [Extend the orbital atlas with a new entity](Open-Closed-Principle-%28OCP%29-Galactic-Explorer/README.md), [test the behavioural contract behind the orchestra](LSPExample/README.md), or [trace the read/write boundary in EcoShop](EcoShop%20Backend%20ISP/README.md).
+<img src="docs/images/network-patchboard.png" alt="Network Service running on an iPhone simulator: a source patchboard connected to a terminal receiver." width="300">
+
+Real app screenshots. [Extend the orbital atlas with a new entity](Open-Closed-Principle-%28OCP%29-Galactic-Explorer/README.md), [test the behavioural contract behind the orchestra](LSPExample/README.md), [trace the read/write boundary in EcoShop](EcoShop%20Backend%20ISP/README.md), or [swap the network app’s input](ModularNetworkServiceExample/README.md).
 
 ## Run an example
 

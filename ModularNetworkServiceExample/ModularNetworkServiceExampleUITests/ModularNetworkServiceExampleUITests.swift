@@ -1,41 +1,93 @@
-//
-//  ModularNetworkServiceExampleUITests.swift
-//  ModularNetworkServiceExampleUITests
-//
-//  Created by Joshua Browne on 24/03/2025.
-//
-
 import XCTest
 
 final class ModularNetworkServiceExampleUITests: XCTestCase {
+    override func setUpWithError() throws { continueAfterFailure = false }
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testSampleAndOfflineInputsUseTheReceiver() {
         let app = XCUIApplication()
         app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        receive(in: app)
+        XCTAssertTrue(app.staticTexts["RECEIVED"].waitForExistence(timeout: 5))
+        app.swipeDown(velocity: .slow)
+        screenshot("Network — Received signal")
+        let offline = app.buttons["source-Offline"]
+        scrollTo(offline, in: app)
+        offline.tap()
+        receive(in: app)
+        XCTAssertTrue(app.staticTexts["NO SIGNAL"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.staticTexts["receiver-message"].label.contains("Input disconnected"))
+        app.swipeDown(velocity: .slow)
+        screenshot("Network — Disconnected input")
+        let sample = app.buttons["source-Sample"]
+        scrollTo(sample, in: app)
+        sample.tap()
+        receive(in: app)
+        XCTAssertTrue(app.staticTexts["RECEIVED"].waitForExistence(timeout: 5))
     }
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
+    func testDelayedReceptionCanBeCancelledAndRetried() {
+        let app = XCUIApplication()
+        app.launch()
+        app.buttons["source-Delayed"].tap()
+        receive(in: app)
+        let cancel = app.buttons["cancel-reception"]
+        XCTAssertTrue(cancel.waitForExistence(timeout: 2))
+        cancel.tap()
+        XCTAssertTrue(app.staticTexts["CANCELLED"].waitForExistence(timeout: 2))
+        receive(in: app)
+        XCTAssertTrue(app.staticTexts["RECEIVED"].waitForExistence(timeout: 6))
+    }
+
+    func testSwitchingSourceDuringReceptionResetsReceiver() {
+        let app = XCUIApplication()
+        app.launch()
+        app.buttons["source-Delayed"].tap()
+        receive(in: app)
+        let sample = app.buttons["source-Sample"]
+        scrollTo(sample, in: app)
+        sample.tap()
+        XCTAssertTrue(app.staticTexts["STANDBY"].waitForExistence(timeout: 5))
+        receive(in: app)
+        XCTAssertTrue(app.staticTexts["RECEIVED"].waitForExistence(timeout: 5))
+    }
+
+    func testReceiverAtAccessibilityTextSize() {
+        let app = XCUIApplication()
+        app.launchArguments = ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
+        app.launch()
+        receive(in: app)
+        let message = app.staticTexts["receiver-message"]
+        scrollTo(message, in: app)
+        XCTAssertTrue(message.label.contains("The source can change"))
+        screenshot("Network — Accessibility receiver")
+    }
+
+    private func receive(in app: XCUIApplication) {
+        let button = app.buttons["receive"]
+        scrollTo(button, in: app)
+        button.tap()
+    }
+
+    private func scrollTo(_ element: XCUIElement, in app: XCUIApplication) {
+        let viewport = app.frame.insetBy(dx: 0, dy: 95)
+        for _ in 0..<24 {
+            if element.exists {
+                let frame = element.frame
+                if element.isHittable && (viewport.contains(frame) || frame.height > viewport.height && viewport.intersects(frame)) { return }
+                let distance = frame.midY - viewport.midY
+                let fraction = min(abs(distance) / app.frame.height, 0.4)
+                let startY: CGFloat = distance > 0 ? 0.7 : 0.3
+                app.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: startY))
+                    .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: startY + (distance > 0 ? -fraction : fraction))))
+            } else { app.swipeUp(velocity: .slow) }
         }
+        XCTAssertTrue(element.isHittable)
+    }
+
+    private func screenshot(_ name: String) {
+        let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+        attachment.name = name
+        attachment.lifetime = .keepAlways
+        add(attachment)
     }
 }

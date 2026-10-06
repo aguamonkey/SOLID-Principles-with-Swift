@@ -13,7 +13,7 @@ public class FetchDataUseCase: FetchDataUseCaseProtocol {
     
     public init(
         networkService: NetworkServiceProtocol,
-        logger: LoggingServiceProtocol = LoggingService.shared
+        logger: LoggingServiceProtocol
     ) {
         self.networkService = networkService
         self.logger = logger
@@ -26,7 +26,10 @@ public class FetchDataUseCase: FetchDataUseCaseProtocol {
             let data = try await networkService.fetchData(from: url)
             logger.log("Successfully fetched \(data.count) bytes", level: .info)
             return data
+        } catch is CancellationError {
+            throw CancellationError()
         } catch {
+            if Task.isCancelled { throw CancellationError() }
             logger.log("Failed to fetch data: \(error)", level: .error)
             throw error
         }

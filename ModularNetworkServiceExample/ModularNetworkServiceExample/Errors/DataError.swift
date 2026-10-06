@@ -8,12 +8,12 @@
 import Foundation
 
 // Public error enum to be used throughout the domain.
-public enum DataError: Error {
+public enum DataError: LocalizedError {
     case invalidResponse
     case noData
     case custom(String)
     
-    public var localizedDescription: String {
+    public var errorDescription: String? {
         switch self {
         case .invalidResponse:
             return "Invalid response from the server."

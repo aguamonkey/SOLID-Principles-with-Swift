@@ -23,7 +23,9 @@
 		58A47FD32D9136C30081CC5D /* RetryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A47FD22D9136C30081CC5D /* RetryManager.swift */; };
 		58A47FDA2D9142FA0081CC5D /* DataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A47FD92D9142FA0081CC5D /* DataError.swift */; };
 		58A47FE12D91473B0081CC5D /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A47FE02D91473B0081CC5D /* ConfigManager.swift */; };
-		58A47FE32D9148350081CC5D /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A47FE22D9148350081CC5D /* DIContainer.swift */; };
+		58A47FE32D9148350081CC5D /* NetworkComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A47FE22D9148350081CC5D /* NetworkComposition.swift */; };
+		BBAA10000000000000000000 /* PatchboardStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAA00000000000000000000; };
+		BBAA10000000000000000001 /* NetworkLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAA00000000000000000001; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +65,9 @@
 		58A47FD22D9136C30081CC5D /* RetryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryManager.swift; sourceTree = "<group>"; };
 		58A47FD92D9142FA0081CC5D /* DataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
 		58A47FE02D91473B0081CC5D /* ConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
-		58A47FE22D9148350081CC5D /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		58A47FE22D9148350081CC5D /* NetworkComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkComposition.swift; sourceTree = "<group>"; };
+		BBAA00000000000000000000 /* PatchboardStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchboardStyle.swift; sourceTree = "<group>"; };
+		BBAA00000000000000000001 /* NetworkLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -175,7 +179,7 @@
 		58A47FC62D91316B0081CC5D /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				58A47FE22D9148350081CC5D /* DIContainer.swift */,
+				58A47FE22D9148350081CC5D /* NetworkComposition.swift */,
 				5863A1812DF4995C009D6F5A /* Logging */,
 				5863A17E2DF49939009D6F5A /* Network */,
 			);
@@ -193,6 +197,8 @@
 		58A47FC82D9131780081CC5D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BBAA00000000000000000000 /* PatchboardStyle.swift */,
+				BBAA00000000000000000001 /* NetworkLabView.swift */,
 				58A47F9D2D91310B0081CC5D /* ContentView.swift */,
 			);
 			path = Views;
@@ -362,11 +368,13 @@
 			files = (
 				5863A17D2DF49932009D6F5A /* LoggingServiceProtocol.swift in Sources */,
 				5863A18B2DF49E45009D6F5A /* NetworkRepositoryProtocol.swift in Sources */,
+				BBAA10000000000000000000 /* PatchboardStyle.swift in Sources */,
+				BBAA10000000000000000001 /* NetworkLabView.swift in Sources */,
 				58A47F9E2D91310B0081CC5D /* ContentView.swift in Sources */,
 				58A47F9C2D91310B0081CC5D /* ModularNetworkServiceExampleApp.swift in Sources */,
 				5863A1772DF4988E009D6F5A /* FetchDataUseCaseProtocol.swift in Sources */,
 				58A47FD32D9136C30081CC5D /* RetryManager.swift in Sources */,
-				58A47FE32D9148350081CC5D /* DIContainer.swift in Sources */,
+				58A47FE32D9148350081CC5D /* NetworkComposition.swift in Sources */,
 				58A47FCA2D91319C0081CC5D /* NetworkServiceProtocol.swift in Sources */,
 				58A47FDA2D9142FA0081CC5D /* DataError.swift in Sources */,
 				58A47FCE2D9131EC0081CC5D /* ContentViewModel.swift in Sources */,

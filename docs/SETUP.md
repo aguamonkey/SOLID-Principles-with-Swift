@@ -17,7 +17,9 @@ Verified with Xcode 26.2 and an iPhone 17 simulator running iOS 26.2 on 22 Septe
 
 - **EcoShop:** thirteen unit tests and five ledger UI tests passed, including catalog refresh, add/edit/remove, empty shelves, and accessibility text. The Goods screen was also visually checked in simulator dark mode.
 
-The UI checks cover app interactions and the largest accessibility text size. README screenshots come from the actual running apps. SRP, DIP, and the separate template launch-test suites were not rerun in these changes.
+The UI checks cover app interactions and the largest accessibility text size. README screenshots come from the actual running apps. SRP and the separate template launch-test suites were not rerun in these changes.
+
+Network Service was verified on 6 October 2026 with the same Xcode and simulator versions: ten unit tests and four patchboard UI tests passed. The UI cases were rerun after the layout refinement. Dark appearance was also visually checked. These checks use offline inputs and do not validate a live HTTP endpoint.
 
 ## Open and run
 
@@ -26,7 +28,7 @@ The UI checks cover app interactions and the largest accessibility text size. RE
 3. Press **Cmd+R** to run. A simulator run does not require an Apple Developer account.
 4. Press **Cmd+U** to execute the scheme's tests. The lesson links to the unit tests worth reading first.
 
-The OCP app loads bundled JSON. The DIP app currently points at a placeholder network endpoint; follow its lesson's mock-based test route for a deterministic success example.
+The OCP app loads bundled JSON. The DIP app uses local sample, delayed, and failure inputs, so its demo and tests work without a live endpoint.
 
 ## Build test bundles from Terminal
 
@@ -88,9 +90,22 @@ xcodebuild test \
   CODE_SIGNING_ALLOWED=NO
 ```
 
+For the Network Service graph, cancellation, and patchboard checks:
+
+```sh
+xcodebuild test \
+  -project ModularNetworkServiceExample/ModularNetworkServiceExample.xcodeproj \
+  -scheme ModularNetworkServiceExample \
+  -destination 'platform=iOS Simulator,id=SIMULATOR_ID' \
+  -derivedDataPath /tmp/solid-dip-dd \
+  -only-testing:ModularNetworkServiceExampleTests \
+  -only-testing:ModularNetworkServiceExampleUITests/ModularNetworkServiceExampleUITests \
+  CODE_SIGNING_ALLOWED=NO
+```
+
 ## If setup fails
 
 - **No compatible destination:** install a suitable iOS runtime in Xcode Settings and select an available simulator.
 - **Scheme missing:** open the project in Xcode and check Product → Scheme → Manage Schemes. For automation, share the app scheme and commit its scheme file.
-- **Network demo fails:** its default endpoint is illustrative. Use the injected mocks described in the DIP lesson.
+- **Network demo shows “NO SIGNAL”:** the Offline input deliberately fails. Select Sample and connect again.
 - **Tests build but no results appear:** use **Cmd+U** or `xcodebuild test`, rather than `build-for-testing`.
