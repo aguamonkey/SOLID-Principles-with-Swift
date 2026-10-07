@@ -20,17 +20,17 @@ You should be comfortable with Swift types, protocols, and basic SwiftUI. Follow
 
 ## Inside the apps
 
-<img src="docs/images/celestial-angels.png" alt="Angels and Demons running on an iPhone simulator: a celestial field guide with numbered plates and a figure index." width="300">
+<p>
+<a href="SRPExample-%20Angels%20and%20Demons/README.md"><img src="docs/images/celestial-angels.png" alt="01 · SRP: celestial field guide with numbered plates and a figure index." width="200"></a>
+<a href="Open-Closed-Principle-%28OCP%29-Galactic-Explorer/README.md"><img src="docs/images/galactic-explorer-atlas.png" alt="02 · OCP: orbital atlas with a schematic map and object index." width="200"></a>
+<a href="LSPExample/README.md"><img src="docs/images/orchestra-rehearsal.png" alt="03 · LSP: printed rehearsal score and conductor cue." width="200"></a>
+</p>
+<p>
+<a href="EcoShop%20Backend%20ISP/README.md"><img src="docs/images/ecoshop-goods.png" alt="04 · ISP: ruled goods ledger with products and GBP prices." width="200"></a>
+<a href="ModularNetworkServiceExample/README.md"><img src="docs/images/network-patchboard.png" alt="05 · DIP: selectable input sockets connected to a terminal receiver." width="200"></a>
+</p>
 
-<img src="docs/images/galactic-explorer-atlas.png" alt="Galactic Explorer running on an iPhone simulator: an orbital atlas with a schematic map, an object index, and Earth selected." width="300">
-
-<img src="docs/images/orchestra-rehearsal.png" alt="Orchestra running on an iPhone simulator: a printed rehearsal score with violin, flute, and trumpet and a conductor cue button." width="300">
-
-<img src="docs/images/ecoshop-goods.png" alt="EcoShop running on an iPhone simulator: a ruled goods ledger with everyday products and GBP prices." width="300">
-
-<img src="docs/images/network-patchboard.png" alt="Network Service running on an iPhone simulator: a source patchboard connected to a terminal receiver." width="300">
-
-Real app screenshots. [Study the celestial field guide’s responsibilities](SRPExample-%20Angels%20and%20Demons/README.md), [extend the orbital atlas with a new entity](Open-Closed-Principle-%28OCP%29-Galactic-Explorer/README.md), [test the behavioural contract behind the orchestra](LSPExample/README.md), [trace the read/write boundary in EcoShop](EcoShop%20Backend%20ISP/README.md), or [swap the network app’s input](ModularNetworkServiceExample/README.md).
+Real screenshots from the running apps. Select an image to open its lesson; each lesson includes a larger screenshot and a guided source route.
 
 ## Run an example
 
@@ -58,11 +58,23 @@ Read the small before/after example first. Follow the numbered source links, run
 
 For interview preparation, explain the concrete change pressure, the boundary you chose, and a situation where you would keep the design simpler. A useful explanation goes beyond naming the principle.
 
+## Verification
+
+The [GitHub workflow](.github/workflows/quality.yml) runs documentation checks and a separate unit/UI test job for each lesson. The same [test command](docs/SETUP.md#execute-tests-from-terminal) works locally.
+
+| Lesson | Unit tests | UI tests | What the tests demonstrate |
+| --- | ---: | ---: | --- |
+| SRP | 11 | 3 | Loading and recovery, hierarchy descriptions, collection selection |
+| OCP | 7 | 2 | A test-only entity extends decoding and atlas selection |
+| LSP | 9 | 3 | Instrument implementations satisfy a shared behavioural contract |
+| ISP | 13 | 5 | Read-only consumers, catalog changes, ledger interactions |
+| DIP | 10 | 4 | Dependency replacement, failure, cancellation and retry |
+
+These 50 unit and 17 UI tests are the focused suites; generated launch/performance templates are excluded from automation. See [verified environments and limitations](docs/SETUP.md#verified-environment). Passing tests support the examples' behaviour; they do not prove a design follows SOLID in every context.
+
 ## Contributing
 
-Contributions should make a lesson easier to understand or verify. Keep changes focused and include the reason behind a new abstraction. Useful contributions include clearer exercises, behavioural tests, reproducible setup fixes, and real app screenshots.
-
-When changing an example, update its lesson and run the relevant tests. State what you verified in the pull request.
+Contributions should make a lesson easier to understand or verify. Keep changes focused and explain the reason behind a new abstraction. See the [contribution guide](CONTRIBUTING.md) for the checks, screenshot conventions, and review expectations.
 
 ## License
 

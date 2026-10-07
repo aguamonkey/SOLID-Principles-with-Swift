@@ -14,7 +14,6 @@ Verified with Xcode 26.2 and an iPhone 17 simulator running iOS 26.2 on 22 Septe
 
 - **Galactic Explorer:** seven unit tests and two atlas UI tests passed.
 - **Orchestra:** nine unit tests and three rehearsal UI tests passed. The two affected UI cases were rerun after the final layout refinements and passed again.
-
 - **EcoShop:** thirteen unit tests and five ledger UI tests passed, including catalog refresh, add/edit/remove, empty shelves, and accessibility text. The Goods screen was also visually checked in simulator dark mode.
 
 The UI checks cover app interactions and the largest accessibility text size. README screenshots come from the actual running apps. The separate template launch-test suites were not rerun in these changes.
@@ -22,6 +21,8 @@ The UI checks cover app interactions and the largest accessibility text size. RE
 Network Service was verified on 6 October 2026 with the same Xcode and simulator versions: ten unit tests and four patchboard UI tests passed. The UI cases were rerun after the layout refinement. Dark appearance was also visually checked. These checks use offline inputs and do not validate a live HTTP endpoint.
 
 Angels and Demons was verified on 6 October 2026 with Xcode 26.2 and iOS 26.2: eleven unit tests and three field-guide UI tests passed. The collection/selection case was rerun for the final screenshots. Dark appearance was visually checked.
+
+The repository-wide verification command was run on 6 and 7 October 2026 with Xcode 26.2 and iPhone 17 / iOS 26.2: all 50 unit and 17 focused UI tests passed. The documentation checker and its regression tests also passed locally. This records local verification; hosted GitHub Actions results are reported separately by the workflow.
 
 ## Open and run
 
@@ -32,41 +33,32 @@ Angels and Demons was verified on 6 October 2026 with Xcode 26.2 and iOS 26.2: e
 
 The OCP app loads bundled JSON. The DIP app uses local sample, delayed, and failure inputs, so its demo and tests work without a live endpoint.
 
-## Build test bundles from Terminal
-
-Run these commands from the repository root. **`build-for-testing` compiles the app and test bundles; it does not execute the tests.** Each project gets a separate temporary build directory.
-
-```sh
-xcodebuild build-for-testing -project "SRPExample- Angels and Demons/SRP-Example-Angels-and-Demons/SRP-Example-Angels-and-Demons.xcodeproj" -scheme "SRP-Example-Angels-and-Demons" -destination "generic/platform=iOS Simulator" -derivedDataPath /tmp/solid-srp-dd CODE_SIGNING_ALLOWED=NO
-xcodebuild build-for-testing -project "Open-Closed-Principle-(OCP)-Galactic-Explorer/Open-Closed-Principle-(OCP)-Galactic-Explorer.xcodeproj" -scheme "Open-Closed-Principle-(OCP)-Galactic-Explorer" -destination "generic/platform=iOS Simulator" -derivedDataPath /tmp/solid-ocp-dd CODE_SIGNING_ALLOWED=NO
-xcodebuild build-for-testing -project "LSPExample/LSPExample.xcodeproj" -scheme "LSPExample" -destination "generic/platform=iOS Simulator" -derivedDataPath /tmp/solid-lsp-dd CODE_SIGNING_ALLOWED=NO
-xcodebuild build-for-testing -project "EcoShop Backend ISP/EcoShop Backend ISP.xcodeproj" -scheme "EcoShop Backend ISP" -destination "generic/platform=iOS Simulator" -derivedDataPath /tmp/solid-isp-dd CODE_SIGNING_ALLOWED=NO
-xcodebuild build-for-testing -project "ModularNetworkServiceExample/ModularNetworkServiceExample.xcodeproj" -scheme "ModularNetworkServiceExample" -destination "generic/platform=iOS Simulator" -derivedDataPath /tmp/solid-dip-dd CODE_SIGNING_ALLOWED=NO
-```
-
 ## Execute tests from Terminal
 
-For example, list the available OCP destinations:
+Run these commands from the repository root with Python 3.9 or later and full Xcode 16 or later selected (the result summary command requires Xcode 16+). The runner uses the shared schemes in [lessons.json](../scripts/lessons.json), executes each selected lesson sequentially, and returns a failing exit code if any lesson fails or its result bundle contains no passing tests.
 
 ```sh
-xcodebuild -showdestinations -project "Open-Closed-Principle-(OCP)-Galactic-Explorer/Open-Closed-Principle-(OCP)-Galactic-Explorer.xcodeproj" -scheme "Open-Closed-Principle-(OCP)-Galactic-Explorer"
+# All five lessons: focused unit and UI suites
+python3 scripts/test_lessons.py all
+
+# One lesson, or a faster unit-only pass
+python3 scripts/test_lessons.py ocp
+python3 scripts/test_lessons.py dip --suite unit
 ```
 
-Copy an available iOS Simulator ID into the command below, replacing `SIMULATOR_ID`:
+Lesson IDs are `srp`, `ocp`, `lsp`, `isp`, and `dip`. The default destination is **iPhone 17 / iOS 26.2**. To use another installed simulator:
 
 ```sh
-xcodebuild test \
-  -project "Open-Closed-Principle-(OCP)-Galactic-Explorer/Open-Closed-Principle-(OCP)-Galactic-Explorer.xcodeproj" \
-  -scheme "Open-Closed-Principle-(OCP)-Galactic-Explorer" \
-  -destination 'platform=iOS Simulator,id=SIMULATOR_ID' \
-  -derivedDataPath /tmp/solid-ocp-dd \
-  -only-testing:'Open-Closed-Principle-(OCP)-Galactic-ExplorerTests' \
-  CODE_SIGNING_ALLOWED=NO
+python3 scripts/test_lessons.py srp --device "iPhone 16e" --ios 18.6
+xcrun simctl list devices available
+python3 scripts/test_lessons.py all --simulator-id SIMULATOR_ID
 ```
 
-This command runs the seven OCP unit tests. Omit `-only-testing` to include the scheme's UI tests as well. Use the corresponding project, scheme, and test target for the other lessons. `generic/platform=iOS Simulator` is a build destination, not a device on which tests can execute.
+Replace `SIMULATOR_ID` with an available device UUID. Its runtime must meet the lesson's deployment target. The runner boots that simulator and waits for it to be ready. It disables signing and parallel test execution, keeps build caches per lesson, and writes timestamped logs and `.xcresult` bundles under the ignored `.test-results/` directory. Open a result bundle in Xcode to inspect failures and UI attachments.
 
-For the Orchestra contract and rehearsal checks:
+`--suite ui` runs only the lesson's interaction suite. The automation excludes the separate generated launch/performance test classes. **Cmd+U** uses the full scheme selection and can include those templates.
+
+For a raw Xcode command, for example:
 
 ```sh
 xcodebuild test \
@@ -79,44 +71,24 @@ xcodebuild test \
   CODE_SIGNING_ALLOWED=NO
 ```
 
-For the EcoShop capability and ledger checks:
+`xcodebuild build-for-testing` compiles the app and test bundles without executing tests. A `generic/platform=iOS Simulator` destination can build bundles, but cannot execute them.
+
+## Documentation checks
+
+No Xcode or third-party Python packages are needed:
 
 ```sh
-xcodebuild test \
-  -project "EcoShop Backend ISP/EcoShop Backend ISP.xcodeproj" \
-  -scheme "EcoShop Backend ISP" \
-  -destination 'platform=iOS Simulator,id=SIMULATOR_ID' \
-  -derivedDataPath /tmp/solid-isp-dd \
-  -only-testing:'EcoShop Backend ISPTests' \
-  -only-testing:'EcoShop Backend ISPUITests/EcoShop_Backend_ISPUITests' \
-  CODE_SIGNING_ALLOWED=NO
+python3 scripts/check_docs.py
+PYTHONPATH=scripts python3 -m unittest discover -s scripts/tests -v
 ```
 
-For the Network Service graph, cancellation, and patchboard checks:
+The checker validates local inline Markdown links, HTML image/link paths, and Markdown heading fragments, including percent-encoded paths. Fenced code examples are ignored. Use inline links for lesson navigation; reference-style links and external URL availability are outside this check's scope.
 
-```sh
-xcodebuild test \
-  -project ModularNetworkServiceExample/ModularNetworkServiceExample.xcodeproj \
-  -scheme ModularNetworkServiceExample \
-  -destination 'platform=iOS Simulator,id=SIMULATOR_ID' \
-  -derivedDataPath /tmp/solid-dip-dd \
-  -only-testing:ModularNetworkServiceExampleTests \
-  -only-testing:ModularNetworkServiceExampleUITests/ModularNetworkServiceExampleUITests \
-  CODE_SIGNING_ALLOWED=NO
-```
+## GitHub Actions
 
-For the celestial field guide's responsibility and selection checks:
+[Repository checks](../.github/workflows/quality.yml) runs on pushes to `develop` and `feature/**`, pull requests targeting `develop`, and manual dispatch. One Linux job checks documentation and verification tooling. Five independent macOS jobs run the same focused app suites; a failure in one lesson does not cancel the others. Logs and result bundles are uploaded for seven days, including on test failure.
 
-```sh
-xcodebuild test \
-  -project "SRPExample- Angels and Demons/SRP-Example-Angels-and-Demons/SRP-Example-Angels-and-Demons.xcodeproj" \
-  -scheme SRP-Example-Angels-and-Demons \
-  -destination 'platform=iOS Simulator,id=SIMULATOR_ID' \
-  -derivedDataPath /tmp/solid-srp-dd \
-  -only-testing:SRP-Example-Angels-and-DemonsTests \
-  -only-testing:SRP-Example-Angels-and-DemonsUITests/SRP_Example_Angels_and_DemonsUITests \
-  CODE_SIGNING_ALLOWED=NO
-```
+The workflow selects **macos-26**, **Xcode 26.2**, and **iPhone 17 / iOS 26.2** explicitly. GitHub's [runner image inventory](https://github.com/actions/runner-images/blob/main/images/macos/macos-26-arm64-Readme.md) lists the installed toolchains and runtimes. Runner images change over time; if a pinned toolchain is removed, update the workflow and reverify all five lessons before changing the documented environment.
 
 ## If setup fails
 

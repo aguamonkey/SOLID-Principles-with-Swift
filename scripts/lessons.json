@@ -1,0 +1,32 @@
+{
+  "srp": {
+    "project": "SRPExample- Angels and Demons/SRP-Example-Angels-and-Demons/SRP-Example-Angels-and-Demons.xcodeproj",
+    "scheme": "SRP-Example-Angels-and-Demons",
+    "unit": "SRP-Example-Angels-and-DemonsTests",
+    "ui": "SRP-Example-Angels-and-DemonsUITests/SRP_Example_Angels_and_DemonsUITests"
+  },
+  "ocp": {
+    "project": "Open-Closed-Principle-(OCP)-Galactic-Explorer/Open-Closed-Principle-(OCP)-Galactic-Explorer.xcodeproj",
+    "scheme": "Open-Closed-Principle-(OCP)-Galactic-Explorer",
+    "unit": "Open-Closed-Principle-(OCP)-Galactic-ExplorerTests",
+    "ui": "Open-Closed-Principle-(OCP)-Galactic-ExplorerUITests/Closed_Principle__OCP__Galactic_ExplorerUITests"
+  },
+  "lsp": {
+    "project": "LSPExample/LSPExample.xcodeproj",
+    "scheme": "LSPExample",
+    "unit": "LSPExampleTests",
+    "ui": "LSPExampleUITests/LSPExampleUITests"
+  },
+  "isp": {
+    "project": "EcoShop Backend ISP/EcoShop Backend ISP.xcodeproj",
+    "scheme": "EcoShop Backend ISP",
+    "unit": "EcoShop Backend ISPTests",
+    "ui": "EcoShop Backend ISPUITests/EcoShop_Backend_ISPUITests"
+  },
+  "dip": {
+    "project": "ModularNetworkServiceExample/ModularNetworkServiceExample.xcodeproj",
+    "scheme": "ModularNetworkServiceExample",
+    "unit": "ModularNetworkServiceExampleTests",
+    "ui": "ModularNetworkServiceExampleUITests/ModularNetworkServiceExampleUITests"
+  }
+}

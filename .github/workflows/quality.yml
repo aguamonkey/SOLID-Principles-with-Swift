@@ -1,0 +1,59 @@
+name: Repository checks
+
+on:
+  push:
+    branches: [develop, 'feature/**']
+  pull_request:
+    branches: [develop]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  documentation:
+    name: Documentation and tooling
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check verification scripts
+        run: python3 -m unittest discover -s scripts/tests -v
+        env:
+          PYTHONPATH: scripts
+      - name: Check study links and screenshots
+        run: python3 scripts/check_docs.py
+
+  lessons:
+    name: ${{ matrix.lesson }} unit and UI tests
+    runs-on: macos-26
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        lesson: [srp, ocp, lsp, isp, dip]
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.2.app/Contents/Developer
+    steps:
+      - uses: actions/checkout@v4
+      - name: Show selected toolchain
+        run: xcodebuild -version
+      - name: Run lesson tests
+        run: python3 scripts/test_lessons.py "$LESSON"
+        env:
+          LESSON: ${{ matrix.lesson }}
+      - name: Upload logs and Xcode results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.lesson }}-test-results
+          path: |
+            .test-results/**/*.log
+            .test-results/**/*.xcresult
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 7
