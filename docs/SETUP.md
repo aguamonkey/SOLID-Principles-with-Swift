@@ -24,6 +24,8 @@ Angels and Demons was verified on 6 October 2026 with Xcode 26.2 and iOS 26.2: e
 
 The repository-wide verification command was run on 6 and 7 October 2026 with Xcode 26.2 and iPhone 17 / iOS 26.2: all 50 unit and 17 focused UI tests passed. The documentation checker and its regression tests also passed locally. This records local verification; hosted GitHub Actions results are reported separately by the workflow.
 
+The DIP advanced track was verified on 9 October 2026 with Xcode 26.2 and iPhone 17 / iOS 26.2: **25 unit tests and seven UI tests passed**. These include the original ten unit/four patchboard UI tests plus fifteen cache/refresh unit tests and three refresh-lab UI tests. The new tests cover cache ordering, cancellation, offline retention, recovery, session reuse and accessibility text. The cancellation/reopening UI fixture uses an injected eight-second local delay so pending content can be observed reliably; the normal lab uses three seconds. Unit ordering tests use explicit completions rather than sleeps. A focused offline/recovery UI case also passed in dark appearance, and its screenshots were visually checked.
+
 ## Open and run
 
 1. Choose a lesson from the [main README](../README.md) and open the `.xcodeproj` named in its **Run the app** section.

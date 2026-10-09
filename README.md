@@ -58,6 +58,12 @@ Read the small before/after example first. Follow the numbered source links, run
 
 For interview preparation, explain the concrete change pressure, the boundary you chose, and a situation where you would keep the design simpler. A useful explanation goes beyond naming the principle.
 
+## Build deeper engineering judgment
+
+Follow the [learning progression](docs/LEARNING_PATH.md) from explaining a principle, to owning reliable feature behaviour, to making decisions about shared state and migration. Start with the [advanced DIP refresh lab](ModularNetworkServiceExample/Advanced/README.md): keep saved content readable, reject obsolete cache writes, and explain the lifetime of the dependency graph.
+
+The advanced track includes a runnable second screen, a decision record, a separate freshness exercise and solution, and interview questions with answer notes. The other four advanced progressions are listed as future work; their existing focused lessons remain available.
+
 ## Verification
 
 The [GitHub workflow](.github/workflows/quality.yml) runs documentation checks and a separate unit/UI test job for each lesson. The same [test command](docs/SETUP.md#execute-tests-from-terminal) works locally.
@@ -68,9 +74,9 @@ The [GitHub workflow](.github/workflows/quality.yml) runs documentation checks a
 | OCP | 7 | 2 | A test-only entity extends decoding and atlas selection |
 | LSP | 9 | 3 | Instrument implementations satisfy a shared behavioural contract |
 | ISP | 13 | 5 | Read-only consumers, catalog changes, ledger interactions |
-| DIP | 10 | 4 | Dependency replacement, failure, cancellation and retry |
+| DIP | 25 | 7 | Dependency replacement, cached content, cancellation and recovery |
 
-These 50 unit and 17 UI tests are the focused suites; generated launch/performance templates are excluded from automation. See [verified environments and limitations](docs/SETUP.md#verified-environment). Passing tests support the examples' behaviour; they do not prove a design follows SOLID in every context.
+These 65 unit and 20 UI tests are the focused suites; generated launch/performance templates are excluded from automation. See [verified environments and limitations](docs/SETUP.md#verified-environment). Passing tests support the examples' behaviour; they do not prove a design follows SOLID in every context.
 
 ## Contributing
 

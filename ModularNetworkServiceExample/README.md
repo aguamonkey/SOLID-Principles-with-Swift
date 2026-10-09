@@ -104,6 +104,12 @@ Do not use the composition factory or change `ContentViewModel`. Explain why thi
 
 Discuss: **Which contract belongs to the consumer, and what independent change would justify keeping each extra layer? Where should concrete configuration live?**
 
+## Advance the lesson
+
+Continue to [05 / B · Keep content while refreshing](Advanced/README.md). The second **Refresh Lab** tab preserves cached content during slow or offline updates and rejects obsolete writes to a shared actor-owned cache. Compare the contracts and layer choices with this patchboard, then attempt its freshness exercise and interview questions.
+
+See the [learning progression](../docs/LEARNING_PATH.md) for the difference between explaining a boundary, owning a feature, and making decisions under broader constraints.
+
 ## Continue learning
 
 [← 04 · Interface Segregation](../EcoShop%20Backend%20ISP/README.md) · [Return to the learning path](../README.md)

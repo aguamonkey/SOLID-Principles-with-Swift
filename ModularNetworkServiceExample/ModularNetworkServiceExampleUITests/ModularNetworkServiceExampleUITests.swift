@@ -62,6 +62,82 @@ final class ModularNetworkServiceExampleUITests: XCTestCase {
         screenshot("Network — Accessibility receiver")
     }
 
+    func testRefreshLabKeepsContentWhenOfflineAndRecovers() {
+        let app = XCUIApplication()
+        app.launch()
+        app.tabBars.buttons["Refresh Lab"].tap()
+        let status = app.staticTexts["refresh-status"]
+        XCTAssertTrue(status.waitForExistence(timeout: 5))
+        waitForLabel(status, containing: "UPDATED")
+        let payload = app.staticTexts["refresh-payload"]
+        let saved = payload.label
+        let offline = app.buttons["refresh-offline"]
+        scrollTo(offline, in: app)
+        offline.tap()
+        waitForLabel(status, containing: "OFFLINE")
+        XCTAssertEqual(payload.label, saved)
+        XCTAssertTrue(app.staticTexts["refresh-warning"].label.contains("still available"))
+        app.swipeDown(velocity: .slow)
+        screenshot("Refresh Lab — Offline content kept")
+        let refresh = app.buttons["refresh-updated"]
+        scrollTo(refresh, in: app)
+        refresh.tap()
+        waitForLabel(status, containing: "UPDATED")
+        XCTAssertNotEqual(payload.label, saved)
+        XCTAssertFalse(app.staticTexts["refresh-warning"].exists)
+        app.swipeDown(velocity: .slow)
+        screenshot("Refresh Lab — Updated bulletin")
+    }
+
+    func testRefreshLabCancellationAndReopeningPreserveTheSessionCache() {
+        let app = XCUIApplication()
+        app.launchEnvironment["REFRESH_LAB_SLOW_INPUT"] = "1"
+        app.launch()
+        app.tabBars.buttons["Refresh Lab"].tap()
+        let status = app.staticTexts["refresh-status"]
+        waitForLabel(status, containing: "UPDATED")
+        let payload = app.staticTexts["refresh-payload"]
+        let saved = payload.label
+        let refresh = app.buttons["refresh-updated"]
+        scrollTo(refresh, in: app)
+        refresh.tap()
+        let cancel = app.buttons["refresh-cancel"]
+        XCTAssertTrue(cancel.waitForExistence(timeout: 2))
+        scrollTo(cancel, in: app)
+        cancel.tap()
+        waitForLabel(status, containing: "CANCELLED")
+        XCTAssertEqual(payload.label, saved)
+        app.tabBars.buttons["Patchboard"].tap()
+        app.tabBars.buttons["Refresh Lab"].tap()
+        XCTAssertEqual(payload.label, saved)
+        XCTAssertTrue(app.staticTexts["SAVED SIGNAL"].exists)
+        waitForLabel(status, containing: "UPDATED")
+        XCTAssertNotEqual(payload.label, saved)
+    }
+
+    func testRefreshLabAtAccessibilityTextSize() {
+        let app = XCUIApplication()
+        app.launchArguments = ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
+        app.launch()
+        app.tabBars.buttons["Refresh Lab"].tap()
+        let status = app.staticTexts["refresh-status"]
+        waitForLabel(status, containing: "UPDATED")
+        let offline = app.buttons["refresh-offline"]
+        scrollTo(offline, in: app)
+        offline.tap()
+        waitForLabel(status, containing: "OFFLINE")
+        let warning = app.staticTexts["refresh-warning"]
+        scrollTo(warning, in: app)
+        XCTAssertTrue(warning.label.contains("still available"))
+        screenshot("Refresh Lab — Accessibility warning")
+    }
+
+    private func waitForLabel(_ element: XCUIElement, containing value: String) {
+        let predicate = NSPredicate(format: "label CONTAINS %@", value)
+        let expectation = XCTNSPredicateExpectation(predicate: predicate, object: element)
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 20), .completed)
+    }
+
     private func receive(in app: XCUIApplication) {
         let button = app.buttons["receive"]
         scrollTo(button, in: app)

@@ -44,6 +44,8 @@ The patchboard selects local sample, delayed, or disconnected adapters at `Netwo
 
 A schematic cable, physical-style source switches, and a green terminal readout distinguish this lesson. The diagram is not a live network trace. All three demo inputs are offline, and the UI says so. The retained URLSession adapter is an extension point rather than a dependency of the receiver.
 
+The [advanced DIP refresh lab](../ModularNetworkServiceExample/Advanced/README.md) reuses the paper, terminal and type treatments with a separate KEEP / REFRESH screen. Its retained composition session owns an actor cache and consumer model together. Saved content remains visible while refreshing or offline; the original patchboard keeps its source-switch/reset semantics. Navigation uses two tabs so learners can compare both behaviours in one app.
+
 ## Screenshot criteria
 
 Capture the actual running app after checking loading, selection, empty/error behaviour, light/dark appearance, and accessibility text. Include real content and hide no important failures. Concept previews are design references, not app screenshots.

@@ -11,7 +11,13 @@ import SwiftUI
 struct ModularNetworkServiceExampleApp: App {
     var body: some Scene {
         WindowGroup {
-            NetworkLabView()
+            TabView {
+                NetworkLabView()
+                    .tabItem { Label("Patchboard", systemImage: "cable.connector") }
+                RefreshLabView()
+                    .tabItem { Label("Refresh Lab", systemImage: "arrow.clockwise") }
+            }
+            .tint(PatchboardStyle.accent)
         }
     }
 }
