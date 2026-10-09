@@ -34,7 +34,7 @@ private struct RefreshLabScreen: View {
                     ProgressView("Receiving an update…")
                 }
                 VStack(alignment: .leading, spacing: 16) {
-                    PatchboardStyle.label(model.isCached ? "SAVED SIGNAL" : "LATEST SIGNAL")
+                    PatchboardStyle.label(model.snapshot == nil ? "NO SAVED SIGNAL" : model.isCached ? "SAVED SIGNAL" : "LATEST SIGNAL")
                     Text(payload).font(.system(.body, design: .monospaced))
                         .fixedSize(horizontal: false, vertical: true)
                         .accessibilityIdentifier("refresh-payload")
@@ -86,10 +86,10 @@ private struct RefreshLabScreen: View {
     private var status: String {
         switch model.phase {
         case .idle: return "STANDBY"
-        case .refreshing: return "REFRESHING / SAVED CONTENT STAYS"
+        case .refreshing: return model.snapshot == nil ? "REFRESHING / FIRST SIGNAL" : "REFRESHING / SAVED CONTENT STAYS"
         case .ready: return "UPDATED / SIGNAL SAVED"
-        case .failed: return "OFFLINE / SAVED CONTENT KEPT"
-        case .cancelled: return "CANCELLED / SAVED CONTENT KEPT"
+        case .failed: return model.snapshot == nil ? "OFFLINE / NO SAVED SIGNAL" : "OFFLINE / SAVED CONTENT KEPT"
+        case .cancelled: return model.snapshot == nil ? "CANCELLED / NO SAVED SIGNAL" : "CANCELLED / SAVED CONTENT KEPT"
         case .superseded: return "SUPERSEDED / REFRESH AGAIN"
         }
     }
