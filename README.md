@@ -62,7 +62,7 @@ For interview preparation, explain the concrete change pressure, the boundary yo
 
 Follow the [learning progression](docs/LEARNING_PATH.md) from explaining a principle, to owning reliable feature behaviour, to making decisions about shared state and migration. Start with the [advanced DIP refresh lab](ModularNetworkServiceExample/Advanced/README.md): keep saved content readable, reject obsolete cache writes, and explain the lifetime of the dependency graph.
 
-Continue with [Orchestra’s async contract lab](LSPExample/Advanced/README.md): distinguish permitted unavailability from a broken promise and explore cancellation and contract evolution. Then study [EcoShop’s two-desk lab](EcoShop%20Backend%20ISP/Advanced/README.md): separate order entry from history while sharing one store. All three advanced tracks include runnable screens, decision records, separate exercises and solutions, and interview questions with answer notes. The SRP and OCP advanced progressions remain future work.
+Continue with [Orchestra’s async contract lab](LSPExample/Advanced/README.md): distinguish permitted unavailability from a broken promise and explore cancellation and contract evolution. Then study [EcoShop’s two-desk lab](EcoShop%20Backend%20ISP/Advanced/README.md): separate order entry from history while sharing one store. Continue with [the atlas extension lab](Open-Closed-Principle-%28OCP%29-Galactic-Explorer/Advanced/README.md): compose immutable registrations and make incompatible versions visible while keeping valid observations readable. All four advanced tracks include runnable screens, decision records, separate exercises and solutions, and interview questions with answer notes. The SRP advanced progression remains future work.
 
 ## Verification
 
@@ -71,12 +71,12 @@ The [GitHub workflow](.github/workflows/quality.yml) runs documentation checks a
 | Lesson | Unit tests | UI tests | What the tests demonstrate |
 | --- | ---: | ---: | --- |
 | SRP | 11 | 3 | Loading and recovery, hierarchy descriptions, collection selection |
-| OCP | 7 | 2 | A test-only entity extends decoding and atlas selection |
+| OCP | 25 | 4 | Registry extension, exact versions, partial recovery and immutable concurrent imports |
 | LSP | 25 | 6 | Shared sync/async contracts, permitted failure, cue ordering and cancellation |
 | ISP | 33 | 8 | Narrow consumers, shared records, receipt replay and independent failures |
 | DIP | 25 | 7 | Dependency replacement, cached content, cancellation and recovery |
 
-These 101 unit and 26 UI tests are the focused suites; generated launch/performance templates are excluded from automation. See [verified environments and limitations](docs/SETUP.md#verified-environment). Passing tests support the examples' behaviour; they do not prove a design follows SOLID in every context.
+These 119 unit and 28 UI tests are the focused suites; generated launch/performance templates are excluded from automation. See [verified environments and limitations](docs/SETUP.md#verified-environment). Passing tests support the examples' behaviour; they do not prove a design follows SOLID in every context.
 
 ## Contributing
 

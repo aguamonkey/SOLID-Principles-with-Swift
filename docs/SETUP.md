@@ -30,6 +30,8 @@ The LSP advanced track was verified on 12 October 2026 with Xcode 26.2 and iPhon
 
 The ISP advanced track was verified on 12 October 2026 with Xcode 26.2 and iPhone 17 / iOS 26.2: **33 unit tests and eight UI tests passed**. These include the original thirteen unit/five ledger UI tests plus twenty capability/store/consumer tests and three order-lab UI cases. They cover independent read/write failures, narrow fixtures, receipt replay and payload conflicts, cancelled acknowledgements, stale history, retry without duplicate records and accessibility text. The final receipt layout and accessibility case were rerun after refinement; the independent-write/history case also passed in dark appearance. Light and dark screenshots were visually checked.
 
+
+The OCP advanced track was verified on 12 October 2026 with Xcode 26.2 and iPhone 17 / iOS 26.2: **25 unit tests and four UI tests passed**. The original seven unit/two atlas UI tests are joined by eighteen extension/import tests and two extension-lab UI cases. They cover exact schema versions, duplicate registrations and IDs, partial record recovery, additive fields, invalid extension output, concurrent use of an immutable registry and accessibility text. The final source and UI refinements passed together; the registry-switching case also passed in dark appearance. Light and dark screenshots were visually checked.
 ## Open and run
 
 1. Choose a lesson from the [main README](../README.md) and open the `.xcodeproj` named in its **Run the app** section.

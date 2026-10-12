@@ -112,6 +112,10 @@ Every entity must now provide a stable ID: the built-in entities store a UUID fo
 
 Discuss: **Why is changing registration compatible with OCP, and when would you deliberately choose a switch instead?**
 
+## Advanced progression
+
+Open the **Extension Lab** tab to explore [immutable registration, version compatibility and partial import recovery](Advanced/README.md). It uses a separate importer and bulletin, so the foundation asteroid exercise remains available. The advanced track includes a decision record, a version-evolution exercise and interview prompts.
+
 ## Continue learning
 
 [← 01 · Single Responsibility](../SRPExample-%20Angels%20and%20Demons/README.md) · [03 · Liskov Substitution →](../LSPExample/README.md)

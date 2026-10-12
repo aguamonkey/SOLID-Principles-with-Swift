@@ -53,3 +53,5 @@ The [advanced ISP order lab](../EcoShop%20Backend%20ISP/Advanced/README.md) adds
 ## Screenshot criteria
 
 Capture the actual running app after checking loading, selection, empty/error behaviour, light/dark appearance, and accessibility text. Include real content and hide no important failures. Concept previews are design references, not app screenshots.
+
+The [advanced OCP extension lab](../Open-Closed-Principle-%28OCP%29-Galactic-Explorer/Advanced/README.md) adds an incoming-dispatch sheet beside the foundation atlas. Accepted, unsupported and rejected rows use the same serif/paper/ink palette. One action composes a new registry and reimports the bundled bulletin, so the visible change is tied directly to the extension contract.

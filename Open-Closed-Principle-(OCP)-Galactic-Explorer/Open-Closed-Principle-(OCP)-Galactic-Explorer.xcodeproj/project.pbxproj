@@ -35,6 +35,11 @@
 		E3E089B82B3831EE006421A4 /* FutureConsiderations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E089B72B3831EE006421A4 /* FutureConsiderations.swift */; };
 		A71A50000000000000000010 /* OrbitalAtlasStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71A50000000000000000000 /* OrbitalAtlasStyle.swift */; };
 		A71A50000000000000000011 /* OrbitalMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71A50000000000000000001 /* OrbitalMapView.swift */; };
+		A02B00000000000000000100 /* AtlasExtensionRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02B00000000000000000000 /* AtlasExtensionRegistry.swift */; };
+		A02B00000000000000000101 /* AtlasImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02B00000000000000000001 /* AtlasImport.swift */; };
+		A02B00000000000000000102 /* AtlasLabComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02B00000000000000000002 /* AtlasLabComposition.swift */; };
+		A02B00000000000000000103 /* AtlasExtensionLab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02B00000000000000000003 /* AtlasExtensionLab.swift */; };
+		A02B00000000000000000104 /* AtlasExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02B00000000000000000004 /* AtlasExtensionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +91,11 @@
 		E3E089B72B3831EE006421A4 /* FutureConsiderations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureConsiderations.swift; sourceTree = "<group>"; };
 		A71A50000000000000000000 /* OrbitalAtlasStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrbitalAtlasStyle.swift; sourceTree = "<group>"; };
 		A71A50000000000000000001 /* OrbitalMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrbitalMapView.swift; sourceTree = "<group>"; };
+		A02B00000000000000000000 /* AtlasExtensionRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasExtensionRegistry.swift; sourceTree = "<group>"; };
+		A02B00000000000000000001 /* AtlasImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasImport.swift; sourceTree = "<group>"; };
+		A02B00000000000000000002 /* AtlasLabComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasLabComposition.swift; sourceTree = "<group>"; };
+		A02B00000000000000000003 /* AtlasExtensionLab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasExtensionLab.swift; sourceTree = "<group>"; };
+		A02B00000000000000000004 /* AtlasExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasExtensionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +155,7 @@
 		E3E089772B37224F006421A4 /* Closed-Principle-(OCP)-Galactic-Explorer */ = {
 			isa = PBXGroup;
 			children = (
+				A02B00000000000000000200 /* Advanced */,
 				583D693C2DD896BD00B81BBF /* ViewModels */,
 				E3E089A42B3724B0006421A4 /* Services */,
 				E3E089A32B3724A4006421A4 /* Views */,
@@ -170,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				E3E089892B372252006421A4 /* Closed_Principle__OCP__Galactic_ExplorerTests.swift */,
+				A02B00000000000000000004 /* AtlasExtensionTests.swift */,
 			);
 			path = "Closed-Principle-(OCP)-Galactic-ExplorerTests";
 			sourceTree = "<group>";
@@ -220,6 +232,17 @@
 				583D69452DD89A2900B81BBF /* EntityInteractionSimulator.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		A02B00000000000000000200 /* Advanced */ = {
+			isa = PBXGroup;
+			children = (
+				A02B00000000000000000000 /* AtlasExtensionRegistry.swift */,
+				A02B00000000000000000001 /* AtlasImport.swift */,
+				A02B00000000000000000002 /* AtlasLabComposition.swift */,
+				A02B00000000000000000003 /* AtlasExtensionLab.swift */,
+			);
+			path = Advanced;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,6 +391,10 @@
 				583D69312DD88A6300B81BBF /* EntityRegistry.swift in Sources */,
 				583D69352DD8966F00B81BBF /* JSONSpaceEntityLoader.swift in Sources */,
 				E3E089792B37224F006421A4 /* Closed_Principle__OCP__Galactic_ExplorerApp.swift in Sources */,
+				A02B00000000000000000103 /* AtlasExtensionLab.swift in Sources */,
+				A02B00000000000000000102 /* AtlasLabComposition.swift in Sources */,
+				A02B00000000000000000101 /* AtlasImport.swift in Sources */,
+				A02B00000000000000000100 /* AtlasExtensionRegistry.swift in Sources */,
 				E3E089B22B3730BC006421A4 /* SpaceEntityProtocols.swift in Sources */,
 				E3E089AA2B3725EC006421A4 /* Star.swift in Sources */,
 				E3E089B02B372E6F006421A4 /* Comet.swift in Sources */,
@@ -383,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3E0898A2B372252006421A4 /* Closed_Principle__OCP__Galactic_ExplorerTests.swift in Sources */,
+				A02B00000000000000000104 /* AtlasExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
