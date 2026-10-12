@@ -20,6 +20,10 @@ The existing apps already include feature-ownership work. The advanced track mak
 4. **Make a new decision:** attempt the [freshness exercise](../ModularNetworkServiceExample/Advanced/EXERCISE.md) before reading its solution.
 5. **Practise the interview:** answer the [discussion prompts](../ModularNetworkServiceExample/Advanced/INTERVIEW.md), then compare with the separate answer notes.
 
+## Continue with async substitution
+
+After the refresh lab, study [Orchestra's async contract lab](../LSPExample/Advanced/README.md). Dependency Inversion explains the dependency boundary; Liskov Substitution asks whether each implementation honours the caller's promise. Compare permitted unavailability, rejected receipts, and cooperative cancellation, then attempt its separate contract-evolution exercise.
+
 ## How to study a transition
 
 Write down the behaviour before editing code. Include what happens on failure and cancellation, who owns the work, and when an earlier result becomes invalid. Sketch the smallest design that satisfies that contract and identify one alternative you would reject. Run a test that demonstrates the failure your change prevents.
@@ -32,11 +36,11 @@ After implementing the change, explain which decision belongs to the product, wh
 | --- | --- | --- |
 | [SRP](../SRPExample-%20Angels%20and%20Demons/README.md) | Responsibility boundaries, loading/recovery, field-guide UI | Future scenario: multiple consumers and change ownership |
 | [OCP](../Open-Closed-Principle-%28OCP%29-Galactic-Explorer/README.md) | Registry extension, decoding, atlas selection | Future scenario: evolving extension contracts |
-| [LSP](../LSPExample/README.md) | Behavioural contracts and rehearsal interactions | Future scenario: async errors and cancellation contracts |
+| [LSP](../LSPExample/README.md) | Behavioural contracts and rehearsal interactions | **Available:** [async outcomes, cancellation and contract evolution](../LSPExample/Advanced/README.md) |
 | [ISP](../EcoShop%20Backend%20ISP/README.md) | Read-only consumers and catalog mutations | Future scenario: consumers evolving independently |
 | [DIP](../ModularNetworkServiceExample/README.md) | Explicit composition, failures, overlapping requests | **Available:** cached content, reentrancy, request ordering, diagnostics, and a migration decision |
 
-Only the DIP advanced progression is implemented. Its structure is the template for future lessons: scenario → contract → alternatives → implementation → evidence → exercise → interview discussion.
+The DIP and LSP advanced progressions are implemented. Their structure is the template for future lessons: scenario → contract → alternatives → implementation → evidence → exercise → interview discussion.
 
 ## Self-review
 

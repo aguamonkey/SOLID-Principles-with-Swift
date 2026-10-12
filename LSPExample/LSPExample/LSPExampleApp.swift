@@ -11,7 +11,10 @@ import SwiftUI
 struct LSPExampleApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                ContentView().tabItem { Label("Score", systemImage: "music.note.list") }
+                AsyncRehearsalView().tabItem { Label("Async Lab", systemImage: "checkmark.seal") }
+            }.tint(RehearsalStyle.accent)
         }
     }
 }

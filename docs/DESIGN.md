@@ -46,6 +46,8 @@ A schematic cable, physical-style source switches, and a green terminal readout 
 
 The [advanced DIP refresh lab](../ModularNetworkServiceExample/Advanced/README.md) reuses the paper, terminal and type treatments with a separate KEEP / REFRESH screen. Its retained composition session owns an actor cache and consumer model together. Saved content remains visible while refreshing or offline; the original patchboard keeps its source-switch/reset semantics. Navigation uses two tabs so learners can compare both behaviours in one app.
 
+The [advanced LSP contract lab](../LSPExample/Advanced/README.md) adds a separate **Async Lab** tab alongside the original score. It keeps the serif headings, paper palette and monospaced annotations while showing per-voice outcomes. Allowed unavailability and wrong-cue violations have distinct labels; the conductor uses one uniform operation rather than concrete-type branches.
+
 ## Screenshot criteria
 
 Capture the actual running app after checking loading, selection, empty/error behaviour, light/dark appearance, and accessibility text. Include real content and hide no important failures. Concept previews are design references, not app screenshots.

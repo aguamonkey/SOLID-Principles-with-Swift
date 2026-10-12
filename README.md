@@ -62,7 +62,7 @@ For interview preparation, explain the concrete change pressure, the boundary yo
 
 Follow the [learning progression](docs/LEARNING_PATH.md) from explaining a principle, to owning reliable feature behaviour, to making decisions about shared state and migration. Start with the [advanced DIP refresh lab](ModularNetworkServiceExample/Advanced/README.md): keep saved content readable, reject obsolete cache writes, and explain the lifetime of the dependency graph.
 
-The advanced track includes a runnable second screen, a decision record, a separate freshness exercise and solution, and interview questions with answer notes. The other four advanced progressions are listed as future work; their existing focused lessons remain available.
+Continue with [Orchestra’s async contract lab](LSPExample/Advanced/README.md): distinguish permitted unavailability from a broken promise and explore cancellation and contract evolution. Both advanced tracks include runnable screens, decision records, separate exercises and solutions, and interview questions with answer notes. The SRP, OCP and ISP advanced progressions remain future work.
 
 ## Verification
 
@@ -72,11 +72,11 @@ The [GitHub workflow](.github/workflows/quality.yml) runs documentation checks a
 | --- | ---: | ---: | --- |
 | SRP | 11 | 3 | Loading and recovery, hierarchy descriptions, collection selection |
 | OCP | 7 | 2 | A test-only entity extends decoding and atlas selection |
-| LSP | 9 | 3 | Instrument implementations satisfy a shared behavioural contract |
+| LSP | 25 | 6 | Shared sync/async contracts, permitted failure, cue ordering and cancellation |
 | ISP | 13 | 5 | Read-only consumers, catalog changes, ledger interactions |
 | DIP | 25 | 7 | Dependency replacement, cached content, cancellation and recovery |
 
-These 65 unit and 20 UI tests are the focused suites; generated launch/performance templates are excluded from automation. See [verified environments and limitations](docs/SETUP.md#verified-environment). Passing tests support the examples' behaviour; they do not prove a design follows SOLID in every context.
+These 81 unit and 23 UI tests are the focused suites; generated launch/performance templates are excluded from automation. See [verified environments and limitations](docs/SETUP.md#verified-environment). Passing tests support the examples' behaviour; they do not prove a design follows SOLID in every context.
 
 ## Contributing
 

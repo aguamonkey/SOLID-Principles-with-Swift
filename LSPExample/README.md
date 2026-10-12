@@ -124,6 +124,12 @@ The sample data is a bundled teaching fixture. `Bundle.decode` currently stops o
 
 Discuss: **What behaviour could violate LSP even though every Swift protocol requirement is implemented?** Explain a stronger precondition, a weakened result guarantee, or a broken identity invariant using these examples.
 
+## Advance the lesson
+
+Open [03 / B · Same cue, same promise](Advanced/README.md) and the **Async Lab** tab. Compare declared unavailability with a wrong-cue response, inspect the shared async contract tests, and practise evolving the contract without silently changing caller expectations.
+
+Follow the [learning progression](../docs/LEARNING_PATH.md) for the foundation, feature-ownership and system-ownership questions.
+
 ## Continue learning
 
 [← 02 · Open/Closed](../Open-Closed-Principle-%28OCP%29-Galactic-Explorer/README.md) · [04 · Interface Segregation →](../EcoShop%20Backend%20ISP/README.md)

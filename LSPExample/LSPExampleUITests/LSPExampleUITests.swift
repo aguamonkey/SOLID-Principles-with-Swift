@@ -58,6 +58,72 @@ final class LSPExampleUITests: XCTestCase {
         attachScreenshot("Orchestra — Accessibility text")
     }
 
+    func testAsyncLabDistinguishesUnavailableFromBrokenContract() {
+        let app = XCUIApplication()
+        app.launch()
+        app.tabBars.buttons["Async Lab"].tap()
+        let unavailable = app.buttons["cue-source-Unavailable"]
+        scrollTo(unavailable, in: app)
+        unavailable.tap()
+        performAsync(in: app)
+        let allowed = app.staticTexts["UNAVAILABLE / CONTRACT HONOURED"]
+        XCTAssertTrue(allowed.waitForExistence(timeout: 10))
+        let flute = app.staticTexts["async-report.Flute"]
+        scrollTo(flute, in: app)
+        XCTAssertTrue(flute.label.contains("unavailable"))
+        attachScreenshot("Orchestra — Allowed unavailable outcome")
+        let broken = app.buttons["cue-source-Broken adapter"]
+        scrollTo(broken, in: app)
+        broken.tap()
+        performAsync(in: app)
+        XCTAssertTrue(app.staticTexts["CONTRACT VIOLATION DETECTED"].waitForExistence(timeout: 10))
+        scrollTo(flute, in: app)
+        XCTAssertEqual(flute.label, "Wrong cue identity.")
+        XCTAssertTrue(app.staticTexts["async-report.Violin"].label.contains("answers"))
+        attachScreenshot("Orchestra — Wrong cue rejected")
+    }
+
+    func testAsyncCueCanBeCancelledAndPerformedAgain() {
+        let app = XCUIApplication()
+        app.launchEnvironment["ASYNC_CUE_SLOW_INPUT"] = "1"
+        app.launch()
+        app.tabBars.buttons["Async Lab"].tap()
+        performAsync(in: app)
+        let cancel = app.buttons["async-cancel"]
+        XCTAssertTrue(cancel.waitForExistence(timeout: 2))
+        scrollTo(cancel, in: app)
+        cancel.tap()
+        XCTAssertTrue(app.staticTexts["CUE CANCELLED"].waitForExistence(timeout: 5))
+        XCTAssertFalse(app.staticTexts["async-report.Flute"].exists)
+        performAsync(in: app)
+        XCTAssertTrue(app.staticTexts["REHEARSAL COMPLETE"].waitForExistence(timeout: 15))
+        let flute = app.staticTexts["async-report.Flute"]
+        scrollTo(flute, in: app)
+        XCTAssertTrue(flute.label.contains("measured rest"))
+    }
+
+    func testAsyncContractLabAtAccessibilityTextSize() {
+        let app = XCUIApplication()
+        app.launchArguments = ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
+        app.launch()
+        app.tabBars.buttons["Async Lab"].tap()
+        let broken = app.buttons["cue-source-Broken adapter"]
+        scrollTo(broken, in: app)
+        broken.tap()
+        performAsync(in: app)
+        let flute = app.staticTexts["async-report.Flute"]
+        XCTAssertTrue(flute.waitForExistence(timeout: 10))
+        scrollTo(flute, in: app)
+        XCTAssertEqual(flute.label, "Wrong cue identity.")
+        attachScreenshot("Orchestra — Accessible contract report")
+    }
+
+    private func performAsync(in app: XCUIApplication) {
+        let perform = app.buttons["async-perform"]
+        scrollTo(perform, in: app)
+        perform.tap()
+    }
+
     private func scrollTo(_ element: XCUIElement, in app: XCUIApplication) {
         // A partly visible large-text button can be hittable while its centre is
         // obscured. Bring the full control into the safe viewport before tapping.

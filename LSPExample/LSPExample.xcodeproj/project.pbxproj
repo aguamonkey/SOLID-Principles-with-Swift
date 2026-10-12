@@ -36,6 +36,13 @@
 		E3FC052A2B4196270082CF96 /* OrchestraPerformanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC05292B4196270082CF96 /* OrchestraPerformanceView.swift */; };
 		BEA750000000000000000010 /* RehearsalStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA750000000000000000000 /* RehearsalStyle.swift */; };
 		BEA750000000000000000011 /* ScoreStaffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA750000000000000000001 /* ScoreStaffView.swift */; };
+		ABC031000000000000000000 /* AsyncOrchestra.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC030000000000000000000; };
+		ABC031000000000000000001 /* AsyncRehearsalComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC030000000000000000001; };
+		ABC031000000000000000002 /* AsyncRehearsalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC030000000000000000002; };
+		ABC031000000000000000003 /* AsyncRehearsalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC030000000000000000003; };
+		ABC031000000000000000004 /* AsyncVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC030000000000000000004; };
+		ABC031000000000000000005 /* AsyncVoices.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC030000000000000000005; };
+		ABC031000000000000000100 /* AsyncVoiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC030000000000000000100; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +95,13 @@
 		E3FC05292B4196270082CF96 /* OrchestraPerformanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrchestraPerformanceView.swift; sourceTree = "<group>"; };
 		BEA750000000000000000000 /* RehearsalStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RehearsalStyle.swift; sourceTree = "<group>"; };
 		BEA750000000000000000001 /* ScoreStaffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreStaffView.swift; sourceTree = "<group>"; };
+		ABC030000000000000000000 /* AsyncOrchestra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOrchestra.swift; sourceTree = "<group>"; };
+		ABC030000000000000000001 /* AsyncRehearsalComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncRehearsalComposition.swift; sourceTree = "<group>"; };
+		ABC030000000000000000002 /* AsyncRehearsalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncRehearsalModel.swift; sourceTree = "<group>"; };
+		ABC030000000000000000003 /* AsyncRehearsalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncRehearsalView.swift; sourceTree = "<group>"; };
+		ABC030000000000000000004 /* AsyncVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncVoice.swift; sourceTree = "<group>"; };
+		ABC030000000000000000005 /* AsyncVoices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncVoices.swift; sourceTree = "<group>"; };
+		ABC030000000000000000100 /* AsyncVoiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncVoiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +178,7 @@
 		E3FC04ED2B41897F0082CF96 /* LSPExample */ = {
 			isa = PBXGroup;
 			children = (
+				ABC032000000000000000001 /* Advanced */,
 				58B004E82DE8A1C300C31CCA /* Resources */,
 				58B004DD2DE8A08D00C31CCA /* Extensions */,
 				58B004D62DE89D4400C31CCA /* Protocols */,
@@ -195,6 +210,7 @@
 		E3FC04FE2B4189830082CF96 /* LSPExampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				ABC030000000000000000100 /* AsyncVoiceTests.swift */,
 				E3FC04FF2B4189830082CF96 /* LSPExampleTests.swift */,
 			);
 			path = LSPExampleTests;
@@ -240,6 +256,19 @@
 			);
 			name = Views;
 			path = Views;
+			sourceTree = "<group>";
+		};
+		ABC032000000000000000001 /* Advanced */ = {
+			isa = PBXGroup;
+			children = (
+				ABC030000000000000000000 /* AsyncOrchestra.swift */,
+				ABC030000000000000000001 /* AsyncRehearsalComposition.swift */,
+				ABC030000000000000000002 /* AsyncRehearsalModel.swift */,
+				ABC030000000000000000003 /* AsyncRehearsalView.swift */,
+				ABC030000000000000000004 /* AsyncVoice.swift */,
+				ABC030000000000000000005 /* AsyncVoices.swift */,
+			);
+			path = Advanced;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +409,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				58B004E52DE8A11B00C31CCA /* AudioService.swift in Sources */,
+				ABC031000000000000000005 /* AsyncVoices.swift in Sources */,
+				ABC031000000000000000004 /* AsyncVoice.swift in Sources */,
+				ABC031000000000000000003 /* AsyncRehearsalView.swift in Sources */,
+				ABC031000000000000000002 /* AsyncRehearsalModel.swift in Sources */,
+				ABC031000000000000000001 /* AsyncRehearsalComposition.swift in Sources */,
+				ABC031000000000000000000 /* AsyncOrchestra.swift in Sources */,
 				58B004DF2DE8A0A300C31CCA /* Bundle+Decodable.swift in Sources */,
 				E3FC04F12B41897F0082CF96 /* ContentView.swift in Sources */,
 				E3FC051E2B418A1F0082CF96 /* StringInstrument.swift in Sources */,
@@ -404,6 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3FC05002B4189830082CF96 /* LSPExampleTests.swift in Sources */,
+				ABC031000000000000000100 /* AsyncVoiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
