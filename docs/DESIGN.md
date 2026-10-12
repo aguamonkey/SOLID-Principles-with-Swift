@@ -48,6 +48,8 @@ The [advanced DIP refresh lab](../ModularNetworkServiceExample/Advanced/README.m
 
 The [advanced LSP contract lab](../LSPExample/Advanced/README.md) adds a separate **Async Lab** tab alongside the original score. It keeps the serif headings, paper palette and monospaced annotations while showing per-voice outcomes. Allowed unavailability and wrong-cue violations have distinct labels; the conductor uses one uniform operation rather than concrete-type branches.
 
+The [advanced ISP order lab](../EcoShop%20Backend%20ISP/Advanced/README.md) adds a separate study book under **Order Lab**. Its history and entry desks reuse the green-ink ledger style while exposing different capabilities. Optional connection controls demonstrate independent failures; receipt confirmation and history freshness remain distinct. The original Orders tab keeps its original fixture store.
+
 ## Screenshot criteria
 
 Capture the actual running app after checking loading, selection, empty/error behaviour, light/dark appearance, and accessibility text. Include real content and hide no important failures. Concept previews are design references, not app screenshots.

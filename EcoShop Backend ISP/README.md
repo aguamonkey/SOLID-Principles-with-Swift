@@ -105,6 +105,12 @@ Test with a read-only fixture containing products below, on, and above the £15 
 
 Discuss: **Why can a concrete service implement both capabilities while a catalog screen should accept only one? What would justify splitting an interface further?**
 
+## Advance the lesson
+
+Open [04 / B · One book, two desks](Advanced/README.md) in the **Order Lab** tab. Separate submission acknowledgement from history refresh, keep consumers narrow while sharing one store, and practise evolving capabilities with a cancellation-desk exercise.
+
+The advanced lab has its own study book; it does not change the original Orders records. Follow the [learning progression](../docs/LEARNING_PATH.md) for the different scopes of thinking.
+
 ## Continue learning
 
 [← 03 · Liskov Substitution](../LSPExample/README.md) · [05 · Dependency Inversion →](../ModularNetworkServiceExample/README.md)

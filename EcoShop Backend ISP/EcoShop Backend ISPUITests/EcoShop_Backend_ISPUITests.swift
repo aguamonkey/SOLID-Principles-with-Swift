@@ -94,6 +94,87 @@ final class EcoShop_Backend_ISPUITests: XCTestCase {
         screenshot("EcoShop — Empty register")
     }
 
+    func testOrderLabWriteSucceedsWhileHistoryIsOffline() {
+        let app = XCUIApplication()
+        app.launch()
+        app.tabBars.buttons["Order Lab"].tap()
+        XCTAssertTrue(labRecord("EC-02", in: app).waitForExistence(timeout: 5))
+        app.buttons["lab-connections"].tap()
+        app.buttons["lab-history-fault"].tap()
+        app.buttons["lab-connections"].tap()
+        app.buttons["lab-entry"].tap()
+        let submit = app.buttons["lab-submit"]
+        scrollTo(submit, in: app)
+        submit.tap()
+        XCTAssertTrue(app.staticTexts["lab-receipt"].waitForExistence(timeout: 5))
+        XCTAssertFalse(app.staticTexts["lab-entry-warning"].exists)
+        screenshot("EcoShop — Submission-only receipt")
+        let history = app.buttons["lab-history"]
+        scrollTo(history, in: app)
+        history.tap()
+        XCTAssertTrue(app.staticTexts["lab-history-warning"].waitForExistence(timeout: 5))
+        XCTAssertTrue(labRecord("EC-02", in: app).exists)
+        XCTAssertFalse(labRecord("EC-01", in: app).exists)
+        app.buttons["lab-connections"].tap()
+        app.buttons["lab-history-fault"].tap()
+        app.buttons["lab-connections"].tap()
+        let added = labRecord("EC-01", in: app)
+        XCTAssertTrue(added.waitForExistence(timeout: 5))
+        scrollTo(added, in: app)
+        screenshot("EcoShop — Shared order history")
+    }
+
+    func testOrderLabRetriesOfflineEntryWithoutDuplicateRecords() {
+        let app = XCUIApplication()
+        app.launch()
+        app.tabBars.buttons["Order Lab"].tap()
+        app.buttons["lab-connections"].tap()
+        app.buttons["lab-entry-fault"].tap()
+        app.buttons["lab-connections"].tap()
+        app.buttons["lab-entry"].tap()
+        let submit = app.buttons["lab-submit"]
+        scrollTo(submit, in: app)
+        submit.tap()
+        XCTAssertTrue(app.staticTexts["lab-entry-warning"].waitForExistence(timeout: 5))
+        XCTAssertFalse(app.staticTexts["lab-receipt"].exists)
+        let controls = app.buttons["lab-connections"]
+        scrollTo(controls, in: app)
+        controls.tap()
+        let restore = app.buttons["lab-entry-fault"]
+        scrollTo(restore, in: app)
+        restore.tap()
+        app.buttons["lab-connections"].tap()
+        scrollTo(submit, in: app)
+        submit.tap()
+        XCTAssertTrue(app.staticTexts["lab-receipt"].waitForExistence(timeout: 5))
+        let history = app.buttons["lab-history"]
+        scrollTo(history, in: app)
+        history.tap()
+        XCTAssertTrue(labRecord("EC-01", in: app).waitForExistence(timeout: 5))
+        XCTAssertEqual(app.staticTexts.matching(NSPredicate(format: "identifier BEGINSWITH %@", "lab-record-")).count, 2)
+    }
+
+    func testOrderLabAtAccessibilityTextSize() {
+        let app = XCUIApplication()
+        app.launchArguments = ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
+        app.launch()
+        app.tabBars.buttons["Order Lab"].tap()
+        let entry = app.buttons["lab-entry"]
+        scrollTo(entry, in: app)
+        entry.tap()
+        let submit = app.buttons["lab-submit"]
+        scrollTo(submit, in: app)
+        submit.tap()
+        let receipt = app.staticTexts["lab-receipt"]
+        XCTAssertTrue(receipt.waitForExistence(timeout: 5))
+        scrollTo(receipt, in: app)
+        screenshot("EcoShop — Accessible submission receipt")
+    }
+
+    private func labRecord(_ reference: String, in app: XCUIApplication) -> XCUIElement {
+        app.staticTexts.matching(NSPredicate(format: "identifier BEGINSWITH %@ AND label CONTAINS %@", "lab-record-", reference)).firstMatch
+    }
+
     private func scrollTo(_ element: XCUIElement, in app: XCUIApplication) {
         let viewport = app.frame.insetBy(dx: 0, dy: 100)
         for _ in 0..<20 {

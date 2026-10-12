@@ -28,6 +28,13 @@
 		E3FC05552B419DE10082CF96 /* EcoShop_Backend_ISPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC05542B419DE10082CF96 /* EcoShop_Backend_ISPUITestsLaunchTests.swift */; };
 		AABB10000000000000000000 /* LedgerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB00000000000000000000 /* LedgerStyle.swift */; };
 		AABB10000000000000000001 /* CatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB00000000000000000001 /* CatalogView.swift */; };
+		ACC042000000000000000000 /* OrderBookStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC041000000000000000000; };
+		ACC042000000000000000001 /* OrderCapabilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC041000000000000000001; };
+		ACC042000000000000000002 /* OrderEntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC041000000000000000002; };
+		ACC042000000000000000003 /* OrderHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC041000000000000000003; };
+		ACC042000000000000000004 /* OrderLabSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC041000000000000000004; };
+		ACC042000000000000000005 /* OrderWorkflowLab.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC041000000000000000005; };
+		ACC042000000000000000100 /* OrderCapabilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC041000000000000000100; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +79,13 @@
 		E3FC05542B419DE10082CF96 /* EcoShop_Backend_ISPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcoShop_Backend_ISPUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AABB00000000000000000000 /* LedgerStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerStyle.swift; sourceTree = "<group>"; };
 		AABB00000000000000000001 /* CatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogView.swift; sourceTree = "<group>"; };
+		ACC041000000000000000000 /* OrderBookStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBookStore.swift; sourceTree = "<group>"; };
+		ACC041000000000000000001 /* OrderCapabilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCapabilities.swift; sourceTree = "<group>"; };
+		ACC041000000000000000002 /* OrderEntryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderEntryModel.swift; sourceTree = "<group>"; };
+		ACC041000000000000000003 /* OrderHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryModel.swift; sourceTree = "<group>"; };
+		ACC041000000000000000004 /* OrderLabSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderLabSession.swift; sourceTree = "<group>"; };
+		ACC041000000000000000005 /* OrderWorkflowLab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderWorkflowLab.swift; sourceTree = "<group>"; };
+		ACC041000000000000000100 /* OrderCapabilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCapabilityTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -172,6 +186,7 @@
 		E3FC05362B419DDE0082CF96 /* EcoShop Backend ISP */ = {
 			isa = PBXGroup;
 			children = (
+				ACC040000000000000000001 /* Advanced */,
 				5827492B2DEB27D800AAFF20 /* Mocks */,
 				582749242DEB274600AAFF20 /* Services */,
 				580980B02BE7CDD3000EDE2C /* View Model */,
@@ -196,6 +211,7 @@
 		E3FC05472B419DE10082CF96 /* EcoShop Backend ISPTests */ = {
 			isa = PBXGroup;
 			children = (
+				ACC041000000000000000100 /* OrderCapabilityTests.swift */,
 				E3FC05482B419DE10082CF96 /* EcoShop_Backend_ISPTests.swift */,
 			);
 			path = "EcoShop Backend ISPTests";
@@ -208,6 +224,19 @@
 				E3FC05542B419DE10082CF96 /* EcoShop_Backend_ISPUITestsLaunchTests.swift */,
 			);
 			path = "EcoShop Backend ISPUITests";
+			sourceTree = "<group>";
+		};
+		ACC040000000000000000001 /* Advanced */ = {
+			isa = PBXGroup;
+			children = (
+				ACC041000000000000000000 /* OrderBookStore.swift */,
+				ACC041000000000000000001 /* OrderCapabilities.swift */,
+				ACC041000000000000000002 /* OrderEntryModel.swift */,
+				ACC041000000000000000003 /* OrderHistoryModel.swift */,
+				ACC041000000000000000004 /* OrderLabSession.swift */,
+				ACC041000000000000000005 /* OrderWorkflowLab.swift */,
+			);
+			path = Advanced;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,6 +381,12 @@
 				58E3F5882B66B2DB00CFCF46 /* ProductManaging.swift in Sources */,
 				E3FC053A2B419DDE0082CF96 /* ContentView.swift in Sources */,
 				E3FC05382B419DDE0082CF96 /* EcoShop_Backend_ISPApp.swift in Sources */,
+				ACC042000000000000000005 /* OrderWorkflowLab.swift in Sources */,
+				ACC042000000000000000004 /* OrderLabSession.swift in Sources */,
+				ACC042000000000000000003 /* OrderHistoryModel.swift in Sources */,
+				ACC042000000000000000002 /* OrderEntryModel.swift in Sources */,
+				ACC042000000000000000001 /* OrderCapabilities.swift in Sources */,
+				ACC042000000000000000000 /* OrderBookStore.swift in Sources */,
 				580980B42BE7D1AF000EDE2C /* OrderViewModel.swift in Sources */,
 				58E3F5852B66B20000CFCF46 /* Review.swift in Sources */,
 				58E3F58A2B66B2F500CFCF46 /* OrderProcessing.swift in Sources */,
@@ -373,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3FC05492B419DE10082CF96 /* EcoShop_Backend_ISPTests.swift in Sources */,
+				ACC042000000000000000100 /* OrderCapabilityTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

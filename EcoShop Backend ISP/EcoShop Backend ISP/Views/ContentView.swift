@@ -18,6 +18,7 @@ struct ContentView: View {
                 .tabItem { Label("Orders", systemImage: "receipt") }
             ReviewManagementView(reviewHandler: reviewHandler)
                 .tabItem { Label("Reviews", systemImage: "text.bubble") }
+            OrderWorkflowLab().tabItem { Label("Order Lab", systemImage: "square.split.2x1") }
         }
         .tint(LedgerStyle.ink)
     }
