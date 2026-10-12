@@ -97,6 +97,10 @@ Before editing, identify the owner. Update the description and its assertion wit
 
 Discuss: **Which files should change if data comes from disk? Which should change if a designer asks for different typography? Why are those different responsibilities?**
 
+## Advanced progression
+
+Open **Edition Lab** to study [one validated edition serving separate editorial and export consumers](Advanced/README.md). Change prose without changing JSON, refresh both readers consistently, and retain an edition when its source fails. The advanced track includes a decision record, a separate localisation exercise, and interview prompts. The foundation hierarchy-wording exercise remains available.
+
 ## Continue learning
 
 [02 · Open/Closed →](../Open-Closed-Principle-%28OCP%29-Galactic-Explorer/README.md)

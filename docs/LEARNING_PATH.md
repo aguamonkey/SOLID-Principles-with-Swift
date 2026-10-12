@@ -32,6 +32,10 @@ Study [EcoShop's two-desk lab](../EcoShop%20Backend%20ISP/Advanced/README.md) to
 
 Study [the atlas extension lab](../Open-Closed-Principle-%28OCP%29-Galactic-Explorer/Advanced/README.md). Compare unsupported schemas with malformed data, compose an immutable registry, and evolve payload versions without changing the import algorithm. Explain why partial recovery fits observations and when atomic failure would be necessary.
 
+## Continue with ownership of change
+
+Study [the edition room](../SRPExample-%20Angels%20and%20Demons/Advanced/README.md). One validated snapshot serves editorial prose and a stable export schema. Practise mapping wording, data, schema and publication changes to their owners, then attempt localisation without altering machine values.
+
 ## How to study a transition
 
 Write down the behaviour before editing code. Include what happens on failure and cancellation, who owns the work, and when an earlier result becomes invalid. Sketch the smallest design that satisfies that contract and identify one alternative you would reject. Run a test that demonstrates the failure your change prevents.
@@ -42,13 +46,13 @@ After implementing the change, explain which decision belongs to the product, wh
 
 | Lesson | Existing study material | Advanced progression |
 | --- | --- | --- |
-| [SRP](../SRPExample-%20Angels%20and%20Demons/README.md) | Responsibility boundaries, loading/recovery, field-guide UI | Future scenario: multiple consumers and change ownership |
+| [SRP](../SRPExample-%20Angels%20and%20Demons/README.md) | Responsibility boundaries, loading/recovery, field-guide UI | **Available:** [shared editions, editorial policy and export contracts](../SRPExample-%20Angels%20and%20Demons/Advanced/README.md) |
 | [OCP](../Open-Closed-Principle-%28OCP%29-Galactic-Explorer/README.md) | Registry extension, decoding, atlas selection | **Available:** [immutable registration, payload versions and partial recovery](../Open-Closed-Principle-%28OCP%29-Galactic-Explorer/Advanced/README.md) |
 | [LSP](../LSPExample/README.md) | Behavioural contracts and rehearsal interactions | **Available:** [async outcomes, cancellation and contract evolution](../LSPExample/Advanced/README.md) |
 | [ISP](../EcoShop%20Backend%20ISP/README.md) | Read-only consumers and catalog mutations | **Available:** [independent order workflows sharing one store](../EcoShop%20Backend%20ISP/Advanced/README.md) |
 | [DIP](../ModularNetworkServiceExample/README.md) | Explicit composition, failures, overlapping requests | **Available:** cached content, reentrancy, request ordering, diagnostics, and a migration decision |
 
-The DIP, LSP, ISP and OCP advanced progressions are implemented. Their structure is the template for the remaining SRP lesson: scenario → contract → alternatives → implementation → evidence → exercise → interview discussion.
+All five advanced progressions are implemented. Each follows: scenario → contract → alternatives → implementation → evidence → exercise → interview discussion.
 
 ## Self-review
 

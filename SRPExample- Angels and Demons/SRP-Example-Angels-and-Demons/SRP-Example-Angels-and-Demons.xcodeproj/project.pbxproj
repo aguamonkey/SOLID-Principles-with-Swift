@@ -28,6 +28,13 @@
 		E3E0896B2B371D52006421A4 /* FurtherIdeas.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E0896A2B371D52006421A4 /* FurtherIdeas.swift */; };
 		CCAA10000000000000000000 /* GuideStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA00000000000000000000; };
 		CCAA10000000000000000001 /* CatalogViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA00000000000000000001; };
+		A01B00000000000000000100 /* GuideEdition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01B00000000000000000000 /* GuideEdition.swift */; };
+		A01B00000000000000000101 /* GuideEditorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01B00000000000000000001 /* GuideEditorial.swift */; };
+		A01B00000000000000000102 /* GuideExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01B00000000000000000002 /* GuideExport.swift */; };
+		A01B00000000000000000103 /* GuideEditionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01B00000000000000000003 /* GuideEditionModel.swift */; };
+		A01B00000000000000000104 /* GuideLabComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01B00000000000000000004 /* GuideLabComposition.swift */; };
+		A01B00000000000000000105 /* GuideOwnershipLab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01B00000000000000000005 /* GuideOwnershipLab.swift */; };
+		A01B00000000000000000106 /* GuideOwnershipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01B00000000000000000006 /* GuideOwnershipTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +79,13 @@
 		E3E0896A2B371D52006421A4 /* FurtherIdeas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FurtherIdeas.swift; sourceTree = "<group>"; };
 		CCAA00000000000000000000 /* GuideStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideStyle.swift; sourceTree = "<group>"; };
 		CCAA00000000000000000001 /* CatalogViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewModels.swift; sourceTree = "<group>"; };
+		A01B00000000000000000000 /* GuideEdition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideEdition.swift; sourceTree = "<group>"; };
+		A01B00000000000000000001 /* GuideEditorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideEditorial.swift; sourceTree = "<group>"; };
+		A01B00000000000000000002 /* GuideExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideExport.swift; sourceTree = "<group>"; };
+		A01B00000000000000000003 /* GuideEditionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideEditionModel.swift; sourceTree = "<group>"; };
+		A01B00000000000000000004 /* GuideLabComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideLabComposition.swift; sourceTree = "<group>"; };
+		A01B00000000000000000005 /* GuideOwnershipLab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideOwnershipLab.swift; sourceTree = "<group>"; };
+		A01B00000000000000000006 /* GuideOwnershipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideOwnershipTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				E37955302B2F1916008F9151 /* DataService */,
+				A01B00000000000000000200 /* Advanced */,
 				E37954F22B28D6C5008F9151 /* SRP_Example_Angels_and_DemonsApp.swift */,
 				CCAA00000000000000000000 /* GuideStyle.swift */,
 				CCAA00000000000000000001 /* CatalogViewModels.swift */,
@@ -148,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				E37955032B28D6C8008F9151 /* SRP_Example_Angels_and_DemonsTests.swift */,
+				A01B00000000000000000006 /* GuideOwnershipTests.swift */,
 			);
 			path = "SRP-Example-Angels-and-DemonsTests";
 			sourceTree = "<group>";
@@ -191,6 +207,19 @@
 				E37955312B2F1931008F9151 /* DataService.swift */,
 			);
 			path = DataService;
+			sourceTree = "<group>";
+		};
+		A01B00000000000000000200 /* Advanced */ = {
+			isa = PBXGroup;
+			children = (
+				A01B00000000000000000000 /* GuideEdition.swift */,
+				A01B00000000000000000001 /* GuideEditorial.swift */,
+				A01B00000000000000000002 /* GuideExport.swift */,
+				A01B00000000000000000003 /* GuideEditionModel.swift */,
+				A01B00000000000000000004 /* GuideLabComposition.swift */,
+				A01B00000000000000000005 /* GuideOwnershipLab.swift */,
+			);
+			path = Advanced;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +363,12 @@
 				E37955292B2F1844008F9151 /* AngelHierarchy.swift in Sources */,
 				E37955322B2F1931008F9151 /* DataService.swift in Sources */,
 				E37954F32B28D6C5008F9151 /* SRP_Example_Angels_and_DemonsApp.swift in Sources */,
+				A01B00000000000000000105 /* GuideOwnershipLab.swift in Sources */,
+				A01B00000000000000000104 /* GuideLabComposition.swift in Sources */,
+				A01B00000000000000000103 /* GuideEditionModel.swift in Sources */,
+				A01B00000000000000000102 /* GuideExport.swift in Sources */,
+				A01B00000000000000000101 /* GuideEditorial.swift in Sources */,
+				A01B00000000000000000100 /* GuideEdition.swift in Sources */,
 				E37955232B2F10DB008F9151 /* AngelModel.swift in Sources */,
 				E37955272B2F1111008F9151 /* DevilModel.swift in Sources */,
 				E3E0896B2B371D52006421A4 /* FurtherIdeas.swift in Sources */,
@@ -347,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E37955042B28D6C8008F9151 /* SRP_Example_Angels_and_DemonsTests.swift in Sources */,
+				A01B00000000000000000106 /* GuideOwnershipTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

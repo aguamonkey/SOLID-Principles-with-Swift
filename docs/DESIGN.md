@@ -55,3 +55,5 @@ The [advanced ISP order lab](../EcoShop%20Backend%20ISP/Advanced/README.md) adds
 Capture the actual running app after checking loading, selection, empty/error behaviour, light/dark appearance, and accessibility text. Include real content and hide no important failures. Concept previews are design references, not app screenshots.
 
 The [advanced OCP extension lab](../Open-Closed-Principle-%28OCP%29-Galactic-Explorer/Advanced/README.md) adds an incoming-dispatch sheet beside the foundation atlas. Accepted, unsupported and rejected rows use the same serif/paper/ink palette. One action composes a new registry and reimports the bundled bulletin, so the visible change is tied directly to the extension contract.
+
+The [advanced SRP edition room](../SRPExample-%20Angels%20and%20Demons/Advanced/README.md) adds an **Edition Lab** tab with two readings of one snapshot. Narrative/index notes reuse the field-guide typography; a ruled JSON preview exposes a separate consumer contract. Source controls live below both previews, and the loaded revision remains visible when refresh fails.

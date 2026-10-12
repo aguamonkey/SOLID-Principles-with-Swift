@@ -13,7 +13,12 @@ struct SRP_Example_Angels_and_DemonsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(dataService: dataService)
+            TabView {
+                ContentView(dataService: dataService)
+                    .tabItem { Label("Field Guide", systemImage: "book") }
+                GuideOwnershipLab()
+                    .tabItem { Label("Edition Lab", systemImage: "doc.on.doc") }
+            }
         }
     }
 }
